@@ -156,7 +156,7 @@ const Banner = () => {
       Subtext:
         "Explore our premium printers and consumables for exceptional results",
       buttonLink: "/offer",
-      buttonText: "Shop Now",
+      buttonText: "git test",
     },
     {
       imgSrc: bannerImgOne,
