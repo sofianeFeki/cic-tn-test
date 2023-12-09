@@ -1,16 +1,4 @@
 import {
-  spfOne,
-  spfTwo,
-  spfThree,
-  spfFour,
-  bestSellerOne,
-  bestSellerTwo,
-  bestSellerThree,
-  bestSellerFour,
-  newArrOne,
-  newArrTwo,
-  newArrThree,
-  newArrFour,
   imprimante1,
   imprimante2,
   imprimante4,
@@ -629,7 +617,7 @@ export const paginationItems = [
       { label: "formats	", value: "A4      " },
       { label: "Connecteurs		", value: "USB 2.0, Wi-Fi      " },
       {
-        label: "Vitesse de Copie Noir Blanc		",
+        label: "Vitesse de Copie Noir Blanc",
         value: "22 ppm (A4) / 23 ppm (Lettre)      ",
       },
       {
