@@ -50,13 +50,24 @@ const Color = () => {
             {colors.map((item) => (
               <li
                 key={item._id}
+                style={{ color: item.base }}
                 className="border-b-[1px] border-b-[#F0F0F0] pb-2 flex items-center gap-2"
               >
-                <span
-                  style={{ background: item.base }}
-                  className={`w-3 h-3 bg-gray-500 rounded-full`}
-                ></span>
-                {item.title}
+                <label htmlFor={item._id} className="cursor-pointer ">
+                  <input
+                    className="cursor-pointer mr-2 border-[#F0F0F0]"
+                    type="checkbox"
+                    id={item._id}
+                    style={{
+                      backgroundColor: item.base,
+                      borderColor: `1px solid ${item.base}`,
+                    }}
+
+                    //checked={checkedBrands.some((b) => b._id === item._id)}
+                    //onChange={() => handleToggleBrand(item)}
+                  />
+                  {item.title}
+                </label>
               </li>
             ))}
           </ul>

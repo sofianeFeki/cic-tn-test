@@ -53,15 +53,18 @@ const Brand = () => {
             {brands.map((item) => (
               <li
                 key={item._id}
-                className="border-b-[1px] border-b-[#F0F0F0] pb-2 flex items-center gap-2 hover:text-primeColor hover:border-gray-400 duration-300"
+                className="border-b-[1px] border-b-[#F0F0F0] pb-2 mr-2 flex items-center gap-2 hover:text-primeColor hover:border-gray-400 duration-300"
               >
-                <input
-                  type="checkbox"
-                  id={item._id}
-                  checked={checkedBrands.some((b) => b._id === item._id)}
-                  onChange={() => handleToggleBrand(item)}
-                />
-                {item.title}
+                <label htmlFor={item._id} className="cursor-pointer ">
+                  <input
+                    className="cursor-pointer mr-2"
+                    type="checkbox"
+                    id={item._id}
+                    checked={checkedBrands.some((b) => b._id === item._id)}
+                    onChange={() => handleToggleBrand(item)}
+                  />
+                  {item.title}
+                </label>
               </li>
             ))}
           </ul>

@@ -46,21 +46,24 @@ const Category = () => {
               key={item._id}
               className="border-b-[1px] border-b-[#F0F0F0] pb-2 flex items-center gap-2 hover:text-primeColor hover:border-gray-400 duration-300"
             >
-              <input
-                type="checkbox"
-                id={item._id}
-                checked={checkedCategorys.some((b) => b._id === item._id)}
-                onChange={() => handleToggleCategory(item)}
-              />
-              {item.title}
-              {item.icons && (
-                <span
-                  onClick={() => setShowSubCatOne(!showSubCatOne)}
-                  className="text-[10px] lg:text-xs cursor-pointer text-gray-400 hover:text-primeColor duration-300"
-                >
-                  <ImPlus />
-                </span>
-              )}
+              <label htmlFor={item._id} className="cursor-pointer ">
+                <input
+                  className="cursor-pointer mr-2"
+                  type="checkbox"
+                  id={item._id}
+                  checked={checkedCategorys.some((b) => b._id === item._id)}
+                  onChange={() => handleToggleCategory(item)}
+                />
+                {item.title}
+                {item.icons && (
+                  <span
+                    onClick={() => setShowSubCatOne(!showSubCatOne)}
+                    className="text-[10px] lg:text-xs cursor-pointer text-gray-400 hover:text-primeColor duration-300"
+                  >
+                    <ImPlus />
+                  </span>
+                )}
+              </label>
             </li>
           ))}
           <li onClick={() => console.log(checkedCategorys)}>test</li>
