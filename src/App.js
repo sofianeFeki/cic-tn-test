@@ -41,7 +41,6 @@ const Layout = () => {
         pauseOnHover
         theme="colored"
       />
-      <SubHeader />
       <Header />
       <HeaderBottom />
       <SpecialCase />
