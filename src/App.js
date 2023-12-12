@@ -24,6 +24,7 @@ import ProductDetails from "./pages/ProductDetails/ProductDetails";
 import Shop from "./pages/Shop/Shop";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import SubHeader from "./components/home/Header/SubHeader";
 
 const Layout = () => {
   return (
@@ -40,6 +41,7 @@ const Layout = () => {
         pauseOnHover
         theme="colored"
       />
+      <SubHeader />
       <Header />
       <HeaderBottom />
       <SpecialCase />

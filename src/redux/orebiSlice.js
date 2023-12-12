@@ -6,6 +6,7 @@ const initialState = {
   products: [],
   checkedBrands: [],
   checkedCategorys: [],
+  checkedColors: [],
 };
 
 export const orebiSlice = createSlice({
@@ -85,6 +86,21 @@ export const orebiSlice = createSlice({
         state.checkedCategorys.push(category);
       }
     },
+
+    toggleColor: (state, action) => {
+      const color = action.payload;
+      const isColorChecked = state.checkedColors.some(
+        (b) => b._id === color._id
+      );
+
+      if (isColorChecked) {
+        state.checkedColors = state.checkedColors.filter(
+          (b) => b._id !== color._id
+        );
+      } else {
+        state.checkedColors.push(color);
+      }
+    },
   },
 });
 
@@ -96,5 +112,6 @@ export const {
   resetCart,
   toggleBrand,
   toggleCategory,
+  toggleColor,
 } = orebiSlice.actions;
 export default orebiSlice.reducer;

@@ -6,7 +6,12 @@ import { paginationItems } from "../../../constants";
 
 const items = paginationItems;
 
-function Items({ currentItems, selectedBrands, selectedCategories }) {
+function Items({
+  currentItems,
+  selectedBrands,
+  selectedCategories,
+  selectedColors,
+}) {
   // Filter items based on selected brands and categories
   const filteredItems = currentItems.filter((item) => {
     const isBrandSelected =
@@ -17,7 +22,13 @@ function Items({ currentItems, selectedBrands, selectedCategories }) {
       selectedCategories.length === 0 ||
       selectedCategories.some((category) => category.title === item.cat);
 
-    return isBrandSelected && isCategorySelected;
+    const isColorSelected =
+      isCategorySelected && item.cat === "Encre"
+        ? selectedColors.length === 0 ||
+          selectedColors.some((color) => color.title === item.color)
+        : true;
+
+    return isBrandSelected && isCategorySelected && isColorSelected;
   });
 
   return (
@@ -53,6 +64,9 @@ const Pagination = ({ itemsPerPage }) => {
   const selectedCategories = useSelector(
     (state) => state.orebiReducer.checkedCategorys
   );
+  const selectedColors = useSelector(
+    (state) => state.orebiReducer.checkedColors
+  );
   const pageCount = Math.ceil(items.length / itemsPerPage);
 
   const handlePageClick = (event) => {
@@ -70,6 +84,7 @@ const Pagination = ({ itemsPerPage }) => {
           currentItems={currentItems}
           selectedBrands={selectedBrands}
           selectedCategories={selectedCategories}
+          selectedColors={selectedColors}
         />{" "}
       </div>
       <div className="flex flex-col mdl:flex-row justify-center mdl:justify-between items-center">
@@ -90,7 +105,6 @@ const Pagination = ({ itemsPerPage }) => {
           Products from {itemStart} to {Math.min(endOffset, items.length)} of{" "}
           {items.length}
         </p>
-        <button onClick={() => console.log(selectedBrands)}> test</button>
       </div>
     </div>
   );

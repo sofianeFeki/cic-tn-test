@@ -7,7 +7,6 @@ import saleImgOne from "./sale/saleImgOne.webp";
 import saleImgTwo from "./sale/saleImgTwo.webp";
 import saleImgThree from "./sale/saleImgThree.webp";
 // ============== Products Start here ====================
-import pdf1 from "../pdf/pdf1.pdf";
 // New Arrivals
 import newArrOne from "./products/newArrival/newArrOne.webp";
 import newArrTwo from "./products/newArrival/newArrTwo.webp";
@@ -75,6 +74,23 @@ import ricoh5 from "../images/products/imprimante/ricoh5.webp";
 import espson1 from "../images/products/imprimante/espson1.webp";
 import espson2 from "../images/products/imprimante/espson2.webp";
 
+//========================= PDF =======================
+import IMPRIMANTE_COULEUR_LASER_SPC840 from "../pdf/Ricoh/IMPRIMANTE_COULEUR_LASER_SPC840.pdf";
+import IMPRIMANTE_RICOH_P501 from "../pdf/Ricoh/IMPRIMANTE_RICOH_P501.pdf";
+import IMPRIMANTE_RICOH_SP3710DN from "../pdf/Ricoh/IMPRIMANTE_RICOH_SP3710DN.pdf";
+import IMPRIMANTE_RICOH_SP4510DN from "../pdf/Ricoh/IMPRIMANTE_RICOH_SP4510DN.pdf";
+import IMPRIMANTE_RICOH_SP4520DN from "../pdf/Ricoh/IMPRIMANTE_RICOH_SP4520DN.pdf";
+
+import BM5100 from "../pdf/Pantum/BM5100.pdf";
+import BP5100DN from "../pdf/Pantum/BP5100DN.pdf";
+import M6559N from "../pdf/Pantum/M6559N.pdf";
+import M6609N from "../pdf/Pantum/M6609N.pdf";
+import P3300DN from "../pdf/Pantum/P3300DN.pdf";
+import P3300DW from "../pdf/Pantum/P3300DW.pdf";
+import P25009 from "../pdf/Pantum/P25009.pdf";
+import P25009W from "../pdf/Pantum/P25009W.pdf";
+import CP2200DW from "../pdf/Pantum/CP2200DW.pdf";
+
 export {
   logo,
   logoLight,
@@ -128,7 +144,6 @@ export {
   // ===================== Products End here ==============
   paymentCard,
   emptyCart,
-  pdf1,
 
   // imprimante pantum
   IMPRIMANTE_PANTUM_CP2200DW,
@@ -154,4 +169,20 @@ export {
   ricoh5,
   espson1,
   espson2,
+
+  // pdf
+  IMPRIMANTE_COULEUR_LASER_SPC840,
+  IMPRIMANTE_RICOH_P501,
+  IMPRIMANTE_RICOH_SP3710DN,
+  IMPRIMANTE_RICOH_SP4510DN,
+  IMPRIMANTE_RICOH_SP4520DN,
+  BM5100,
+  BP5100DN,
+  M6559N,
+  M6609N,
+  P3300DN,
+  P3300DW,
+  P25009,
+  P25009W,
+  CP2200DW,
 };
