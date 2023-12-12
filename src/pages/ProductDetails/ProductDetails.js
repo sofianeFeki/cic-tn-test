@@ -9,12 +9,7 @@ const tabs = [
     id: "Fiche Technique",
     label: "Fiche Technique",
   },
-  {
-    id: "Description",
-    label: "Description",
-    content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
-  },
+
   {
     id: "Video",
     label: "Video",
