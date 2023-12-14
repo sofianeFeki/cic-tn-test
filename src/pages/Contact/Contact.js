@@ -2,11 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Breadcrumbs from "../../components/pageProps/Breadcrumbs";
 import emailjs from "@emailjs/browser";
-import { useRef } from "react";
 
 const Contact = () => {
-  const form = useRef();
-
   const location = useLocation();
   const [prevLocation, setPrevLocation] = useState("");
   useEffect(() => {
@@ -45,7 +42,7 @@ const Contact = () => {
   };
   // ================= Email Validation End here ===============
 
-  const handlePost = (e) => {
+  const handlePost = async (e) => {
     e.preventDefault();
 
     if (!clientName) {
@@ -61,116 +58,117 @@ const Contact = () => {
     if (!messages) {
       setErrMessages("Enter your Messages");
     }
+
     if (clientName && email && EmailValidation(email) && messages) {
-      setSuccessMsg(
-        `Thank you dear ${clientName}, Your messages has been received successfully. Futher details will sent to you by your email at ${email}.`
-      );
+      try {
+        // Send email using email.js
+        const emailResult = await emailjs.send(
+          "service_8nstdw5",
+          "template_ndsalxz",
+          {
+            to_name: "Recipient Name", // Update with recipient name
+            from_name: clientName,
+            form_email: email,
+            message: messages,
+          },
+          "z5ibi5U1e-uDMgyLP"
+        );
+
+        // Check the result of the email sending operation
+        console.log(emailResult.text);
+
+        // Update state to show success message
+        setSuccessMsg(
+          `Thank you dear ${clientName}, Your message has been received successfully. Further details will be sent to you by email at ${email}.`
+        );
+      } catch (error) {
+        console.error("Error sending email:", error);
+        // Handle error and update state accordingly
+      }
     }
   };
 
-  const sendEmail = (e) => {
-    e.preventDefault();
-
-    emailjs
-      .sendForm(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
-        form.current,
-        "YOUR_PUBLIC_KEY"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
-  };
-
   return (
-    <form ref={form} onSubmit={sendEmail}>
-      <div className="max-w-container mx-auto px-4">
-        <Breadcrumbs title="Contact" prevLocation={prevLocation} />
-        {successMsg ? (
-          <p className="pb-20 w-96 font-medium text-green-500">{successMsg}</p>
-        ) : (
-          <form className="pb-20">
-            <h1 className="font-titleFont font-semibold text-3xl">
-              Fill up a Form
-            </h1>
-            <div className="w-[500px] h-auto py-6 flex flex-col gap-6">
-              <div>
-                <p className="text-base font-titleFont font-semibold px-2">
-                  Name
+    <div className="max-w-container mx-auto px-4">
+      <Breadcrumbs title="Contact" prevLocation={prevLocation} />
+      {successMsg ? (
+        <p className="pb-20 w-96 font-medium text-green-500">{successMsg}</p>
+      ) : (
+        <form className="pb-20">
+          <h1 className="font-titleFont font-semibold text-3xl">
+            Fill up a Form
+          </h1>
+          <div className="w-[500px] h-auto py-6 flex flex-col gap-6">
+            <div>
+              <p className="text-base font-titleFont font-semibold px-2">
+                Name
+              </p>
+              <input
+                onChange={handleName}
+                value={clientName}
+                className="w-full py-1 border-b-2 px-2 text-base font-medium placeholder:font-normal placeholder:text-sm outline-none focus-within:border-primeColor"
+                type="text"
+                placeholder="Enter your name here"
+                name="from_name"
+              />
+              {errClientName && (
+                <p className="text-red-500 text-sm font-titleFont font-semibold mt-1 px-2 flex items-center gap-1">
+                  <span className="text-sm italic font-bold">!</span>
+                  {errClientName}
                 </p>
-                <input
-                  onChange={handleName}
-                  value={clientName}
-                  className="w-full py-1 border-b-2 px-2 text-base font-medium placeholder:font-normal placeholder:text-sm outline-none focus-within:border-primeColor"
-                  type="text"
-                  placeholder="Enter your name here"
-                  name="from_name"
-                />
-                {errClientName && (
-                  <p className="text-red-500 text-sm font-titleFont font-semibold mt-1 px-2 flex items-center gap-1">
-                    <span className="text-sm italic font-bold">!</span>
-                    {errClientName}
-                  </p>
-                )}
-              </div>
-              <div>
-                <p className="text-base font-titleFont font-semibold px-2">
-                  Email
-                </p>
-                <input
-                  onChange={handleEmail}
-                  value={email}
-                  className="w-full py-1 border-b-2 px-2 text-base font-medium placeholder:font-normal placeholder:text-sm outline-none focus-within:border-primeColor"
-                  type="email"
-                  placeholder="Enter your name here"
-                  name="form_email"
-                />
-                {errEmail && (
-                  <p className="text-red-500 text-sm font-titleFont font-semibold mt-1 px-2 flex items-center gap-1">
-                    <span className="text-sm italic font-bold">!</span>
-                    {errEmail}
-                  </p>
-                )}
-              </div>
-              <div>
-                <p className="text-base font-titleFont font-semibold px-2">
-                  Messages
-                </p>
-                <textarea
-                  onChange={handleMessages}
-                  value={messages}
-                  cols="30"
-                  rows="3"
-                  className="w-full py-1 border-b-2 px-2 text-base font-medium placeholder:font-normal placeholder:text-sm outline-none focus-within:border-primeColor resize-none"
-                  type="text"
-                  placeholder="Enter your name here"
-                  name="message"
-                ></textarea>
-                {errMessages && (
-                  <p className="text-red-500 text-sm font-titleFont font-semibold mt-1 px-2 flex items-center gap-1">
-                    <span className="text-sm italic font-bold">!</span>
-                    {errMessages}
-                  </p>
-                )}
-              </div>
-              <button
-                type="submit"
-                //onClick={handlePost}
-                className="w-44 bg-primeColor text-gray-200 h-10 font-titleFont text-base tracking-wide font-semibold hover:bg-black hover:text-white duration-200"
-              >
-                Post
-              </button>
+              )}
             </div>
-          </form>
-        )}
-      </div>
-    </form>
+            <div>
+              <p className="text-base font-titleFont font-semibold px-2">
+                Email
+              </p>
+              <input
+                onChange={handleEmail}
+                value={email}
+                className="w-full py-1 border-b-2 px-2 text-base font-medium placeholder:font-normal placeholder:text-sm outline-none focus-within:border-primeColor"
+                type="email"
+                placeholder="Enter your name here"
+                name="form_email"
+              />
+              {errEmail && (
+                <p className="text-red-500 text-sm font-titleFont font-semibold mt-1 px-2 flex items-center gap-1">
+                  <span className="text-sm italic font-bold">!</span>
+                  {errEmail}
+                </p>
+              )}
+            </div>
+            <div>
+              <p className="text-base font-titleFont font-semibold px-2">
+                Messages
+              </p>
+              <textarea
+                onChange={handleMessages}
+                value={messages}
+                cols="30"
+                rows="3"
+                className="w-full py-1 border-b-2 px-2 text-base font-medium placeholder:font-normal placeholder:text-sm outline-none focus-within:border-primeColor resize-none"
+                type="text"
+                placeholder="Enter your name here"
+                name="message"
+              ></textarea>
+              {errMessages && (
+                <p className="text-red-500 text-sm font-titleFont font-semibold mt-1 px-2 flex items-center gap-1">
+                  <span className="text-sm italic font-bold">!</span>
+                  {errMessages}
+                </p>
+              )}
+            </div>
+            <button
+              type="submit"
+              onClick={handlePost}
+              className="w-44 bg-primeColor text-gray-200 h-10 font-titleFont text-base tracking-wide font-semibold hover:bg-black hover:text-white duration-200"
+            >
+              Post
+            </button>
+          </div>
+        </form>
+      )}
+    </div>
   );
 };
 

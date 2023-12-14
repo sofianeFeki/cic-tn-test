@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactPaginate from "react-paginate";
 import Product from "../../home/Products/Product";
 import { useSelector } from "react-redux";
@@ -6,58 +6,11 @@ import { paginationItems } from "../../../constants";
 
 const items = paginationItems;
 
-function Items({
-  currentItems,
-  selectedBrands,
-  selectedCategories,
-  selectedColors,
-}) {
-  // Filter items based on selected brands and categories
-  const filteredItems = currentItems.filter((item) => {
-    const isBrandSelected =
-      selectedBrands.length === 0 ||
-      selectedBrands.some((brand) => brand.title === item.brand);
-
-    const isCategorySelected =
-      selectedCategories.length === 0 ||
-      selectedCategories.some((category) => category.title === item.cat);
-
-    const isColorSelected =
-      isCategorySelected && item.cat === "Encre"
-        ? selectedColors.length === 0 ||
-          selectedColors.some((color) => color.title === item.color)
-        : true;
-
-    return isBrandSelected && isCategorySelected && isColorSelected;
-  });
-
-  return (
-    <>
-      {filteredItems.map((item) => (
-        <div key={item._id} className="w-full">
-          <Product
-            _id={item._id}
-            img={item.img}
-            productName={item.productName}
-            price={item.price}
-            color={item.color}
-            badge={item.badge}
-            des={item.des}
-            pdf={item.pdf}
-            ficheTech={item.ficheTech}
-          />
-        </div>
-      ))}
-    </>
-  );
-}
-
 const Pagination = ({ itemsPerPage }) => {
   const [itemOffset, setItemOffset] = useState(0);
   const [itemStart, setItemStart] = useState(1);
+  const [endOffset, setEndOffset] = useState(itemsPerPage);
 
-  const endOffset = itemOffset + itemsPerPage;
-  const currentItems = items.slice(itemOffset, endOffset);
   const selectedBrands = useSelector(
     (state) => state.orebiReducer.checkedBrands
   );
@@ -67,30 +20,76 @@ const Pagination = ({ itemsPerPage }) => {
   const selectedColors = useSelector(
     (state) => state.orebiReducer.checkedColors
   );
-  const pageCount = Math.ceil(items.length / itemsPerPage);
 
-  const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % items.length;
-    const newStart = newOffset + 1; // Adjust the start index
+  // Filter items based on selected filters
+  const filteredItems = items.filter((item) => {
+    const isBrandSelected =
+      selectedBrands.length === 0 ||
+      selectedBrands.some((brand) => brand.title === item.brand);
+
+    const isCategorySelected =
+      selectedCategories.length === 0 ||
+      selectedCategories.some((category) => category.title === item.cat);
+
+    const isColorSelected =
+      selectedColors.length === 0 ||
+      selectedColors.some((color) => color.title === item.color);
+
+    return isBrandSelected && isCategorySelected && isColorSelected;
+  });
+
+  const pageCount = Math.ceil(filteredItems.length / itemsPerPage);
+
+  useEffect(() => {
+    // Initialize values when the component mounts
+    const initialOffset = 0;
+    const initialStart = initialOffset + 1;
+    const initialEnd = initialOffset + itemsPerPage;
+
+    setItemOffset(initialOffset);
+    setItemStart(initialStart);
+    setEndOffset(initialEnd);
+  }, [itemsPerPage]);
+
+  const handlePageClick = (selectedPage) => {
+    const newOffset = selectedPage * itemsPerPage;
+    const newStart = newOffset + 1;
+    const newEnd = newOffset + itemsPerPage;
 
     setItemOffset(newOffset);
     setItemStart(newStart);
+    setEndOffset(newEnd);
   };
 
   return (
     <div>
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 mdl:gap-4 lg:gap-10">
-        <Items
-          currentItems={currentItems}
-          selectedBrands={selectedBrands}
-          selectedCategories={selectedCategories}
-          selectedColors={selectedColors}
-        />{" "}
+        {filteredItems.length > 0 ? (
+          filteredItems.slice(itemOffset, endOffset).map((item) => (
+            <div key={item._id} className="w-full">
+              <Product
+                _id={item._id}
+                img={item.img}
+                productName={item.productName}
+                price={item.price}
+                color={item.color}
+                badge={item.badge}
+                des={item.des}
+                pdf={item.pdf}
+                ficheTech={item.ficheTech}
+              />
+            </div>
+          ))
+        ) : (
+          <p>No items match the selected filters.</p>
+        )}
       </div>
       <div className="flex flex-col mdl:flex-row justify-center mdl:justify-between items-center">
         <ReactPaginate
           nextLabel=""
-          onPageChange={handlePageClick}
+          onPageChange={(selectedPage) =>
+            handlePageClick(selectedPage.selected)
+          }
           pageRangeDisplayed={3}
           marginPagesDisplayed={2}
           pageCount={pageCount}
@@ -102,8 +101,8 @@ const Pagination = ({ itemsPerPage }) => {
         />
 
         <p className="text-base font-normal text-lightText">
-          Products from {itemStart} to {Math.min(endOffset, items.length)} of{" "}
-          {items.length}
+          Products from {itemStart} to{" "}
+          {Math.min(endOffset, filteredItems.length)} of {filteredItems.length}
         </p>
       </div>
     </div>

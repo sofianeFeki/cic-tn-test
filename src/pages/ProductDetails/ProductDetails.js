@@ -97,17 +97,17 @@ const ProductDetails = () => {
                       </tbody>
                     </table>
                     <div className="my-4 flex justify-end">
-                      <button className="inline-flex items-center px-4 py-2 border border-gray-300 bg-blue-500 hover:bg-blue-600 text-white font-bodyFont">
-                        <FaDownload className="h-5 w-5 mr-2 text-white" />
-                        <a
-                          href={productInfo.pdf}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-white"
-                        >
+                      <a
+                        href={productInfo.pdf}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white"
+                      >
+                        <button className="inline-flex items-center px-4 py-2 border border-gray-300 bg-blue-500 hover:bg-blue-600 text-white font-bodyFont">
+                          <FaDownload className="h-5 w-5 mr-2 text-white" />
                           Download PDF
-                        </a>{" "}
-                      </button>
+                        </button>
+                      </a>{" "}
                     </div>
                   </div>
                 ) : (

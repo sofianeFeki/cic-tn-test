@@ -292,455 +292,29 @@ export const SplOfferData = [
 // =================== PaginationItems Start here ===============
 
 export const paginationItems = [
+  // =================== bac de dechet =================
+
   {
-    _id: "201",
-    img: IMPRIMANTE_PANTUM_CP2200DW,
-    productName: "Imprimante PANTUM CP2200DW",
-    color: "Blanc",
+    _id: "217",
+    img: bac1,
+    productName: "Bac de dechet",
+    price: "25.00",
+    color: "Mixed",
     badge: true,
-    brand: "Pantum",
-    des: "Imprimante Laser PANTUM Couleur - Fonctions: Impression  - Technologie d'impression: Laser - Format Papier: A4 - Vitesse d’impression(Couleur/N&B): 24 ppm (A4) / 26 ppm (Lettre) - Résolution d'impression: 600 x 600 dpi - Sortie papier: 100 page - Mémoire: Double cœur, 1 GHz - Impression recto verso: Automatique - Heure de la première impression: Moins de 11s  - Connecteurs: USB 2.0 haut débit Ethernet 10/100/1000 BaseTX (RJ-45) 802.11b/g/n Sans fil - Dimensions: 411.2 x 394.1 x 243.7mm - Poids: 16,1 kg - Couleur: Blanc",
-    cat: "Imprimante",
-    pdf: CP2200DW,
-    ficheTech: [
-      { label: "Technology ", value: "Electrophotographic monochrome laser " },
-      { label: "Print speed ", value: "22 ppm (A4)/23 ppm (Letter)" },
-
-      { label: "First print out time ", value: "Less than 7.8s       " },
-      { label: "Maximum Monthly Duty Cycle", value: "15,000 pages " },
-      {
-        label: "Recommended monthly volume Resolution(dpi) ",
-        value: "700 pages ",
-      },
-      { label: "Printer language Duplex Mode ", value: "Max. 1,200×1,200 " },
-      { label: "Printer  ", value: "Max. 1,2   " },
-      { label: "galass  ", value: "Max. 1,2   " },
-    ],
+    des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
+    cat: "Bac",
   },
   {
-    _id: "202",
-    img: IMPRIMANTE_PANTUM_BM5100FDW,
-    productName: "IMPRIMANTE PANTUM BM5100FDW",
-    color: "Blanc",
-    badge: false,
-    brand: "Pantum",
-    des: "Pantum BM5100fdw Imprimante laser mono : Pantum BM5100fdw -Imprimante :laser -monochrome multifonction,:format A4-,4-en-1 avec fonctions impression, copie, numérisation et fax, vitesse d'impression de 40ppm, connexion Réseau :LAN RJ45-, Wifichrome multifonction, format A4, 4-en-1 avec fonctions impression, copie, numérisation et fax, vitesse d'impression de 40ppm, connexion Réseau LAN RJ45, Wifi",
-    cat: "Imprimante",
-    pdf: BM5100,
-    ficheTech: [
-      { label: "Vitesse d'impression ", value: "40ppm(A4)/42ppm(lettre) " },
-      { label: "Temps de sortie de la première page ", value: "≤6.9 s" },
-
-      {
-        label: "Nombre de pages mensuel recommandé",
-        value: "750 à 4,000 Pages",
-      },
-      { label: "Résolution d'impression", value: "Max.1,200x1,200 dpi" },
-      {
-        label: "Langage d'impression ",
-        value: "PCL5e, PCL6, PS        ",
-      },
-      { label: "Vitesse du processeur", value: "1.2 GHz" },
-      { label: "Mémoire", value: "512 MB" },
-      {
-        label: "Panneau de commande ",
-        value: "LCD 2 lignes ||  Écran tactile 3,5 pouces      ",
-      },
-      { label: "Impression recto-verso automatique      ", value: "Oui" },
-      {
-        label: "Autres fonctions d'impression      ",
-        value:
-          "Impression brochure, impression sécurisée, impression disque USB Compatible AirPrint, Mopria, APP mobile (APP iOS/App Android)",
-      },
-      { label: "Vitese de copie ", value: "40ppm(A4)/42ppm(lettre)" },
-      {
-        label: "Temps de sortie de la première page",
-        value: "Plateau : moins de 10 s ADF : moins de 11 s",
-      },
-    ],
-  },
-
-  {
-    _id: "203",
-    img: IMPRIMANTE_PANTUM_BP5100DN,
-    productName: "IMPRIMANTE PANTUM BP5100DN",
-    color: "Blanc",
+    _id: "219",
+    img: bac2,
+    productName: "Bac de dechet",
+    price: "220.00",
+    color: "Black",
     badge: true,
-    brand: "Pantum",
-    des: "Imprimante Monochrome Laser PANTUM BP5100DN : Fonctions Impression - :Capacité Bac à papier 250 pages - :Formats papier -: A4 - Technologie d’impression Laser Monochrome - :Vitesse d’impression Noir & Blanc Jusqu’à 40 pages par minute en A4 -: Résolution 1200 dpi -: Mémoire 512 Mo - Connectivité Ethernet, USB 2.0 -:Auto-Duplex-, Network-Ready : Impression silencieuse - faible encombrement et respectueux de l'environnement -: cartouches à haut rendement en option - processeur haute vitesse 1,2 GHz - Dimensions: 364 x 344 x 257 mm - Poids: 9.3 kg - Garantie: 1 an",
-    cat: "Imprimante",
-    pdf: BP5100DN,
-    ficheTech: [
-      { label: "Vitesse d'impression ", value: "40ppm(A4)/42ppm(lettre) " },
-      { label: "Temps de sortie de la première page ", value: "≤6.9 s" },
-
-      {
-        label: "Nombre de pages mensuel recommandé",
-        value: "750 à 4,000 Pages",
-      },
-      { label: "Résolution d'impression", value: "Max.1,200x1,200 dpi" },
-      {
-        label: "Langage d'impression ",
-        value: "PCL5e, PCL6, PS        ",
-      },
-      { label: "Vitesse du processeur", value: "1.2 GHz" },
-      { label: "Mémoire", value: "512 MB" },
-      {
-        label: "Panneau de commande ",
-        value: "LCD 2 lignes ||  Écran tactile 3,5 pouces      ",
-      },
-      { label: "Impression recto-verso automatique      ", value: "Oui" },
-      {
-        label: "Autres fonctions d'impression      ",
-        value:
-          "Impression brochure, impression sécurisée, impression disque USB Compatible AirPrint, Mopria, APP mobile (APP iOS/App Android)",
-      },
-      { label: "Vitese de copie ", value: "40ppm(A4)/42ppm(lettre)" },
-      {
-        label: "Temps de sortie de la première page",
-        value: "Plateau : moins de 10 s ADF : moins de 11 s",
-      },
-    ],
-  },
-  {
-    _id: "2005",
-    img: IMPRIMANTE_PANTUM_M6609N,
-    productName: "IMPRIMANTE PANTUM M6609N",
-    color: "Blanc",
-    badge: false,
-    brand: "Pantum",
-    des: "Imprimante Laser 3en1 à toner rechargeable PANTUM M6609N - Capacité d'impression Jusqu'à 1600 pages - Vitesse d’impression : 22 ppm (A4) / 23 ppm (Lettre) - Résolution (impression, copie et numérisation) : 1200×1200dpi - Heure de la première impression : Moins de 7.8s - Connectivité : USB 2.0 haute vitesse - Vitesse de copie : 22cpm (A4) / 23cpm (Lettre) - Capacité du chargeur automatique de documents : 35 pages - Entrée papier : 150 pages - Sortie papier : 100 pages - Dimensions : 417 x 305 x 301 mm - Poids : 8.5 kg - Garantie 1 an",
-    cat: "Imprimante",
-    pdf: M6609N,
-    ficheTech: [
-      { label: "Print Speed", value: "22ppm (A4) / 23ppm (Letter)" },
-      { label: "Resolution (print, copy & scan)", value: "1200×1200dpi" },
-      { label: "First Print Out Time", value: "Less than 7.8s" },
-      { label: "Processor", value: "600 MHz" },
-      { label: "Memory", value: "128 MB" },
-      { label: "Duplex Mode", value: "Manual" },
-      {
-        label: "Connectivity",
-        value: [
-          "Hi-speed USB 2.0",
-          "Hi-speed USB 2.0 10/100Base-Tx Ethernet",
-          "Hi-speed USB 2.0 10/100Base-Tx Ethernet WiFi 802.11b/g/n",
-        ],
-      },
-      { label: "Max. Monthly Volume", value: "20,000 pages" },
-      { label: "Recommended Monthly Volume", value: "2000 pages" },
-      { label: "Copy Speed", value: "22cpm (A4) / 23cpm (Letter)" },
-      { label: "First Copy Out Time", value: "Less than 12 seconds" },
-      { label: "Zoom", value: "25% - 400%" },
-      { label: "Max. Copy Pages", value: "1 - 99 pages" },
-      {
-        label: "Additional Function",
-        value: "ID copy, Receipt copy, N-up copy, Clone copy",
-      },
-      { label: "Scanner Type", value: "Flatbed+ADF" },
-      {
-        label: "Max. Scan Size",
-        value: "216 x 297mm (Flatbed), 216 x 356mm (ADF)",
-      },
-      { label: "Color Scanning", value: "Yes" },
-      { label: "Output Function", value: "Scan to E-mail, PC, FTP" },
-      { label: "Paper Input Capacity", value: "150 pages" },
-      { label: "Paper Output Capacity", value: "100 pages" },
-      {
-        label: "Media Type",
-        value: "Plain, Thick, Transparency, Cardstock, Label, Envelope, Thin",
-      },
-      {
-        label: "Media Size",
-        value:
-          "A4, A5, A6, JIS B5, ISO B5, B6, Letter, Legal, Executive, Statement, Monarch envelope, DL envelope, C5 envelope, C6 envelope, NO.10 envelope, Japanese Postcard, Folio, Oficio, Big 16k, 32k, 16k, Big 32k, ZL, Yougata4, Postcard, Younaga3, Nagagata3, Yougata2",
-      },
-      { label: "Media Weight", value: "60~163g/m²" },
-      {
-        label: "Operating System Compatibility",
-        value:
-          "Microsoft Windows Server2003/Server2008/Server2012/XP/Vista/Win7/Win8/Win8.1/Win10 (32/64 Bit), Mac OS 10.7-10.13, Linux (Ubuntu 12.04&14.04&16.04&18.04)",
-      },
-      {
-        label: "Dimensions (W×D×H)",
-        value: "417x305x301mm(16.4''×12.0''×11.8'')",
-      },
-      { label: "Weight (with Cartridges)", value: "8.5Kg (18.7lb)" },
-      { label: "Humidity Range", value: "20 - 80%" },
-      { label: "Energy Efficiency", value: "ENERGY STAR® 2.0 certified" },
-      { label: "Starter Toner Cartridge", value: "1600 pages" },
-      { label: "Standard Replacement Consumable", value: "PD-219 (1600)" },
-    ],
+    des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
+    cat: "Bac",
   },
 
-  {
-    _id: "20005",
-    img: IMPRIMANTE_PANTUM_M6559N,
-    productName: "IMPRIMANTE PANTUM M6559N",
-    color: "Blanc",
-    badge: true,
-    brand: "Pantum",
-    des: "Imprimante Laser 3en1 à toner rechargeable PANTUM M6559N - Capacité d'impression Jusqu'à 1600 pages - Vitesse d’impression : 22 ppm (A4) / 23 ppm (Lettre) - Résolution (impression, copie et numérisation) : 1200×1200dpi - Heure de la première impression : Moins de 7.8s - Connectivité : USB 2.0 haute vitesse - Vitesse de copie : 22cpm (A4) / 23cpm (Lettre) - Capacité du chargeur automatique de documents : 35 pages - Entrée papier : 150 pages - Sortie papier : 100 pages - Dimensions : 417 x 305 x 301 mm - Poids : 8.5 kg - Garantie 1 an",
-    cat: "Imprimante",
-    pdf: M6559N,
-    ficheTech: [
-      { label: "Print Speed", value: "22ppm (A4) / 23ppm (Letter)" },
-      { label: "Resolution (print, copy & scan)", value: "1200×1200dpi" },
-      { label: "First Print Out Time", value: "Less than 7.8s" },
-      { label: "Processor", value: "600 MHz" },
-      { label: "Memory", value: "128 MB" },
-      { label: "Duplex Mode", value: "Manual" },
-      {
-        label: "Connectivity",
-        value: [
-          "Hi-speed USB 2.0",
-          "Hi-speed USB 2.0 10/100Base-Tx Ethernet",
-          "Hi-speed USB 2.0 10/100Base-Tx Ethernet WiFi 802.11b/g/n",
-        ],
-      },
-      { label: "Max. Monthly Volume", value: "20,000 pages" },
-      { label: "Recommended Monthly Volume", value: "2000 pages" },
-      { label: "Copy Speed", value: "22cpm (A4) / 23cpm (Letter)" },
-      { label: "First Copy Out Time", value: "Less than 12 seconds" },
-      { label: "Zoom", value: "25% - 400%" },
-      { label: "Max. Copy Pages", value: "1 - 99 pages" },
-      {
-        label: "Additional Function",
-        value: "ID copy, Receipt copy, N-up copy, Clone copy",
-      },
-      { label: "Scanner Type", value: "Flatbed+ADF" },
-      {
-        label: "Max. Scan Size",
-        value: "216 x 297mm (Flatbed), 216 x 356mm (ADF)",
-      },
-      { label: "Color Scanning", value: "Yes" },
-      { label: "Output Function", value: "Scan to E-mail, PC, FTP" },
-      { label: "Paper Input Capacity", value: "150 pages" },
-      { label: "Paper Output Capacity", value: "100 pages" },
-      {
-        label: "Media Type",
-        value: "Plain, Thick, Transparency, Cardstock, Label, Envelope, Thin",
-      },
-      {
-        label: "Media Size",
-        value:
-          "A4, A5, A6, JIS B5, ISO B5, B6, Letter, Legal, Executive, Statement, Monarch envelope, DL envelope, C5 envelope, C6 envelope, NO.10 envelope, Japanese Postcard, Folio, Oficio, Big 16k, 32k, 16k, Big 32k, ZL, Yougata4, Postcard, Younaga3, Nagagata3, Yougata2",
-      },
-      { label: "Media Weight", value: "60~163g/m²" },
-      {
-        label: "Operating System Compatibility",
-        value:
-          "Microsoft Windows Server2003/Server2008/Server2012/XP/Vista/Win7/Win8/Win8.1/Win10 (32/64 Bit), Mac OS 10.7-10.13, Linux (Ubuntu 12.04&14.04&16.04&18.04)",
-      },
-      {
-        label: "Dimensions (W×D×H)",
-        value: "417x305x301mm(16.4''×12.0''×11.8'')",
-      },
-      { label: "Weight (with Cartridges)", value: "8.5Kg (18.7lb)" },
-      { label: "Humidity Range", value: "20 - 80%" },
-      { label: "Energy Efficiency", value: "ENERGY STAR® 2.0 certified" },
-      { label: "Starter Toner Cartridge", value: "1600 pages" },
-      { label: "Standard Replacement Consumable", value: "PD-219 (1600)" },
-    ],
-  },
-
-  {
-    _id: "206",
-    img: IMPRIMANTE_PANTUM_P3300DN,
-    productName: "IMPRIMANTE PANTUM P3300DN",
-    color: "Blanc",
-    badge: false,
-    brand: "Pantum",
-    des: "Imprimante Laser PANTUM P3300DN - Fonctions: Impression - Technologie d'impression: Laser - Format Papier: A4-A5 - Vitesse d’impression: 33 ppm (A4) / 35 ppm (Lettre) - Résolution d'impression: Jusqu'à 1200 x 1200 ppp - Papier Bac d'alimentation: 250 pages - Sortie papier: 150 page - Mémoire: 256 Mo - Impression recto verso: Automatique - Heure de la première impression: Moins de 8.2s  - Taille du support: A4, A5, JIS B5, IS0 B5, A6, Lettre, Légal, Exécutif, Folio, Oficio, Déclaration, Carte postale japonaise, ZL, Big 16K, Big 32K, 16K, 32K, B6， Yougata4, Carte postale, Younaga3, Nagagata3, Yougata2 - Connecteurs: USB2.0 haut débit / Ethernet：IEEE 802.3 10/100Base-Tx - Dimensions: 354 x 334 x 232mm - Poids: 6,8 kg - Couleur: Blanc",
-    cat: "Imprimante",
-    pdf: P3300DN,
-    ficheTech: [
-      { label: "gtin	", value: "P3300DN      " },
-      { label: "fonctions	", value: "Monofonction      " },
-      { label: "Mémoire	", value: "256MO      " },
-      { label: "Technologie d impression		", value: "laser      " },
-      { label: "Impression		", value: "Noir & Blanc      " },
-      { label: "Connectivite		", value: "Réseau      " },
-      { label: "Vitesse du Processeur		", value: "350 MHz      " },
-      { label: "Type ecran		", value: "LCD 2 lignes      " },
-      {
-        label: "Consommation d énergie		",
-        value:
-          "Impression : 525 W en moyenne Veille : 50 W en veille : moins de 2 W      ",
-      },
-      {
-        label: "Gestion d entrée Papier Standard		",
-        value: "Papier Bac d'alimentation: 250pages      ",
-      },
-      { label: "Premiére Page Imprimée		", value: "Moins de 8,2 secondes      " },
-      {
-        label: "Vitesse d impression Noir		",
-        value: "33 ppm (A4) / 35 ppm (Lettre)      ",
-      },
-      { label: "Cycle d utilisation Mensuel		", value: "60000pages      " },
-      {
-        label: "Résolution d impression		",
-        value: "1 200 x 1 200 dpi (maximum)      ",
-      },
-      { label: "formats	", value: "A4      " },
-      {
-        label: "Connecteurs		",
-        value: "USB2.0 haut débit / Ethernet：IEEE 802.3 10/100Base-Tx      ",
-      },
-      { label: "Fonctionnalités		", value: "Impression      " },
-      {
-        label: "Volume de Pages Mensuel Recommandé		",
-        value: "750 à 3 500 pages      ",
-      },
-      { label: "Dimensions		", value: "354 x 334 x 232mm      " },
-      { label: "Garantie	", value: "1ANS      " },
-    ],
-  },
-
-  {
-    _id: "207",
-    img: IMPRIMANTE_PANTUM_P3300DW,
-    productName: "IMPRIMANTE PANTUM P3300DW",
-    color: "Blanc",
-    badge: true,
-    brand: "Pantum",
-    des: "Imprimante Laser PANTUM P3300DW - Fonctions: Impression - Technologie d'impression: Laser - Format Papier: A4-A5 - Vitesse d’impression: 33 ppm (A4) / 35 ppm (Lettre) - Résolution d'impression: Jusqu'à 1200 x 1200 ppp - Papier Bac d'alimentation: 250 pages - Sortie papier: 150 page - Mémoire: 256 Mo - Impression recto verso: Automatique - Heure de la première impression: Moins de 8.2s - Interface: Ethernet USB 2.0 haut débit : Wi-Fi IEEE 802.3 10/100Base-Tx : IEEE 802.11b/g/n - Connecteurs: USB ; WIFI - Dimensions: 354 x 334 x 232mm - Poids: 6,8 kg - Couleur: Blanc",
-    cat: "Imprimante",
-    pdf: P3300DW,
-    ficheTech: [
-      { label: "gtin		", value: "P3300DW      " },
-      { label: "fonctions	", value: "Monofonction      " },
-      { label: "Mémoire	", value: "256 Mo      " },
-      { label: "Technologie d impression		", value: "Laser      " },
-      { label: "Connectivite	", value: "WIFI      " },
-      { label: "Vitesse du Processeur		", value: "350 MHz      " },
-      { label: "Type ecran		", value: "LCD 2 lignes      " },
-      {
-        label: "Consommation d énergie		",
-        value:
-          "Impression : 525 W en moyenne Veille : 50 W en veille : moins de 2 W      ",
-      },
-      {
-        label: "Gestion d entrée Papier Standard		",
-        value: "Papier Bac d'alimentation: 250pages      ",
-      },
-      { label: "Premiére Page Imprimée		", value: "Moins de 8,2 secondes      " },
-      {
-        label: "Vitesse d impression Noir		",
-        value: "33 ppm (A4) / 35 ppm (Lettre)      ",
-      },
-      { label: "Cycle d utilisation Mensuel		", value: "60000pages      " },
-      { label: "Résolution d impression		", value: "Max.1200x1200 dpi      " },
-      {
-        label: "Volume de Pages Mensuel Recommandé		",
-        value: "750 à 3 500 pages      ",
-      },
-      {
-        label: "Interface Réseau	",
-        value:
-          "Ethernet USB 2.0 haut débit : Wi-Fi IEEE 802.3 10/100Base-Tx : IEEE 802.11b/g/n      ",
-      },
-      {
-        label: "Contenu de L'emballage		",
-        value:
-          "Imprimante - Cordon d’alimentation - Câble d’interface USB - Plateau de sortie - CD-ROM - Guide de configuration rapide      ",
-      },
-      { label: "Garantie	", value: "1 ANS      " },
-    ],
-  },
-
-  {
-    _id: "208",
-    img: IMPRIMANTE_PANTUM_P2509W,
-    productName: "IMPRIMANTE PANTUM P2509W",
-    color: "Blanc",
-    badge: true,
-    brand: "Pantum",
-    des: "Imprimante Laser PANTUM P2509W - Fonctions: Impression - Technologie d'impression: Laser - Format Papier: A4 - Vitesse d’impression: 22 ppm (A4) / 23 ppm (Lettre) - Résolution d'impression: Jusqu'à 1200 x 1200 ppp - Entrée papier: de 150 feuilles - Sortie papier: 100 page - Mémoire: 128 Mo - Impression recto verso: Manuel - Heure de la première impression: Moins de 7.8s - Taille du support: A4, A5, A6, JIS B5, ISO B5, B6, Lettre, Légal, Exécutif, Déclaration, Enveloppe Monarch, Enveloppe DL, enveloppe C5, enveloppe C6, enveloppe NO.10, carte postale japonaise, Folio, Oficio, Grand 16k, 32k, 16k, Grand 32k, ZL,Yougata4, Carte postale, Younaga3, Nagagata3, Yougata2 - Toner rechargeable - Connecteurs: USB 2.0 ; Wi-Fi - Dimensions: 337 x 220 x 178 mm - Poids: 4,75 kg - Couleur: Blanc.",
-    cat: "Imprimante",
-    pdf: P25009W,
-    ficheTech: [
-      { label: "Print Speed", value: "22ppm(A4) / 23ppm(Letter)" },
-      { label: "First print out time (FPOT)", value: "<7.8s" },
-      { label: "Maximum monthly volume", value: "15 000" },
-      { label: "Recommended monthly volume", value: "1500 pages" },
-      { label: "Resolution(dpi)", value: "1200x1200" },
-      { label: "Print languages", value: "GDI" },
-      { label: "Duplex Mode", value: "Manual" },
-      { label: "Paper input", value: "150" },
-      { label: "Paper output", value: "100" },
-      {
-        label: "Media type",
-        value: "Plain, Thick, Transparency, Cardstock, Lable, Envelope, Thin",
-      },
-      {
-        label: "Dimensions (W*D*H)",
-        value: "337*220*178mm (13.27*8.66*7.01 inch)",
-      },
-      { label: "Weight (kg)", value: "4.75kg (10.47lbs)" },
-      { label: "Noise", value: "Printing:52dB, Standby:30dB" },
-      {
-        label: "Power Consumption",
-        value: "Printing: Average 370W, Ready: 38W, Sleep Mode: Less than 2W",
-      },
-      {
-        label: "Operating system compatibility",
-        value:
-          "Microsoft Windows Server2003/Server2008/Server2012/XP/Vista/Win7/Win8/Win8.1/Win10（32/64 Bit），Mac OS 10.7-10.13，Linux（Ubuntu 12.04&14.04&16.04&18.04）",
-      },
-      { label: "Connectivity", value: "Hi-Speed USB 2.0; WiFi 802.11b/g/n" },
-      { label: "Processor speed", value: "600MHz" },
-      { label: "Memory", value: "128MB" },
-      { label: "Starter Toner cartridge", value: "1600 pages" },
-      { label: "Standard replacement Consumable", value: "PD-219 (1600)" },
-    ],
-  },
-  {
-    _id: "233",
-    img: IMPRIMANTE_PANTUM_P2509,
-    productName: "IMPRIMANTE PANTUM P2509",
-    color: "Blanc",
-    badge: true,
-    brand: "Pantum",
-    des: "Imprimante Laser PANTUM P2509 - Fonctions Impression - Capacité d'impression Jusqu'à :1600 pages - Formats papier: A4 - Technologie d’impression Laser Monochrome - Vitesse d’impression Noir & Blanc: Jusqu’à 22 pages par minute en A4 - Résolution: 1200 dpi - Mémoire: 128 Mo - Connectivité: USB 2.0 - Dimensions: 337 x 220 x 178 mm - Poids: 4.75 kg - Toner recheargeable - Garantie: 1 an",
-    cat: "Imprimante",
-    pdf: P25009,
-    ficheTech: [
-      { label: "Print Speed", value: "22ppm(A4) / 23ppm(Letter)" },
-      { label: "First print out time (FPOT)", value: "<7.8s" },
-      { label: "Maximum monthly volume", value: "15 000" },
-      { label: "Recommended monthly volume", value: "1500 pages" },
-      { label: "Resolution(dpi)", value: "1200x1200" },
-      { label: "Print languages", value: "GDI" },
-      { label: "Duplex Mode", value: "Manual" },
-      { label: "Paper input", value: "150" },
-      { label: "Paper output", value: "100" },
-      {
-        label: "Media type",
-        value: "Plain, Thick, Transparency, Cardstock, Lable, Envelope, Thin",
-      },
-      {
-        label: "Dimensions (W*D*H)",
-        value: "337*220*178mm (13.27*8.66*7.01 inch)",
-      },
-      { label: "Weight (kg)", value: "4.75kg (10.47lbs)" },
-      { label: "Noise", value: "Printing:52dB, Standby:30dB" },
-      {
-        label: "Power Consumption",
-        value: "Printing: Average 370W, Ready: 38W, Sleep Mode: Less than 2W",
-      },
-      {
-        label: "Operating system compatibility",
-        value:
-          "Microsoft Windows Server2003/Server2008/Server2012/XP/Vista/Win7/Win8/Win8.1/Win10（32/64 Bit），Mac OS 10.7-10.13，Linux（Ubuntu 12.04&14.04&16.04&18.04）",
-      },
-      { label: "Connectivity", value: "Hi-Speed USB 2.0; WiFi 802.11b/g/n" },
-      { label: "Processor speed", value: "600MHz" },
-      { label: "Memory", value: "128MB" },
-      { label: "Starter Toner cartridge", value: "1600 pages" },
-      { label: "Standard replacement Consumable", value: "PD-219 (1600)" },
-    ],
-  },
   {
     _id: "220",
     img: bac3,
@@ -761,26 +335,9 @@ export const paginationItems = [
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
     cat: "Bac",
   },
-  {
-    _id: "215",
-    img: ruban3,
-    productName: "Ruban",
-    price: "25.00",
-    color: "Mixed",
-    badge: true,
-    des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
-    cat: "Ruban",
-  },
-  {
-    _id: "216",
-    img: ruban4,
-    productName: "Ruban",
-    price: "220.00",
-    color: "Black",
-    badge: true,
-    des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
-    cat: "Ruban",
-  },
+
+  // =================== encre =================
+
   {
     _id: "209",
     img: encre1,
@@ -817,11 +374,14 @@ export const paginationItems = [
     img: encre4,
     productName: "encre",
     price: "220.00",
-    color: "Black",
+    color: "Green",
     badge: true,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
     cat: "Encre",
   },
+
+  // =================== ruban =================
+
   {
     _id: "213",
     img: ruban1,
@@ -842,26 +402,25 @@ export const paginationItems = [
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
     cat: "Ruban",
   },
-
   {
-    _id: "217",
-    img: bac1,
-    productName: "Bac de dechet",
+    _id: "215",
+    img: ruban3,
+    productName: "Ruban",
     price: "25.00",
     color: "Mixed",
     badge: true,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
-    cat: "Bac",
+    cat: "Ruban",
   },
   {
-    _id: "219",
-    img: bac2,
-    productName: "Bac de dechet",
+    _id: "216",
+    img: ruban4,
+    productName: "Ruban",
     price: "220.00",
     color: "Black",
     badge: true,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
-    cat: "Bac",
+    cat: "Ruban",
   },
 
   // =================== imprimante hp =================
@@ -1310,7 +869,7 @@ export const paginationItems = [
     ],
   },
 
-  // =================== imprimante ricoh =================
+  // =================== imprimante epson =================
 
   {
     _id: "espson1",
@@ -1415,6 +974,458 @@ export const paginationItems = [
       { label: "Impression Recto-Verso Automatique", value: "Non" },
       { label: "Fonctions", value: "Multifonction" },
       { label: "Connectivité", value: "Wifi" },
+    ],
+  },
+
+  // =================== imprimante pantum =================
+
+  {
+    _id: "201",
+    img: IMPRIMANTE_PANTUM_CP2200DW,
+    productName: "Imprimante PANTUM CP2200DW",
+    color: "Blanc",
+    badge: true,
+    brand: "Pantum",
+    des: "Imprimante Laser PANTUM Couleur - Fonctions: Impression  - Technologie d'impression: Laser - Format Papier: A4 - Vitesse d’impression(Couleur/N&B): 24 ppm (A4) / 26 ppm (Lettre) - Résolution d'impression: 600 x 600 dpi - Sortie papier: 100 page - Mémoire: Double cœur, 1 GHz - Impression recto verso: Automatique - Heure de la première impression: Moins de 11s  - Connecteurs: USB 2.0 haut débit Ethernet 10/100/1000 BaseTX (RJ-45) 802.11b/g/n Sans fil - Dimensions: 411.2 x 394.1 x 243.7mm - Poids: 16,1 kg - Couleur: Blanc",
+    cat: "Imprimante",
+    pdf: CP2200DW,
+    ficheTech: [
+      { label: "Technology ", value: "Electrophotographic monochrome laser " },
+      { label: "Print speed ", value: "22 ppm (A4)/23 ppm (Letter)" },
+
+      { label: "First print out time ", value: "Less than 7.8s       " },
+      { label: "Maximum Monthly Duty Cycle", value: "15,000 pages " },
+      {
+        label: "Recommended monthly volume Resolution(dpi) ",
+        value: "700 pages ",
+      },
+      { label: "Printer language Duplex Mode ", value: "Max. 1,200×1,200 " },
+      { label: "Printer  ", value: "Max. 1,2   " },
+      { label: "galass  ", value: "Max. 1,2   " },
+    ],
+  },
+  {
+    _id: "202",
+    img: IMPRIMANTE_PANTUM_BM5100FDW,
+    productName: "IMPRIMANTE PANTUM BM5100FDW",
+    color: "Blanc",
+    badge: false,
+    brand: "Pantum",
+    des: "Pantum BM5100fdw Imprimante laser mono : Pantum BM5100fdw -Imprimante :laser -monochrome multifonction,:format A4-,4-en-1 avec fonctions impression, copie, numérisation et fax, vitesse d'impression de 40ppm, connexion Réseau :LAN RJ45-, Wifichrome multifonction, format A4, 4-en-1 avec fonctions impression, copie, numérisation et fax, vitesse d'impression de 40ppm, connexion Réseau LAN RJ45, Wifi",
+    cat: "Imprimante",
+    pdf: BM5100,
+    ficheTech: [
+      { label: "Vitesse d'impression ", value: "40ppm(A4)/42ppm(lettre) " },
+      { label: "Temps de sortie de la première page ", value: "≤6.9 s" },
+
+      {
+        label: "Nombre de pages mensuel recommandé",
+        value: "750 à 4,000 Pages",
+      },
+      { label: "Résolution d'impression", value: "Max.1,200x1,200 dpi" },
+      {
+        label: "Langage d'impression ",
+        value: "PCL5e, PCL6, PS        ",
+      },
+      { label: "Vitesse du processeur", value: "1.2 GHz" },
+      { label: "Mémoire", value: "512 MB" },
+      {
+        label: "Panneau de commande ",
+        value: "LCD 2 lignes ||  Écran tactile 3,5 pouces      ",
+      },
+      { label: "Impression recto-verso automatique      ", value: "Oui" },
+      {
+        label: "Autres fonctions d'impression      ",
+        value:
+          "Impression brochure, impression sécurisée, impression disque USB Compatible AirPrint, Mopria, APP mobile (APP iOS/App Android)",
+      },
+      { label: "Vitese de copie ", value: "40ppm(A4)/42ppm(lettre)" },
+      {
+        label: "Temps de sortie de la première page",
+        value: "Plateau : moins de 10 s ADF : moins de 11 s",
+      },
+    ],
+  },
+
+  {
+    _id: "203",
+    img: IMPRIMANTE_PANTUM_BP5100DN,
+    productName: "IMPRIMANTE PANTUM BP5100DN",
+    color: "Blanc",
+    badge: true,
+    brand: "Pantum",
+    des: "Imprimante Monochrome Laser PANTUM BP5100DN : Fonctions Impression - :Capacité Bac à papier 250 pages - :Formats papier -: A4 - Technologie d’impression Laser Monochrome - :Vitesse d’impression Noir & Blanc Jusqu’à 40 pages par minute en A4 -: Résolution 1200 dpi -: Mémoire 512 Mo - Connectivité Ethernet, USB 2.0 -:Auto-Duplex-, Network-Ready : Impression silencieuse - faible encombrement et respectueux de l'environnement -: cartouches à haut rendement en option - processeur haute vitesse 1,2 GHz - Dimensions: 364 x 344 x 257 mm - Poids: 9.3 kg - Garantie: 1 an",
+    cat: "Imprimante",
+    pdf: BP5100DN,
+    ficheTech: [
+      { label: "Vitesse d'impression ", value: "40ppm(A4)/42ppm(lettre) " },
+      { label: "Temps de sortie de la première page ", value: "≤6.9 s" },
+
+      {
+        label: "Nombre de pages mensuel recommandé",
+        value: "750 à 4,000 Pages",
+      },
+      { label: "Résolution d'impression", value: "Max.1,200x1,200 dpi" },
+      {
+        label: "Langage d'impression ",
+        value: "PCL5e, PCL6, PS        ",
+      },
+      { label: "Vitesse du processeur", value: "1.2 GHz" },
+      { label: "Mémoire", value: "512 MB" },
+      {
+        label: "Panneau de commande ",
+        value: "LCD 2 lignes ||  Écran tactile 3,5 pouces      ",
+      },
+      { label: "Impression recto-verso automatique      ", value: "Oui" },
+      {
+        label: "Autres fonctions d'impression      ",
+        value:
+          "Impression brochure, impression sécurisée, impression disque USB Compatible AirPrint, Mopria, APP mobile (APP iOS/App Android)",
+      },
+      { label: "Vitese de copie ", value: "40ppm(A4)/42ppm(lettre)" },
+      {
+        label: "Temps de sortie de la première page",
+        value: "Plateau : moins de 10 s ADF : moins de 11 s",
+      },
+    ],
+  },
+  {
+    _id: "2005",
+    img: IMPRIMANTE_PANTUM_M6609N,
+    productName: "IMPRIMANTE PANTUM M6609N",
+    color: "Blanc",
+    badge: false,
+    brand: "Pantum",
+    des: "Imprimante Laser 3en1 à toner rechargeable PANTUM M6609N - Capacité d'impression Jusqu'à 1600 pages - Vitesse d’impression : 22 ppm (A4) / 23 ppm (Lettre) - Résolution (impression, copie et numérisation) : 1200×1200dpi - Heure de la première impression : Moins de 7.8s - Connectivité : USB 2.0 haute vitesse - Vitesse de copie : 22cpm (A4) / 23cpm (Lettre) - Capacité du chargeur automatique de documents : 35 pages - Entrée papier : 150 pages - Sortie papier : 100 pages - Dimensions : 417 x 305 x 301 mm - Poids : 8.5 kg - Garantie 1 an",
+    cat: "Imprimante",
+    pdf: M6609N,
+    ficheTech: [
+      { label: "Print Speed", value: "22ppm (A4) / 23ppm (Letter)" },
+      { label: "Resolution (print, copy & scan)", value: "1200×1200dpi" },
+      { label: "First Print Out Time", value: "Less than 7.8s" },
+      { label: "Processor", value: "600 MHz" },
+      { label: "Memory", value: "128 MB" },
+      { label: "Duplex Mode", value: "Manual" },
+      {
+        label: "Connectivity",
+        value: [
+          "Hi-speed USB 2.0",
+          "Hi-speed USB 2.0 10/100Base-Tx Ethernet",
+          "Hi-speed USB 2.0 10/100Base-Tx Ethernet WiFi 802.11b/g/n",
+        ],
+      },
+      { label: "Max. Monthly Volume", value: "20,000 pages" },
+      { label: "Recommended Monthly Volume", value: "2000 pages" },
+      { label: "Copy Speed", value: "22cpm (A4) / 23cpm (Letter)" },
+      { label: "First Copy Out Time", value: "Less than 12 seconds" },
+      { label: "Zoom", value: "25% - 400%" },
+      { label: "Max. Copy Pages", value: "1 - 99 pages" },
+      {
+        label: "Additional Function",
+        value: "ID copy, Receipt copy, N-up copy, Clone copy",
+      },
+      { label: "Scanner Type", value: "Flatbed+ADF" },
+      {
+        label: "Max. Scan Size",
+        value: "216 x 297mm (Flatbed), 216 x 356mm (ADF)",
+      },
+      { label: "Color Scanning", value: "Yes" },
+      { label: "Output Function", value: "Scan to E-mail, PC, FTP" },
+      { label: "Paper Input Capacity", value: "150 pages" },
+      { label: "Paper Output Capacity", value: "100 pages" },
+      {
+        label: "Media Type",
+        value: "Plain, Thick, Transparency, Cardstock, Label, Envelope, Thin",
+      },
+      {
+        label: "Media Size",
+        value:
+          "A4, A5, A6, JIS B5, ISO B5, B6, Letter, Legal, Executive, Statement, Monarch envelope, DL envelope, C5 envelope, C6 envelope, NO.10 envelope, Japanese Postcard, Folio, Oficio, Big 16k, 32k, 16k, Big 32k, ZL, Yougata4, Postcard, Younaga3, Nagagata3, Yougata2",
+      },
+      { label: "Media Weight", value: "60~163g/m²" },
+      {
+        label: "Operating System Compatibility",
+        value:
+          "Microsoft Windows Server2003/Server2008/Server2012/XP/Vista/Win7/Win8/Win8.1/Win10 (32/64 Bit), Mac OS 10.7-10.13, Linux (Ubuntu 12.04&14.04&16.04&18.04)",
+      },
+      {
+        label: "Dimensions (W×D×H)",
+        value: "417x305x301mm(16.4''×12.0''×11.8'')",
+      },
+      { label: "Weight (with Cartridges)", value: "8.5Kg (18.7lb)" },
+      { label: "Humidity Range", value: "20 - 80%" },
+      { label: "Energy Efficiency", value: "ENERGY STAR® 2.0 certified" },
+      { label: "Starter Toner Cartridge", value: "1600 pages" },
+      { label: "Standard Replacement Consumable", value: "PD-219 (1600)" },
+    ],
+  },
+
+  {
+    _id: "20005",
+    img: IMPRIMANTE_PANTUM_M6559N,
+    productName: "IMPRIMANTE PANTUM M6559N",
+    color: "Blanc",
+    badge: true,
+    brand: "Pantum",
+    des: "Imprimante Laser 3en1 à toner rechargeable PANTUM M6559N - Capacité d'impression Jusqu'à 1600 pages - Vitesse d’impression : 22 ppm (A4) / 23 ppm (Lettre) - Résolution (impression, copie et numérisation) : 1200×1200dpi - Heure de la première impression : Moins de 7.8s - Connectivité : USB 2.0 haute vitesse - Vitesse de copie : 22cpm (A4) / 23cpm (Lettre) - Capacité du chargeur automatique de documents : 35 pages - Entrée papier : 150 pages - Sortie papier : 100 pages - Dimensions : 417 x 305 x 301 mm - Poids : 8.5 kg - Garantie 1 an",
+    cat: "Imprimante",
+    pdf: M6559N,
+    ficheTech: [
+      { label: "Print Speed", value: "22ppm (A4) / 23ppm (Letter)" },
+      { label: "Resolution (print, copy & scan)", value: "1200×1200dpi" },
+      { label: "First Print Out Time", value: "Less than 7.8s" },
+      { label: "Processor", value: "600 MHz" },
+      { label: "Memory", value: "128 MB" },
+      { label: "Duplex Mode", value: "Manual" },
+      {
+        label: "Connectivity",
+        value: [
+          "Hi-speed USB 2.0",
+          "Hi-speed USB 2.0 10/100Base-Tx Ethernet",
+          "Hi-speed USB 2.0 10/100Base-Tx Ethernet WiFi 802.11b/g/n",
+        ],
+      },
+      { label: "Max. Monthly Volume", value: "20,000 pages" },
+      { label: "Recommended Monthly Volume", value: "2000 pages" },
+      { label: "Copy Speed", value: "22cpm (A4) / 23cpm (Letter)" },
+      { label: "First Copy Out Time", value: "Less than 12 seconds" },
+      { label: "Zoom", value: "25% - 400%" },
+      { label: "Max. Copy Pages", value: "1 - 99 pages" },
+      {
+        label: "Additional Function",
+        value: "ID copy, Receipt copy, N-up copy, Clone copy",
+      },
+      { label: "Scanner Type", value: "Flatbed+ADF" },
+      {
+        label: "Max. Scan Size",
+        value: "216 x 297mm (Flatbed), 216 x 356mm (ADF)",
+      },
+      { label: "Color Scanning", value: "Yes" },
+      { label: "Output Function", value: "Scan to E-mail, PC, FTP" },
+      { label: "Paper Input Capacity", value: "150 pages" },
+      { label: "Paper Output Capacity", value: "100 pages" },
+      {
+        label: "Media Type",
+        value: "Plain, Thick, Transparency, Cardstock, Label, Envelope, Thin",
+      },
+      {
+        label: "Media Size",
+        value:
+          "A4, A5, A6, JIS B5, ISO B5, B6, Letter, Legal, Executive, Statement, Monarch envelope, DL envelope, C5 envelope, C6 envelope, NO.10 envelope, Japanese Postcard, Folio, Oficio, Big 16k, 32k, 16k, Big 32k, ZL, Yougata4, Postcard, Younaga3, Nagagata3, Yougata2",
+      },
+      { label: "Media Weight", value: "60~163g/m²" },
+      {
+        label: "Operating System Compatibility",
+        value:
+          "Microsoft Windows Server2003/Server2008/Server2012/XP/Vista/Win7/Win8/Win8.1/Win10 (32/64 Bit), Mac OS 10.7-10.13, Linux (Ubuntu 12.04&14.04&16.04&18.04)",
+      },
+      {
+        label: "Dimensions (W×D×H)",
+        value: "417x305x301mm(16.4''×12.0''×11.8'')",
+      },
+      { label: "Weight (with Cartridges)", value: "8.5Kg (18.7lb)" },
+      { label: "Humidity Range", value: "20 - 80%" },
+      { label: "Energy Efficiency", value: "ENERGY STAR® 2.0 certified" },
+      { label: "Starter Toner Cartridge", value: "1600 pages" },
+      { label: "Standard Replacement Consumable", value: "PD-219 (1600)" },
+    ],
+  },
+
+  {
+    _id: "206",
+    img: IMPRIMANTE_PANTUM_P3300DN,
+    productName: "IMPRIMANTE PANTUM P3300DN",
+    color: "Blanc",
+    badge: false,
+    brand: "Pantum",
+    des: "Imprimante Laser PANTUM P3300DN - Fonctions: Impression - Technologie d'impression: Laser - Format Papier: A4-A5 - Vitesse d’impression: 33 ppm (A4) / 35 ppm (Lettre) - Résolution d'impression: Jusqu'à 1200 x 1200 ppp - Papier Bac d'alimentation: 250 pages - Sortie papier: 150 page - Mémoire: 256 Mo - Impression recto verso: Automatique - Heure de la première impression: Moins de 8.2s  - Taille du support: A4, A5, JIS B5, IS0 B5, A6, Lettre, Légal, Exécutif, Folio, Oficio, Déclaration, Carte postale japonaise, ZL, Big 16K, Big 32K, 16K, 32K, B6， Yougata4, Carte postale, Younaga3, Nagagata3, Yougata2 - Connecteurs: USB2.0 haut débit / Ethernet：IEEE 802.3 10/100Base-Tx - Dimensions: 354 x 334 x 232mm - Poids: 6,8 kg - Couleur: Blanc",
+    cat: "Imprimante",
+    pdf: P3300DN,
+    ficheTech: [
+      { label: "gtin	", value: "P3300DN      " },
+      { label: "fonctions	", value: "Monofonction      " },
+      { label: "Mémoire	", value: "256MO      " },
+      { label: "Technologie d impression		", value: "laser      " },
+      { label: "Impression		", value: "Noir & Blanc      " },
+      { label: "Connectivite		", value: "Réseau      " },
+      { label: "Vitesse du Processeur		", value: "350 MHz      " },
+      { label: "Type ecran		", value: "LCD 2 lignes      " },
+      {
+        label: "Consommation d énergie		",
+        value:
+          "Impression : 525 W en moyenne Veille : 50 W en veille : moins de 2 W      ",
+      },
+      {
+        label: "Gestion d entrée Papier Standard		",
+        value: "Papier Bac d'alimentation: 250pages      ",
+      },
+      { label: "Premiére Page Imprimée		", value: "Moins de 8,2 secondes      " },
+      {
+        label: "Vitesse d impression Noir		",
+        value: "33 ppm (A4) / 35 ppm (Lettre)      ",
+      },
+      { label: "Cycle d utilisation Mensuel		", value: "60000pages      " },
+      {
+        label: "Résolution d impression		",
+        value: "1 200 x 1 200 dpi (maximum)      ",
+      },
+      { label: "formats	", value: "A4      " },
+      {
+        label: "Connecteurs		",
+        value: "USB2.0 haut débit / Ethernet：IEEE 802.3 10/100Base-Tx      ",
+      },
+      { label: "Fonctionnalités		", value: "Impression      " },
+      {
+        label: "Volume de Pages Mensuel Recommandé		",
+        value: "750 à 3 500 pages      ",
+      },
+      { label: "Dimensions		", value: "354 x 334 x 232mm      " },
+      { label: "Garantie	", value: "1ANS      " },
+    ],
+  },
+
+  {
+    _id: "207",
+    img: IMPRIMANTE_PANTUM_P3300DW,
+    productName: "IMPRIMANTE PANTUM P3300DW",
+    color: "Blanc",
+    badge: true,
+    brand: "Pantum",
+    des: "Imprimante Laser PANTUM P3300DW - Fonctions: Impression - Technologie d'impression: Laser - Format Papier: A4-A5 - Vitesse d’impression: 33 ppm (A4) / 35 ppm (Lettre) - Résolution d'impression: Jusqu'à 1200 x 1200 ppp - Papier Bac d'alimentation: 250 pages - Sortie papier: 150 page - Mémoire: 256 Mo - Impression recto verso: Automatique - Heure de la première impression: Moins de 8.2s - Interface: Ethernet USB 2.0 haut débit : Wi-Fi IEEE 802.3 10/100Base-Tx : IEEE 802.11b/g/n - Connecteurs: USB ; WIFI - Dimensions: 354 x 334 x 232mm - Poids: 6,8 kg - Couleur: Blanc",
+    cat: "Imprimante",
+    pdf: P3300DW,
+    ficheTech: [
+      { label: "gtin		", value: "P3300DW      " },
+      { label: "fonctions	", value: "Monofonction      " },
+      { label: "Mémoire	", value: "256 Mo      " },
+      { label: "Technologie d impression		", value: "Laser      " },
+      { label: "Connectivite	", value: "WIFI      " },
+      { label: "Vitesse du Processeur		", value: "350 MHz      " },
+      { label: "Type ecran		", value: "LCD 2 lignes      " },
+      {
+        label: "Consommation d énergie		",
+        value:
+          "Impression : 525 W en moyenne Veille : 50 W en veille : moins de 2 W      ",
+      },
+      {
+        label: "Gestion d entrée Papier Standard		",
+        value: "Papier Bac d'alimentation: 250pages      ",
+      },
+      { label: "Premiére Page Imprimée		", value: "Moins de 8,2 secondes      " },
+      {
+        label: "Vitesse d impression Noir		",
+        value: "33 ppm (A4) / 35 ppm (Lettre)      ",
+      },
+      { label: "Cycle d utilisation Mensuel		", value: "60000pages      " },
+      { label: "Résolution d impression		", value: "Max.1200x1200 dpi      " },
+      {
+        label: "Volume de Pages Mensuel Recommandé		",
+        value: "750 à 3 500 pages      ",
+      },
+      {
+        label: "Interface Réseau	",
+        value:
+          "Ethernet USB 2.0 haut débit : Wi-Fi IEEE 802.3 10/100Base-Tx : IEEE 802.11b/g/n      ",
+      },
+      {
+        label: "Contenu de L'emballage		",
+        value:
+          "Imprimante - Cordon d’alimentation - Câble d’interface USB - Plateau de sortie - CD-ROM - Guide de configuration rapide      ",
+      },
+      { label: "Garantie	", value: "1 ANS      " },
+    ],
+  },
+
+  {
+    _id: "208",
+    img: IMPRIMANTE_PANTUM_P2509W,
+    productName: "IMPRIMANTE PANTUM P2509W",
+    color: "Blanc",
+    badge: true,
+    brand: "Pantum",
+    des: "Imprimante Laser PANTUM P2509W - Fonctions: Impression - Technologie d'impression: Laser - Format Papier: A4 - Vitesse d’impression: 22 ppm (A4) / 23 ppm (Lettre) - Résolution d'impression: Jusqu'à 1200 x 1200 ppp - Entrée papier: de 150 feuilles - Sortie papier: 100 page - Mémoire: 128 Mo - Impression recto verso: Manuel - Heure de la première impression: Moins de 7.8s - Taille du support: A4, A5, A6, JIS B5, ISO B5, B6, Lettre, Légal, Exécutif, Déclaration, Enveloppe Monarch, Enveloppe DL, enveloppe C5, enveloppe C6, enveloppe NO.10, carte postale japonaise, Folio, Oficio, Grand 16k, 32k, 16k, Grand 32k, ZL,Yougata4, Carte postale, Younaga3, Nagagata3, Yougata2 - Toner rechargeable - Connecteurs: USB 2.0 ; Wi-Fi - Dimensions: 337 x 220 x 178 mm - Poids: 4,75 kg - Couleur: Blanc.",
+    cat: "Imprimante",
+    pdf: P25009W,
+    ficheTech: [
+      { label: "Print Speed", value: "22ppm(A4) / 23ppm(Letter)" },
+      { label: "First print out time (FPOT)", value: "<7.8s" },
+      { label: "Maximum monthly volume", value: "15 000" },
+      { label: "Recommended monthly volume", value: "1500 pages" },
+      { label: "Resolution(dpi)", value: "1200x1200" },
+      { label: "Print languages", value: "GDI" },
+      { label: "Duplex Mode", value: "Manual" },
+      { label: "Paper input", value: "150" },
+      { label: "Paper output", value: "100" },
+      {
+        label: "Media type",
+        value: "Plain, Thick, Transparency, Cardstock, Lable, Envelope, Thin",
+      },
+      {
+        label: "Dimensions (W*D*H)",
+        value: "337*220*178mm (13.27*8.66*7.01 inch)",
+      },
+      { label: "Weight (kg)", value: "4.75kg (10.47lbs)" },
+      { label: "Noise", value: "Printing:52dB, Standby:30dB" },
+      {
+        label: "Power Consumption",
+        value: "Printing: Average 370W, Ready: 38W, Sleep Mode: Less than 2W",
+      },
+      {
+        label: "Operating system compatibility",
+        value:
+          "Microsoft Windows Server2003/Server2008/Server2012/XP/Vista/Win7/Win8/Win8.1/Win10（32/64 Bit），Mac OS 10.7-10.13，Linux（Ubuntu 12.04&14.04&16.04&18.04）",
+      },
+      { label: "Connectivity", value: "Hi-Speed USB 2.0; WiFi 802.11b/g/n" },
+      { label: "Processor speed", value: "600MHz" },
+      { label: "Memory", value: "128MB" },
+      { label: "Starter Toner cartridge", value: "1600 pages" },
+      { label: "Standard replacement Consumable", value: "PD-219 (1600)" },
+    ],
+  },
+  {
+    _id: "233",
+    img: IMPRIMANTE_PANTUM_P2509,
+    productName: "IMPRIMANTE PANTUM P2509",
+    color: "Blanc",
+    badge: true,
+    brand: "Pantum",
+    des: "Imprimante Laser PANTUM P2509 - Fonctions Impression - Capacité d'impression Jusqu'à :1600 pages - Formats papier: A4 - Technologie d’impression Laser Monochrome - Vitesse d’impression Noir & Blanc: Jusqu’à 22 pages par minute en A4 - Résolution: 1200 dpi - Mémoire: 128 Mo - Connectivité: USB 2.0 - Dimensions: 337 x 220 x 178 mm - Poids: 4.75 kg - Toner recheargeable - Garantie: 1 an",
+    cat: "Imprimante",
+    pdf: P25009,
+    ficheTech: [
+      { label: "Print Speed", value: "22ppm(A4) / 23ppm(Letter)" },
+      { label: "First print out time (FPOT)", value: "<7.8s" },
+      { label: "Maximum monthly volume", value: "15 000" },
+      { label: "Recommended monthly volume", value: "1500 pages" },
+      { label: "Resolution(dpi)", value: "1200x1200" },
+      { label: "Print languages", value: "GDI" },
+      { label: "Duplex Mode", value: "Manual" },
+      { label: "Paper input", value: "150" },
+      { label: "Paper output", value: "100" },
+      {
+        label: "Media type",
+        value: "Plain, Thick, Transparency, Cardstock, Lable, Envelope, Thin",
+      },
+      {
+        label: "Dimensions (W*D*H)",
+        value: "337*220*178mm (13.27*8.66*7.01 inch)",
+      },
+      { label: "Weight (kg)", value: "4.75kg (10.47lbs)" },
+      { label: "Noise", value: "Printing:52dB, Standby:30dB" },
+      {
+        label: "Power Consumption",
+        value: "Printing: Average 370W, Ready: 38W, Sleep Mode: Less than 2W",
+      },
+      {
+        label: "Operating system compatibility",
+        value:
+          "Microsoft Windows Server2003/Server2008/Server2012/XP/Vista/Win7/Win8/Win8.1/Win10（32/64 Bit），Mac OS 10.7-10.13，Linux（Ubuntu 12.04&14.04&16.04&18.04）",
+      },
+      { label: "Connectivity", value: "Hi-Speed USB 2.0; WiFi 802.11b/g/n" },
+      { label: "Processor speed", value: "600MHz" },
+      { label: "Memory", value: "128MB" },
+      { label: "Starter Toner cartridge", value: "1600 pages" },
+      { label: "Standard replacement Consumable", value: "PD-219 (1600)" },
     ],
   },
 ];
