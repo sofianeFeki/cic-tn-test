@@ -16,28 +16,23 @@ const Color = () => {
   const colors = [
     {
       _id: 9001,
-      title: "Green",
-      base: "#22c55e",
+      title: "magenta",
+      base: "#FF00FF",
     },
     {
       _id: 9002,
-      title: "Gray",
-      base: "#a3a3a3",
+      title: "cyan",
+      base: "#00FFFF",
     },
     {
       _id: 9003,
-      title: "Red",
-      base: "#dc2626",
+      title: "black",
+      base: "#000000",
     },
     {
       _id: 9004,
-      title: "Yellow",
+      title: "yellow",
       base: "#f59e0b",
-    },
-    {
-      _id: 9005,
-      title: "Blue",
-      base: "#3b82f6",
     },
   ];
 
@@ -63,7 +58,7 @@ const Color = () => {
             {colors.map((item) => (
               <li
                 key={item._id}
-                style={{ color: item.base }}
+                style={{ color: item.base, fontWeight: 600 }}
                 className="border-b-[1px] border-b-[#F0F0F0] pb-2 flex items-center gap-2"
               >
                 <label htmlFor={item._id} className="cursor-pointer ">

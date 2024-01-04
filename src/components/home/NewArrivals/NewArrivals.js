@@ -7,6 +7,8 @@ import {
   newArrTwo,
   newArrThree,
   newArrFour,
+  ricoh1,
+  espson1,
 } from "../../../assets/images/index";
 import SampleNextArrow from "./SampleNextArrow";
 import SamplePrevArrow from "./SamplePrevArrow";
@@ -53,23 +55,21 @@ const NewArrivals = () => {
         <div className="px-2">
           <Product
             _id="100001"
-            img={newArrOne}
-            productName="Round Table Clock"
-            price="44.00"
-            color="Black"
+            img={ricoh1}
+            productName="IMPRIMANTE RICOH P501"
             badge={true}
-            des="Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis."
+            des="Ricoh P 501 - Imprimante - Noir et blanc - Recto-verso - LED - A4 - 1200 x 1200 ppp - jusqu'à 43 ppm - capacité : 600 feuilles - USB 2.0, Gigabit LAN, hôte USB 2.0"
           />
         </div>
         <div className="px-2">
           <Product
             _id="100002"
-            img={newArrTwo}
-            productName="Smart Watch"
+            img={espson1}
+            productName="IMPRIMANTE EPSON L3251 3EN1 A4 WIFI"
             price="250.00"
             color="Black"
             badge={true}
-            des="Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis."
+            des="Imprimante à Réservoir Intégré EPSON ECOTANK L3251 3En1 Couleur Wifi - Fonction: Impression, Copie, Numérisation - Technologie d'impression: Jet d'encre (tête d'impression Epson Micro Piezo) - Vitesse d'impression (N&B/Couleur): 33 pages/min , 15 pages/min - Qualité d'impression noir: 5.760 x 1.440 DPI (ppp) - Qualité d'impression couleur: 5.760 x 1.440 DPI (ppp) - Vitesse de Numérisation: 11 s noir (200 DPI) / 28 s couleur (200 DPI) - Impression recto/verso: Manuel - Format Papier: A4 - Interface: USB, Wi-Fi, Wi-Fi Direct - Capacité Papier: 100 feuilles - Dimensions: 375‎ x 347 x 179 mm - Poids: 3.9 kg - Garantie: 1 an    "
           />
         </div>
         <div className="px-2">

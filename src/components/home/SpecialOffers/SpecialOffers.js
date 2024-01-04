@@ -22,7 +22,7 @@ const CategoryPage = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
     setData(paginationItems);
-    console.log(selectedBrands);
+    console.log(categoryData);
   }, [data]);
 
   const filteredItems = data.filter((item) => {
@@ -57,6 +57,7 @@ const CategoryPage = () => {
             badge={true}
             des={data.des}
             ficheTech={data.ficheTech}
+            video={data.video}
           />
         ))}
       </div>

@@ -1,3 +1,4 @@
+import React, { lazy, Suspense } from "react";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -6,25 +7,37 @@ import {
   Route,
   ScrollRestoration,
 } from "react-router-dom";
-import Footer from "./components/home/Footer/Footer";
-import FooterBottom from "./components/home/Footer/FooterBottom";
-import Header from "./components/home/Header/Header";
-import HeaderBottom from "./components/home/Header/HeaderBottom";
-import SpecialCase from "./components/SpecialCase/SpecialCase";
-import About from "./pages/About/About";
-import SignIn from "./pages/Account/SignIn";
-import SignUp from "./pages/Account/SignUp";
-import Cart from "./pages/Cart/Cart";
-import Contact from "./pages/Contact/Contact";
-import Home from "./pages/Home/Home";
-import Journal from "./pages/Journal/Journal";
-import Offer from "./pages/Offer/Offer";
-import Payment from "./pages/payment/Payment";
-import ProductDetails from "./pages/ProductDetails/ProductDetails";
-import Shop from "./pages/Shop/Shop";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import SubHeader from "./components/home/Header/SubHeader";
+import { loading } from "./assets/images";
+import SignUp from "./pages/Account/SignUp";
+import SignIn from "./pages/Account/SignIn";
+
+const LazyHeader = lazy(() => import("./components/home/Header/Header"));
+const LazyHeaderBottom = lazy(() =>
+  import("./components/home/Header/HeaderBottom")
+);
+const LazySpecialCase = lazy(() =>
+  import("./components/SpecialCase/SpecialCase")
+);
+const LazyFooter = lazy(() => import("./components/home/Footer/Footer"));
+const LazyFooterBottom = lazy(() =>
+  import("./components/home/Footer/FooterBottom")
+);
+const LazyHome = lazy(() => import("./pages/Home/Home"));
+const LazyShop = lazy(() => import("./pages/Shop/Shop"));
+const LazyAbout = lazy(() => import("./pages/About/About"));
+const LazyContact = lazy(() => import("./pages/Contact/Contact"));
+const LazyJournal = lazy(() => import("./pages/Journal/Journal"));
+const LazyOffer = lazy(() => import("./pages/Offer/Offer"));
+const LazySubCat = lazy(() => import("./pages/subCat/SubCat"));
+const LazyPayment = lazy(() => import("./pages/payment/Payment"));
+const LazyProductDetails = lazy(() =>
+  import("./pages/ProductDetails/ProductDetails")
+);
+const LazyCart = lazy(() => import("./pages/Cart/Cart"));
+//const LazySignUp = lazy(() => import("./pages/Account/SignUp"));
+//const LazySignIn = lazy(() => import("./pages/Account/SignIn"));
 
 const Layout = () => {
   return (
@@ -41,34 +54,57 @@ const Layout = () => {
         pauseOnHover
         theme="colored"
       />
-      <Header />
-      <HeaderBottom />
-      <SpecialCase />
-      <ScrollRestoration />
-      <Outlet />
-      <Footer />
-      <FooterBottom />
+      <Suspense
+        fallback={
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              height: "100vh", // 100% of the viewport height
+            }}
+          >
+            <div>
+              <img
+                src={loading}
+                alt="Loading"
+                style={{ width: "100px", height: "100px" }}
+              />
+            </div>
+            <p style={{ marginTop: "10px" }}>Chemical Ink Company</p>
+          </div>
+        }
+      >
+        <LazyHeader />
+        <LazyHeaderBottom />
+        <LazySpecialCase />
+        <ScrollRestoration />
+        <Outlet />
+        <LazyFooter />
+        <LazyFooterBottom />
+      </Suspense>
     </div>
   );
 };
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path="/" element={<Layout />}>
-        {/* ==================== Header Navlink Start here =================== */}
-        <Route index element={<Home />}></Route>
-        <Route path="/shop" element={<Shop />}></Route>
-        <Route path="/about" element={<About />}></Route>
-        <Route path="/contact" element={<Contact />}></Route>
-        <Route path="/journal" element={<Journal />}></Route>
-        {/* ==================== Header Navlink End here ===================== */}
-        <Route path="/category/:category" element={<Offer />}></Route>
-        <Route path="/product/:_id" element={<ProductDetails />}></Route>
-        <Route path="/cart" element={<Cart />}></Route>
-        <Route path="/paymentgateway" element={<Payment />}></Route>
+        <Route index element={<LazyHome />} />
+        <Route path="/shop" element={<LazyShop />} />
+        <Route path="/about" element={<LazyAbout />} />
+        <Route path="/contact" element={<LazyContact />} />
+        <Route path="/journal" element={<LazyJournal />} />
+        <Route path="/category/:category" element={<LazyOffer />} />
+        <Route path="/category/:subCat" element={<LazySubCat />} />
+        <Route path="/product/:_id" element={<LazyProductDetails />} />
+        <Route path="/cart" element={<LazyCart />} />
+        <Route path="/paymentgateway" element={<LazyPayment />} />
       </Route>
-      <Route path="/signup" element={<SignUp />}></Route>
-      <Route path="/signin" element={<SignIn />}></Route>
+      <Route path="/signup" element={<SignUp />} />
+      <Route path="/signin" element={<SignIn />} />
     </Route>
   )
 );

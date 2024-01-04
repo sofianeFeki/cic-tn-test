@@ -10,6 +10,7 @@ const Pagination = ({ itemsPerPage }) => {
   const [itemOffset, setItemOffset] = useState(0);
   const [itemStart, setItemStart] = useState(1);
   const [endOffset, setEndOffset] = useState(itemsPerPage);
+  const [loding, setLoading] = useState(false);
 
   const selectedBrands = useSelector(
     (state) => state.orebiReducer.checkedBrands
@@ -52,6 +53,7 @@ const Pagination = ({ itemsPerPage }) => {
   }, [itemsPerPage]);
 
   const handlePageClick = (selectedPage) => {
+    setLoading(true);
     const newOffset = selectedPage * itemsPerPage;
     const newStart = newOffset + 1;
     const newEnd = newOffset + itemsPerPage;
@@ -59,6 +61,7 @@ const Pagination = ({ itemsPerPage }) => {
     setItemOffset(newOffset);
     setItemStart(newStart);
     setEndOffset(newEnd);
+    setLoading(false);
   };
 
   return (
@@ -77,6 +80,7 @@ const Pagination = ({ itemsPerPage }) => {
                 des={item.des}
                 pdf={item.pdf}
                 ficheTech={item.ficheTech}
+                video={item.video}
               />
             </div>
           ))

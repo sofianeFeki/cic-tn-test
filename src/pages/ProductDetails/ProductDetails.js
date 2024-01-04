@@ -4,43 +4,81 @@ import Breadcrumbs from "../../components/pageProps/Breadcrumbs";
 import ProductInfo from "../../components/pageProps/productDetails/ProductInfo";
 import { FaDownload } from "react-icons/fa";
 
-const tabs = [
-  {
-    id: "Fiche Technique",
-    label: "Fiche Technique",
-  },
-
-  {
-    id: "Video",
-    label: "Video",
-    content: (
-      <iframe
-        width="560"
-        height="315"
-        src="https://www.youtube.com/embed/watch?v=6e0yIRDVPlA&list=RD6e0yIRDVPlA&start_radio=1"
-        title="YouTube Video"
-        frameBorder="0"
-        allowFullScreen
-      ></iframe>
-    ),
-  },
-  // Add more tabs as needed
-];
-
 const ProductDetails = () => {
-  const location = useLocation();
   const [prevLocation, setPrevLocation] = useState("");
   const [productInfo, setProductInfo] = useState([]);
-  const [activeTab, setActiveTab] = useState(tabs[0].id);
-
-  const handleTabClick = (tabId) => {
-    setActiveTab(tabId);
-  };
+  const location = useLocation();
+  const [activeTab, setActiveTab] = useState("");
 
   useEffect(() => {
     setProductInfo(location.state.item);
     setPrevLocation(location.pathname);
+    console.log(productInfo);
   }, [location, productInfo.ficheTech]);
+
+  const tabs = [
+    {
+      id: "Fiche Technique",
+      label: "Fiche Technique",
+      content: productInfo.ficheTech ? (
+        <div>
+          <table className="table-auto w-full">
+            <tbody>
+              {productInfo.ficheTech.map((row) => (
+                <tr key={row.label} className="bg-gray-100">
+                  <td className="border px-4 py-2 font-semibold">
+                    {row.label}
+                  </td>
+                  <td className="border px-4 py-2">{row.value}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          {productInfo.pdf ? (
+            <div className="my-4 flex justify-end">
+              <a
+                href={productInfo.pdf}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white"
+              >
+                <button className="inline-flex items-center px-4 py-2 border border-gray-300 bg-blue-500 hover:bg-blue-600 text-white font-bodyFont">
+                  <FaDownload className="h-5 w-5 mr-2 text-white" />
+                  Download PDF
+                </button>
+              </a>{" "}
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
+      ) : null,
+    },
+
+    {
+      id: "Video",
+      label: "Video",
+      content: productInfo.video ? (
+        <div>
+          <video width="560" height="315" controls>
+            <source src={productInfo.video} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      ) : null,
+    },
+    // Add more tabs as needed
+  ];
+
+  const availableTabs = tabs.filter((tab) => tab.content !== null);
+
+  if (availableTabs.length > 0 && activeTab === "") {
+    setActiveTab(availableTabs[0].id);
+  }
+
+  const handleTabClick = (tabId) => {
+    setActiveTab(tabId);
+  };
 
   return (
     <div className="w-full mx-auto border-b-[1px] border-b-gray-300">
@@ -60,63 +98,39 @@ const ProductDetails = () => {
             <ProductInfo productInfo={productInfo} />
           </div>
         </div>
-        <div>
-          <div className=" space-x-4  pt-4">
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                className={`${
-                  activeTab === tab.id
-                    ? "bg-blue-500 text-white"
-                    : "bg-gray-200 text-gray-800"
-                } py-2 px-4  focus:outline-none`}
-                onClick={() => handleTabClick(tab.id)}
-              >
-                {tab.label}
-              </button>
-            ))}
+        {availableTabs.length > 0 && (
+          <div>
+            <div className=" space-x-4  pt-4">
+              {availableTabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  className={`${
+                    activeTab === tab.id
+                      ? "bg-blue-500 text-white"
+                      : "bg-gray-200 text-gray-800"
+                  } py-2 px-4  focus:outline-none`}
+                  onClick={() => handleTabClick(tab.id)}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+            <div className="my-4">
+              {availableTabs.map((tab) => (
+                <div
+                  key={tab.id}
+                  className={activeTab === tab.id ? "" : "hidden"}
+                >
+                  {tab.content !== null ? (
+                    <div>{tab.content}</div>
+                  ) : (
+                    <p>No content available</p>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="my-4">
-            {tabs.map((tab) => (
-              <div
-                key={tab.id}
-                className={activeTab === tab.id ? "" : "hidden"}
-              >
-                {tab.id === "Fiche Technique" && productInfo.ficheTech ? (
-                  <div>
-                    <table className="table-auto w-full">
-                      <tbody>
-                        {productInfo.ficheTech.map((row) => (
-                          <tr key={row.label} className="bg-gray-100">
-                            <td className="border px-4 py-2 font-semibold">
-                              {row.label}
-                            </td>
-                            <td className="border px-4 py-2">{row.value}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                    <div className="my-4 flex justify-end">
-                      <a
-                        href={productInfo.pdf}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-white"
-                      >
-                        <button className="inline-flex items-center px-4 py-2 border border-gray-300 bg-blue-500 hover:bg-blue-600 text-white font-bodyFont">
-                          <FaDownload className="h-5 w-5 mr-2 text-white" />
-                          Download PDF
-                        </button>
-                      </a>{" "}
-                    </div>
-                  </div>
-                ) : (
-                  <p>{tab.content}</p>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
+        )}
       </div>
     </div>
   );

@@ -31,7 +31,7 @@ const Product = (props) => {
   const handleWishList = () => {
     toast.success("Product add to wish List");
     setWishList(wishList.push(props));
-    console.log(wishList);
+    //console.log(wishList);
   };
   return (
     <div className="w-full relative group">

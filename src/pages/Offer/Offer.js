@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SpecialOffers from "../../components/home/SpecialOffers/SpecialOffers";
 import Breadcrumbs from "../../components/pageProps/Breadcrumbs";
 import { useParams } from "react-router-dom";
@@ -6,10 +6,22 @@ import ShopSideNav from "../../components/pageProps/shopPage/ShopSideNav";
 import Brand from "../../components/pageProps/shopPage/shopBy/Brand";
 import Color from "../../components/pageProps/shopPage/shopBy/Color";
 import Category from "../../components/pageProps/shopPage/shopBy/Category";
+import { useDispatch } from "react-redux";
+import { toggleBrand } from "../../redux/orebiSlice";
 
 const Offer = () => {
   const [prevLocation] = useState("");
   const { category } = useParams();
+
+  const dispatch = useDispatch();
+
+  const filterState = () => {
+    dispatch(toggleBrand(""));
+  };
+
+  // useEffect(() => {
+  //   filterState();
+  // }, []);
 
   const renderFilters = () => {
     switch (category) {
