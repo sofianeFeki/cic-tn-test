@@ -29,6 +29,10 @@ const Offer = () => {
         return <Brand />;
       case "Encre":
         return <Color />;
+      case "toner":
+        return <Color />;
+      case "Cartouche":
+        return <Color />;
       // Add more cases for other categories as needed
       default:
         return null;
