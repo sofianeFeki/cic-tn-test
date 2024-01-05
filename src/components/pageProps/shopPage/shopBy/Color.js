@@ -16,22 +16,22 @@ const Color = () => {
   const colors = [
     {
       _id: 9001,
-      title: "magenta",
+      title: "Magenta",
       base: "#FF00FF",
     },
     {
       _id: 9002,
-      title: "cyan",
+      title: "Cyan",
       base: "#00FFFF",
     },
     {
       _id: 9003,
-      title: "black",
+      title: "Noir",
       base: "#000000",
     },
     {
       _id: 9004,
-      title: "yellow",
+      title: "Yellow",
       base: "#f59e0b",
     },
   ];
