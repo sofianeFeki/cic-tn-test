@@ -167,6 +167,21 @@ import CTL_CAN_FX10 from "../images/products/toner/canon/CTL_CAN_FX10.png";
 import CTL_CAN_LBP703 from "../images/products/toner/canon/CTL_CAN_LBP703.png";
 import CTL_CAN_PG40 from "../images/products/toner/canon/CTL_CAN_PG40.png";
 
+import CTD_BRO_LC121BK from "../images/products/toner/brother/CTD_BRO_LC121BK.png";
+import CTD_BRO_LC121C from "../images/products/toner/brother/CTD_BRO_LC121C.png";
+import CTD_BRO_LC121M from "../images/products/toner/brother/CTD_BRO_LC121M.png";
+import CTD_BRO_LC121Y from "../images/products/toner/brother/CTD_BRO_LC121Y.png";
+import CTD_BRO_LC221BK from "../images/products/toner/brother/CTD_BRO_LC221BK.png";
+import CTD_BRO_LC221C from "../images/products/toner/brother/CTD_BRO_LC221C.png";
+import CTD_BRO_LC221M from "../images/products/toner/brother/CTD_BRO_LC221M.png";
+import CTD_BRO_LC221Y from "../images/products/toner/brother/CTD_BRO_LC221Y.png";
+import CTL_BRO_TN325BK from "../images/products/toner/brother/CTL_BRO_TN325BK.png";
+import CTL_BRO_TN325C from "../images/products/toner/brother/CTL_BRO_TN325C.png";
+import CTL_BRO_TN325M from "../images/products/toner/brother/CTL_BRO_TN325M.png";
+import CTL_BRO_TN325Y from "../images/products/toner/brother/CTL_BRO_TN325Y.png";
+import CTL_BRO_TN2220 from "../images/products/toner/brother/CTL_BRO_TN2220.png";
+import CTL_BRO_TN2320 from "../images/products/toner/brother/CTL_BRO_TN2320.png";
+
 import IMPRIMANTE_PANTUM_CP2200DW from "../images/products/imprimante/IMPRIMANTE_PANTUM_CP2200DW.webp";
 import IMPRIMANTE_PANTUM_BM5100FDW from "../images/products/imprimante/IMPRIMANTE_PANTUM_BM5100FDW.webp";
 import IMPRIMANTE_PANTUM_BP5100DN from "../images/products/imprimante/IMPRIMANTE_PANTUM_BP5100DN.webp";
@@ -422,4 +437,18 @@ export {
   CTL_CAN_FX10,
   CTL_CAN_LBP703,
   CTL_CAN_PG40,
+  CTD_BRO_LC121BK,
+  CTD_BRO_LC121C,
+  CTD_BRO_LC121M,
+  CTD_BRO_LC121Y,
+  CTD_BRO_LC221BK,
+  CTD_BRO_LC221C,
+  CTD_BRO_LC221M,
+  CTD_BRO_LC221Y,
+  CTL_BRO_TN325BK,
+  CTL_BRO_TN325C,
+  CTL_BRO_TN325M,
+  CTL_BRO_TN325Y,
+  CTL_BRO_TN2220,
+  CTL_BRO_TN2320,
 };

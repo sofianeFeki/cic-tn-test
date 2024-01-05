@@ -160,6 +160,20 @@ import {
   CTL_CAN_FX10,
   CTL_CAN_LBP703,
   CTL_CAN_PG40,
+  CTD_BRO_LC121BK,
+  CTD_BRO_LC121C,
+  CTD_BRO_LC121M,
+  CTD_BRO_LC121Y,
+  CTD_BRO_LC221BK,
+  CTD_BRO_LC221C,
+  CTD_BRO_LC221M,
+  CTD_BRO_LC221Y,
+  CTL_BRO_TN325BK,
+  CTL_BRO_TN325C,
+  CTL_BRO_TN325M,
+  CTL_BRO_TN325Y,
+  CTL_BRO_TN2220,
+  CTL_BRO_TN2320,
 } from "../assets/images/index";
 
 import "./style.css";
@@ -1555,7 +1569,7 @@ export const paginationItems = [
     color: "NOIR",
     badge: true,
     des: "TONER PANTUM CTL-2000 NOIR CTL_PAN_CTL-2000K ",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -1565,7 +1579,7 @@ export const paginationItems = [
     color: "NOIR",
     badge: true,
     des: "TONER PANTUM TL5120X ( 15 000 pages) CTL_PAN_TL5120X ",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -1575,7 +1589,7 @@ export const paginationItems = [
     color: "NOIR",
     badge: true,
     des: "TONER PANTUM TL5120H (6000 PAGES) CTL_PAN_TL5120H ",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -1585,7 +1599,7 @@ export const paginationItems = [
     color: "NOIR",
     badge: true,
     des: "TONER PANTUM TL5120 (3000pages) CTL_PAN_TL5120 ",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -1595,7 +1609,7 @@ export const paginationItems = [
     color: "NOIR",
     badge: true,
     des: "TONER PANTUM 3300 - TL-410H (3000pages) CTL_PAN_TL-410H ",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -1605,7 +1619,7 @@ export const paginationItems = [
     color: "NOIR",
     badge: true,
     des: "BOUTEILLE PANTUM RK-219/M6559N/P2509 CTL_PAN_PK-219 ",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -1615,7 +1629,7 @@ export const paginationItems = [
     color: "NOIR",
     badge: true,
     des: "TONER PANTUM PC-310H - 3500N CTL_PAN_PC-310H ",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -1625,7 +1639,7 @@ export const paginationItems = [
     color: "yellow",
     badge: true,
     des: "TONER PANTUM CTL-2000Y yellow CTL_PAN_CTL-2000Y ",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -1645,7 +1659,7 @@ export const paginationItems = [
     color: "yellow",
     badge: true,
     des: "TONER PANTUM CTL-2000HY yellow HC CTL_PAN_CTL-2000HY ",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
 
@@ -1658,7 +1672,7 @@ export const paginationItems = [
     color: "yellow",
     badge: true,
     des: "TONER LEXMARK 515H-MS312-MS415 CTL_LEX_51F5H00 ",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -1668,7 +1682,7 @@ export const paginationItems = [
     color: "yellow",
     badge: true,
     des: "Toner Lexmark MS317DN CTL_LEX_51B5000 ",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -1678,7 +1692,7 @@ export const paginationItems = [
     color: "yellow",
     badge: true,
     des: "TONER LEXMARK MS-331/MX331-43X CTL_LEX_55B5000 ",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -1688,7 +1702,7 @@ export const paginationItems = [
     color: "yellow",
     badge: true,
     des: "TONER LEXMARK MS521/MS321/MS621 CTL_LEX_56F5000 ",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -1698,7 +1712,7 @@ export const paginationItems = [
     color: "yellow",
     badge: true,
     des: "TONER LEXMARK CS310/CS410/CS510 H.C CTL_LEX_70C8HC0 ",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -1708,7 +1722,7 @@ export const paginationItems = [
     color: "yellow",
     badge: true,
     des: "TONER LEXMARK CS310/CS410/CS510 H.C CTL_LEX_70C8HK0 ",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -1718,7 +1732,7 @@ export const paginationItems = [
     color: "NOIR",
     badge: true,
     des: "CARTOUCHE LEXMARK CX317/417/517 NOIR CTL_LEX_71B50K0 ",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -1728,7 +1742,7 @@ export const paginationItems = [
     color: "cyan",
     badge: true,
     des: "TONER LEXMARK CS/CX421,CS521 cyan CTL_LEX_78C50C0 ",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -1738,7 +1752,7 @@ export const paginationItems = [
     color: "NOIR",
     badge: true,
     des: "TONER LEXMARK CS/CX421,CS521 NOIR  CTL_LEX_78C50K0 ",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -1748,7 +1762,7 @@ export const paginationItems = [
     color: "magenta",
     badge: true,
     des: "TONER LEXMARK CS/CX421,CS521 magenta CTL_LEX_78C50M0 ",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -1758,7 +1772,7 @@ export const paginationItems = [
     color: "yellow",
     badge: true,
     des: "TONER LEXMARK CS/CX421,CS521 yellow CTL_LEX_78C50Y0 ",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -1768,8 +1782,8 @@ export const paginationItems = [
     color: "",
     badge: true,
     des: "Cartouche Lexmark E 120 CTL_LEX_12016SE ",
-    cat: "Consommables",
-    subCat: "toner",
+    cat: "Cartouche",
+    subCat: "Cartouche",
   },
   {
     _id: "CTL_LEX_B225000",
@@ -1778,7 +1792,7 @@ export const paginationItems = [
     color: "",
     badge: true,
     des: "TONER LEXMARK MB/B2236DW CTL_LEX_B225000 ",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -1788,7 +1802,7 @@ export const paginationItems = [
     color: "",
     badge: true,
     des: "TONER LEXMARK 2338/2442/2546/2650 CTL_LEX_B235000 ",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -1798,7 +1812,7 @@ export const paginationItems = [
     color: "cyan",
     badge: true,
     des: "TONER LEXMARK C2425 cyan CTL_LEX_C235HC0 ",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -1808,8 +1822,8 @@ export const paginationItems = [
     color: "cyan",
     badge: true,
     des: "Cartouche Laser Lexmark C540 cyan C54X CTL_LEX_C540A1CG ",
-    cat: "Consommables",
-    subCat: "toner",
+    cat: "Cartouche",
+    subCat: "Cartouche",
   },
   {
     _id: "CTL_LEX_C540A1YG_1",
@@ -1818,8 +1832,8 @@ export const paginationItems = [
     color: "yellow",
     badge: true,
     des: "Cartouche Laser Lexmark C540 yellow C54X CTL_LEX_C540A1YG_1 ",
-    cat: "Consommables",
-    subCat: "toner",
+    cat: "Cartouche",
+    subCat: "Cartouche",
   },
   {
     _id: "CTL_LEX_C2350K0",
@@ -1828,8 +1842,8 @@ export const paginationItems = [
     color: "NOIR",
     badge: true,
     des: "CARTOUCHE LEXMARK 2425 CTL_LEX_C2350K0 ",
-    cat: "Consommables",
-    subCat: "toner",
+    cat: "Cartouche",
+    subCat: "Cartouche",
   },
   {
     _id: "CTL_LEX_C3250C0",
@@ -1838,7 +1852,7 @@ export const paginationItems = [
     color: "cyan",
     badge: true,
     des: "TONER LEXMARK C3224/MC3224 cyan CTL_LEX_C3250C0 ",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -1848,7 +1862,7 @@ export const paginationItems = [
     color: "NOIR",
     badge: true,
     des: "TONER LEXMARK C3224/MC3224 NOIR CTL_LEX_C3250K0 ",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -1858,7 +1872,7 @@ export const paginationItems = [
     color: "magenta",
     badge: true,
     des: "TONER LEXMARK C3224/MC3224 magenta CTL_LEX_C3250M0 ",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -1868,7 +1882,7 @@ export const paginationItems = [
     color: "yellow",
     badge: true,
     des: "TONER LEXMARK C3224/MC3224 yellow CTL_LEX_C3250Y0 ",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -1878,8 +1892,8 @@ export const paginationItems = [
     color: "yellow",
     badge: true,
     des: "Cartouche Lexmark E250/E350/E352 CTL_LEX_E250A11E ",
-    cat: "Consommables",
-    subCat: "toner",
+    cat: "Cartouche",
+    subCat: "Cartouche",
   },
   {
     _id: "CTL_LEX_E260_AD",
@@ -1888,7 +1902,7 @@ export const paginationItems = [
     color: "yellow",
     badge: true,
     des: "TONER LEXMARK E260 ADAPTABLE CTL_LEX_E260_AD",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -1898,8 +1912,8 @@ export const paginationItems = [
     color: "",
     badge: true,
     des: "Cartouche Lexmark E260/460A11E/E 462 CTL_LEX_E260A11E ",
-    cat: "Consommables",
-    subCat: "toner",
+    cat: "Cartouche",
+    subCat: "Cartouche",
   },
   {
     _id: "CTL_LEX_E360H11",
@@ -1908,7 +1922,7 @@ export const paginationItems = [
     color: "yellow",
     badge: true,
     des: "TONER PANTUM CTL-2000HY yellow HC CTL_LEX_E360H11 ",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -1918,7 +1932,7 @@ export const paginationItems = [
     color: "yellow",
     badge: true,
     des: "TONER PANTUM CTL-2000HY yellow HC CTL_LEX_T650A11E",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -1928,8 +1942,8 @@ export const paginationItems = [
     color: "yellow",
     badge: true,
     des: "Cartouche Lexmark W850 CTL_LEX_W850H21G ",
-    cat: "Consommables",
-    subCat: "toner",
+    cat: "Cartouche",
+    subCat: "Cartouche",
   },
 
   // =================== toner toshiba =================
@@ -1941,7 +1955,7 @@ export const paginationItems = [
     color: "",
     badge: false,
     des: "TONER TOSHIBA T1810/E STUDIO 211 TN_TOS_T1810",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -1951,7 +1965,7 @@ export const paginationItems = [
     color: "",
     badge: false,
     des: "TOSHIBA TONER T2507-E STUDIO 2006-2506 TN_TOS_T2507",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -1961,7 +1975,7 @@ export const paginationItems = [
     color: "",
     badge: false,
     des: "TONER TOSHIBA 2508A -4508A-3508A - T3008-5008 TN_TOS_T3008E",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -1971,7 +1985,7 @@ export const paginationItems = [
     color: "",
     badge: false,
     des: "Toner Toshiba T3520 E STUDIO 350/352 TN_TOS_T3520",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -1981,7 +1995,7 @@ export const paginationItems = [
     color: "",
     badge: false,
     des: "TONER TOSHIBA T4030-332S TN_TOS_T4030",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -1991,7 +2005,7 @@ export const paginationItems = [
     color: "",
     badge: false,
     des: "Toner Toshiba T4590/T256 TN_TOS_T4590",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -2001,7 +2015,7 @@ export const paginationItems = [
     color: "NOIR",
     badge: false,
     des: "Toner Toshiba T5018E NOIR TN_TOS_T5018E",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -2024,7 +2038,7 @@ export const paginationItems = [
     color: "cyan",
     badge: false,
     des: "Toner Samsung Laser CLT 406 cyan CTL_SAM_CLTC406S",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -2034,7 +2048,7 @@ export const paginationItems = [
     color: "",
     badge: false,
     des: "CARTOUCHE SAMSUNG CLT-C506L/SEE CTL_SAM_CLTC506L",
-    cat: "Consommables",
+    cat: "Cartouche",
     subCat: "Cartouche",
   },
   {
@@ -2044,7 +2058,7 @@ export const paginationItems = [
     color: "cyan",
     badge: false,
     des: "Cartouche Samsung MLT-D506 cyan -CLX-6260ND CTL_SAM_CLTC506S",
-    cat: "Consommables",
+    cat: "Cartouche",
     subCat: "Cartouche",
   },
   {
@@ -2054,7 +2068,7 @@ export const paginationItems = [
     color: "cyan",
     badge: false,
     des: "TONER SAMSUNG C609 cyan CTL_SAM_CLTC609S",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -2064,7 +2078,7 @@ export const paginationItems = [
     color: "",
     badge: false,
     des: "Toner Samsung Laser CLT 406 NOIR CTL_SAM_CLTK406S",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -2074,7 +2088,7 @@ export const paginationItems = [
     color: "",
     badge: false,
     des: "CARTOUCHE SAMSUNG CLT-K506L/SEE CTL_SAM_CLTK506L",
-    cat: "Consommables",
+    cat: "Cartouche",
     subCat: "Cartouche",
   },
   {
@@ -2084,7 +2098,7 @@ export const paginationItems = [
     color: "Noir",
     badge: false,
     des: "Cartouche Samsung MLT-D506 black /CLX-6260ND CTL_SAM_CLTK506S",
-    cat: "Consommables",
+    cat: "Cartouche",
     subCat: "Cartouche",
   },
   {
@@ -2094,7 +2108,7 @@ export const paginationItems = [
     color: "Noir",
     badge: false,
     des: "TONER SAMSUNG K609S black CTL_SAM_CLTK609S",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -2104,7 +2118,7 @@ export const paginationItems = [
     color: "magenta",
     badge: false,
     des: "Toner Samsung Laser CLT 406 magenta CTL_SAM_CLTM406S",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -2114,7 +2128,7 @@ export const paginationItems = [
     color: "",
     badge: false,
     des: "CARTOUCHE SAMSUNG CLT-M506L/SEE CTL_SAM_CLTM506L",
-    cat: "Consommables",
+    cat: "Cartouche",
     subCat: "Cartouche",
   },
   {
@@ -2124,7 +2138,7 @@ export const paginationItems = [
     color: "magenta",
     badge: false,
     des: "Cartouche Samsung MLT-D506 magenta -CLX-6260ND CTL_SAM_CLTM506S",
-    cat: "Consommables",
+    cat: "Cartouche",
     subCat: "Cartouche",
   },
   {
@@ -2134,7 +2148,7 @@ export const paginationItems = [
     color: "yellow",
     badge: false,
     des: "CARTOUCHE SAMSUNG CLT-Y506L/SEE CTL_SAM_CLTY506L",
-    cat: "Consommables",
+    cat: "Cartouche",
     subCat: "Cartouche",
   },
   {
@@ -2144,7 +2158,7 @@ export const paginationItems = [
     color: "",
     badge: false,
     des: "Cartouche Samsung MLT-D506 yellow /CLX-6260ND ",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -2154,7 +2168,7 @@ export const paginationItems = [
     color: "yellow",
     badge: false,
     des: "TONER SAMSUNG Y609 yellow CTL_SAM_CLTY609S",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -2164,7 +2178,7 @@ export const paginationItems = [
     color: "",
     badge: false,
     des: "Samsung ML2160/ML2162/ML2168/SCX3400 CTL_SAM_ML101X_SEE",
-    cat: "Consommables",
+    cat: "Cartouche",
     subCat: "Cartouche",
   },
   {
@@ -2174,7 +2188,7 @@ export const paginationItems = [
     color: "",
     badge: false,
     des: "CARTOUCHE SAMSUNG ML103L/SCX4727 CTL_SAM_ML103L",
-    cat: "Consommables",
+    cat: "Cartouche",
     subCat: "Cartouche",
   },
   {
@@ -2185,7 +2199,7 @@ export const paginationItems = [
     color: "",
     badge: false,
     des: "Cartouche Samsung MLT-D104S /ML1660/ML1665/ML1670/ML1675/ML1860 CTL_SAM_ML104S_SEE",
-    cat: "Consommables",
+    cat: "Cartouche",
     subCat: "Cartouche",
   },
   {
@@ -2195,7 +2209,7 @@ export const paginationItems = [
     color: "",
     badge: false,
     des: "Cartouche Samsung MLT111S/ELS /2022 CTL_SAM_ML111S_ELS",
-    cat: "Consommables",
+    cat: "Cartouche",
     subCat: "Cartouche",
   },
   {
@@ -2205,7 +2219,7 @@ export const paginationItems = [
     color: "Noir",
     badge: false,
     des: "Cartouche Samsung MLT 111S/2020/2070 CTL_SAM_ML111S_SEE",
-    cat: "Consommables",
+    cat: "Cartouche",
     subCat: "Cartouche",
   },
   {
@@ -2215,7 +2229,7 @@ export const paginationItems = [
     color: "",
     badge: false,
     des: "CARTOUCHE SAMSUNG MLT-D116S/2675 CTL_SAM_ML116S_SEE",
-    cat: "Consommables",
+    cat: "Cartouche",
     subCat: "Cartouche",
   },
   {
@@ -2225,18 +2239,18 @@ export const paginationItems = [
     color: "",
     badge: false,
     des: "Cartouche Samsung ML2010/ML2015/ML2020/ML2510/ML2570/2571 ",
-    cat: "Consommables",
+    cat: "Cartouche",
     subCat: "Cartouche",
   },
   {
     _id: "CTL_SAM_MLTD307S",
     img: CTL_SAM_MLTD307S,
-    productName: "",
+    productName: "CTL_SAM_MLTD307S",
     color: "",
     badge: false,
     des: "",
-    cat: "Consommables",
-    subCat: "toner",
+    cat: "Cartouche",
+    subCat: "Cartouche",
   },
   // =================== cartouche espson =================
 
@@ -2257,7 +2271,7 @@ export const paginationItems = [
     color: "yellow",
     badge: false,
     des: "Cartouche Epson  ALC 1700 yellow HC CTL_EPS_SO50611",
-    cat: "Consommables",
+    cat: "Cartouche",
     subCat: "Cartouche",
   },
   {
@@ -2297,7 +2311,7 @@ export const paginationItems = [
     color: "",
     badge: false,
     des: "Cartouche Jet D'encre EPSON 27XL CTL_EPS_T27114012",
-    cat: "Consommables",
+    cat: "Cartouche",
     subCat: "Cartouche",
   },
 
@@ -2320,8 +2334,8 @@ export const paginationItems = [
     color: "",
     badge: false,
     des: "Cartouche Canon CL511 CTD_CAN_CL511",
-    cat: "Consommables",
-    subCat: "cartouche",
+    cat: "Cartouche",
+    subCat: "Cartouche",
   },
   {
     _id: "CTD_CAN_CLI_551_M",
@@ -2330,8 +2344,8 @@ export const paginationItems = [
     color: "magenta",
     badge: false,
     des: "CARTOUCHE CANON 6511B001 MG6350 magenta CTD_CAN_CLI_551_M",
-    cat: "Consommables",
-    subCat: "cartouche",
+    cat: "Cartouche",
+    subCat: "Cartouche",
   },
   {
     _id: "CTD_CAN_CLI_551BK",
@@ -2340,8 +2354,8 @@ export const paginationItems = [
     color: "NOIR",
     badge: false,
     des: "CARTOUCHE CANON  MG6350 NOIR CTD_CAN_CLI_551BK",
-    cat: "Consommables",
-    subCat: "cartouche",
+    cat: "Cartouche",
+    subCat: "Cartouche",
   },
   {
     _id: "CTD_CAN_CLI_551C",
@@ -2350,8 +2364,8 @@ export const paginationItems = [
     color: "cyan",
     badge: false,
     des: "CARTOUCHE CANON 6511B001 MG6350 cyan CTD_CAN_CLI_551C",
-    cat: "Consommables",
-    subCat: "cartouche",
+    cat: "Cartouche",
+    subCat: "Cartouche",
   },
   {
     _id: "CTD_CAN_CLI_551Y",
@@ -2360,8 +2374,8 @@ export const paginationItems = [
     color: "yellow",
     badge: false,
     des: "CARTOUCHE CANON 6511B001 MG6350 JAUNE CTD_CAN_CLI_551Y",
-    cat: "Consommables",
-    subCat: "cartouche",
+    cat: "Cartouche",
+    subCat: "Cartouche",
   },
   {
     _id: "CTD_CAN_CLI426C",
@@ -2370,7 +2384,7 @@ export const paginationItems = [
     color: "cyan",
     badge: false,
     des: "Cartouche Canon IP4840 cyan CTD_CAN_CLI426C",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -2380,7 +2394,7 @@ export const paginationItems = [
     color: "NOIR",
     badge: false,
     des: "Cartouche Canon CLI521-MP540 NOIR",
-    cat: "Consommables",
+    cat: "Cartouche",
     subCat: "Cartouche",
   },
   {
@@ -2390,7 +2404,7 @@ export const paginationItems = [
     color: "",
     badge: false,
     des: "CARTOUCHE CANON GI-490BK-2411-1400 CTD_CAN_GI490BK",
-    cat: "Consommables",
+    cat: "Cartouche",
     subCat: "Cartouche",
   },
   {
@@ -2400,7 +2414,7 @@ export const paginationItems = [
     color: "cyan",
     badge: false,
     des: "CARTOUCHE CANON GI-490C cyan CTD_CAN_GI490C",
-    cat: "Consommables",
+    cat: "Cartouche",
     subCat: "Cartouche",
   },
   {
@@ -2410,7 +2424,7 @@ export const paginationItems = [
     color: "magenta",
     badge: false,
     des: "CARTOUCHE CANON GI-490 magenta",
-    cat: "Consommables",
+    cat: "Cartouche",
     subCat: "Cartouche",
   },
   {
@@ -2420,7 +2434,7 @@ export const paginationItems = [
     color: "yellow",
     badge: false,
     des: "CARTOUCHE CANON GI-490 yellow CTD_CAN_GI490Y",
-    cat: "Consommables",
+    cat: "Cartouche",
     subCat: "Cartouche",
   },
   {
@@ -2430,7 +2444,7 @@ export const paginationItems = [
     color: "NOIR",
     badge: false,
     des: "CARTOUCHE CANON 6511B001 MG6350 NOIR CTD_CAN_PGI550",
-    cat: "Consommables",
+    cat: "Cartouche",
     subCat: "Cartouche",
   },
   {
@@ -2440,7 +2454,7 @@ export const paginationItems = [
     color: "yellow",
     badge: false,
     des: "CARTOUCHE CANON LBP653CDW yellow CTL_CAN_1247C002",
-    cat: "Consommables",
+    cat: "Cartouche",
     subCat: "Cartouche",
   },
   {
@@ -2450,7 +2464,7 @@ export const paginationItems = [
     color: "magenta",
     badge: false,
     des: "CARTOUCHE CANON LBP653CDW magenta CTL_CAN_1248C002",
-    cat: "Consommables",
+    cat: "Cartouche",
     subCat: "Cartouche",
   },
   {
@@ -2460,7 +2474,7 @@ export const paginationItems = [
     color: "cyan",
     badge: false,
     des: "CARTOUCHE CANON LBP653CDW cyan CTL_CAN_1249C002",
-    cat: "Consommables",
+    cat: "Cartouche",
     subCat: "Cartouche",
   },
   {
@@ -2470,7 +2484,7 @@ export const paginationItems = [
     color: "NOIR",
     badge: false,
     des: "CARTOUCHE CANON LBP653CDW NOIR CTL_CAN_1250C002",
-    cat: "Consommables",
+    cat: "Cartouche",
     subCat: "Cartouche",
   },
   {
@@ -2480,7 +2494,7 @@ export const paginationItems = [
     color: "yellow",
     badge: false,
     des: "TONER CANON MF645CX/ 054H JAUNE CTL_CAN_3025C002",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -2490,7 +2504,7 @@ export const paginationItems = [
     color: "magenta",
     badge: false,
     des: "TONER CANON MF645CX/ 054H magenta CTL_CAN_3026C002",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -2500,7 +2514,7 @@ export const paginationItems = [
     color: "cyan",
     badge: false,
     des: "TONER CANON MF645CX-054H cyan CTL_CAN_3027C002",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -2510,7 +2524,7 @@ export const paginationItems = [
     color: "NOIR",
     badge: false,
     des: "TONER CANON MF645CX-054H NOIR CTL_CAN_3027C002",
-    cat: "Consommables",
+    cat: "toner",
     subCat: "toner",
   },
   {
@@ -2520,7 +2534,7 @@ export const paginationItems = [
     color: "NOIR",
     badge: false,
     des: "CARTOUCHE CANON LBP3010 black CTL_CAN_712",
-    cat: "Consommables",
+    cat: "Cartouche",
     subCat: "Cartouche",
   },
   {
@@ -2530,7 +2544,7 @@ export const paginationItems = [
     color: "",
     badge: false,
     des: "CARTOUCHE CANON MF4410/3500B00/L150/L170 / N 728 CTL_CAN_728",
-    cat: "Consommables",
+    cat: "Cartouche",
     subCat: "Cartouche",
   },
   {
@@ -2540,7 +2554,7 @@ export const paginationItems = [
     color: "NOIR",
     badge: false,
     des: "Cartouche Canon laser 716 NOIR LBP5050 CTL_CAN_EP716BK",
-    cat: "Consommables",
+    cat: "Cartouche",
     subCat: "Cartouche",
   },
   {
@@ -2550,7 +2564,7 @@ export const paginationItems = [
     color: "cyan",
     badge: false,
     des: "Cartouche Canon laser 716 cyan LBP5050 CTL_CAN_EP716C",
-    cat: "Consommables",
+    cat: "Cartouche",
     subCat: "Cartouche",
   },
   {
@@ -2560,7 +2574,7 @@ export const paginationItems = [
     color: "magenta",
     badge: false,
     des: "Cartouche Canon laser 716 magenta LBP5050 CTL_CAN_EP716M",
-    cat: "Consommables",
+    cat: "Cartouche",
     subCat: "Cartouche",
   },
   {
@@ -2570,7 +2584,7 @@ export const paginationItems = [
     color: "yellow",
     badge: false,
     des: "Cartouche Canon laser 716 yellow LBP5050 CTL_CAN_EP716Y",
-    cat: "Consommables",
+    cat: "Cartouche",
     subCat: "Cartouche",
   },
   {
@@ -2580,7 +2594,7 @@ export const paginationItems = [
     color: "",
     badge: false,
     des: " CANON EP 725/LBP6000/MF3010 CTL_CAN_EP725 CTL_CAN_EP725",
-    cat: "Consommables",
+    cat: "Cartouche",
     subCat: "Cartouche",
   },
   {
@@ -2590,7 +2604,7 @@ export const paginationItems = [
     color: "",
     badge: false,
     des: "Cartouche Laser Canon FX 10  L100-L120 CTL_CAN_FX10",
-    cat: "Consommables",
+    cat: "Cartouche",
     subCat: "Cartouche",
   },
   {
@@ -2600,7 +2614,7 @@ export const paginationItems = [
     color: "",
     badge: false,
     des: "Cartouche Canon LBP 2900-3000-7616A005/703 CTL_CAN_LBP703",
-    cat: "Consommables",
+    cat: "Cartouche",
     subCat: "Cartouche",
   },
   {
@@ -2610,7 +2624,150 @@ export const paginationItems = [
     color: "NOIR",
     badge: false,
     des: "Cartouche Canon PIXMA IP 1600 Noir PG 40 CTL_CAN_PG40",
-    cat: "Consommables",
+    cat: "Cartouche",
     subCat: "Cartouche",
+  },
+  // =================== cartouche brother =================
+  {
+    _id: "CTD_BRO_LC121BK",
+    img: CTD_BRO_LC121BK,
+    productName: "Cartouche  Brother  MFCJ870DW BLACK",
+    color: "NOIR",
+    badge: false,
+    des: "Cartouche  Brother  MFCJ870DW BLACK CTD_BRO_LC121BK",
+    cat: "Cartouche",
+    subCat: "Cartouche",
+  },
+  {
+    _id: "CTD_BRO_LC121C",
+    img: CTD_BRO_LC121C,
+    productName: "Cartouche  Brother  MFCJ870DW CYAN",
+    color: "CYAN",
+    badge: false,
+    des: "Cartouche  Brother  MFCJ870DW CYAN CTD_BRO_LC121C",
+    cat: "Cartouche",
+    subCat: "Cartouche",
+  },
+  {
+    _id: "CTD_BRO_LC121M",
+    img: CTD_BRO_LC121M,
+    productName: "Cartouche  Brother  MFCJ870DW MAGENTA",
+    color: "magenta",
+    badge: false,
+    des: "Cartouche  Brother  MFCJ870DW MAGENTA CTD_BRO_LC121M",
+    cat: "Cartouche",
+    subCat: "Cartouche",
+  },
+  {
+    _id: "CTD_BRO_LC121Y",
+    img: CTD_BRO_LC121Y,
+    productName: "Cartouche  Brother  MFCJ870DW YELLOW",
+    color: "yellow",
+    badge: false,
+    des: "Cartouche  Brother  MFCJ870DW YELLOW CTD_BRO_LC121Y",
+    cat: "Cartouche",
+    subCat: "Cartouche",
+  },
+  {
+    _id: "CTD_BRO_LC221BK",
+    img: CTD_BRO_LC221BK,
+    productName: "CARTOUCHE BROTHER LC221 NOIR",
+    color: "NOIR",
+    badge: false,
+    des: "CARTOUCHE BROTHER LC221 NOIR CTD_BRO_LC221BK",
+    cat: "Cartouche",
+    subCat: "Cartouche",
+  },
+  {
+    _id: "CTD_BRO_LC221C",
+    img: CTD_BRO_LC221C,
+    productName: "CARTOUCHE BROTHER LC221 CYAN",
+    color: "cyan",
+    badge: false,
+    des: "CARTOUCHE BROTHER LC221 CYAN CTD_BRO_LC221C",
+    cat: "Cartouche",
+    subCat: "Cartouche",
+  },
+  {
+    _id: "CTD_BRO_LC221M",
+    img: CTD_BRO_LC221M,
+    productName: "CARTOUCHE BROTHER LC221 MAGENTA",
+    color: "magenta",
+    badge: false,
+    des: "CARTOUCHE BROTHER LC221 MAGENTA CTD_BRO_LC221M",
+    cat: "Cartouche",
+    subCat: "Cartouche",
+  },
+  {
+    _id: "CTD_BRO_LC221Y",
+    img: CTD_BRO_LC221Y,
+    productName: "CARTOUCHE BROTHER LC221 YELLOW",
+    color: "yellow",
+    badge: false,
+    des: "CARTOUCHE BROTHER LC221 YELLOW CTD_BRO_LC221Y",
+    cat: "Cartouche",
+    subCat: "Cartouche",
+  },
+  {
+    _id: "CTL_BRO_TN325BK",
+    img: CTL_BRO_TN325BK,
+    productName: "TONER BROTHER TN325 NOIR",
+    color: "NOIR",
+    badge: false,
+    des: "TONER BROTHER TN325 NOIR CTL_BRO_TN325BK",
+    cat: "toner",
+    subCat: "toner",
+  },
+  {
+    _id: "CTL_BRO_TN325C",
+    img: CTL_BRO_TN325C,
+    productName: "TONER BROTHER TN325 CYAN",
+    color: "cyan",
+    badge: false,
+    des: "TONER BROTHER TN325 CYAN CTL_BRO_TN325C",
+    cat: "toner",
+    subCat: "toner",
+  },
+  {
+    _id: "CTL_BRO_TN325M",
+    img: CTL_BRO_TN325M,
+    productName: "TONER BROTHER TN325 MAGENTA",
+    color: "magenta",
+    badge: false,
+    des: "TONER BROTHER TN325 MAGENTA CTL_BRO_TN325M",
+    cat: "toner",
+    subCat: "toner",
+  },
+  {
+    _id: "CTL_BRO_TN325Y",
+    img: CTL_BRO_TN325Y,
+    productName: "TONER BROTHER TN325 YELLOW",
+    color: "yellow",
+    badge: false,
+    des: "TONER BROTHER TN325 YELLOW CTL_BRO_TN325Y",
+    cat: "toner",
+    subCat: "toner",
+  },
+  {
+    _id: "CTL_BRO_TN2220",
+    img: CTL_BRO_TN2220,
+    productName:
+      "Cartouche Brother TN 2220 - HL2240-HL2240D-HL2250DN-MFC7360N-TN2220",
+    color: "NOIR",
+    badge: false,
+    des: "Cartouche Brother TN 2220 - HL2240/HL2240D/HL2250DN/MFC7360N/TN2220 CTL_BRO_TN2220",
+    cat: "Cartouche",
+    subCat: "Cartouche",
+  },
+  {
+    _id: "CTL_BRO_TN2320",
+    img: CTL_BRO_TN2320,
+    productName:
+      "TONER BROTHER L2300-L2340W-L2360DN-L2360DW-L2500DW-L2540DN-TN2320",
+    color: "NOIR",
+    badge: false,
+    des: "TONER BROTHER L2300/L2340W/L2360DN/L2360DW/L2500DW/L2540DN/TN2320 CTL_BRO_TN2320",
+    cat: "toner",
+    subCat: "toner",
   },
 ];

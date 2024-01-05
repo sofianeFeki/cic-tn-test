@@ -30,6 +30,14 @@ const Category = () => {
       _id: 9009,
       title: "Bac de dechet",
     },
+    {
+      _id: 9010,
+      title: "toner",
+    },
+    {
+      _id: 9011,
+      title: "Cartouche",
+    },
   ];
 
   const handleToggleCategory = (category) => {
