@@ -4370,7 +4370,7 @@ export const paginationItems = [
   {
     _id: "CTL_HP_W2413A",
     img: CTL_HP_W2413A,
-    productName: "TONER HP 216A MAGENTA/W2413A",
+    productName: "TONER HP 216A MAGENTA-W2413A",
     color: "Magenta",
     badge: false,
     des: "TONER HP 216A MAGENTA/W2413A CTL_HP_W2413A",
