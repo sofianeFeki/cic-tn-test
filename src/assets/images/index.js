@@ -1,9 +1,9 @@
 import logo from "./orebiLogo.png";
 import logoLight from "./logoLight.png";
 import loading from "./loading.gif";
-import bannerImgOne from "./banner/bannerImgOne.webp";
-import bannerImgTwo from "./banner/bannerImgTwo.webp";
-import bannerImgThree from "./banner/bannerImgThree.webp";
+import bannerImg1 from "./banner/bannerImg1.png";
+import bannerImg2 from "./banner/bannerImg2.jpg";
+import bannerImg3 from "./banner/bannerImg3.jpeg";
 import saleImgOne from "./sale/saleImgOne.webp";
 import saleImgTwo from "./sale/saleImgTwo.webp";
 import saleImgThree from "./sale/saleImgThree.webp";
@@ -407,9 +407,9 @@ export {
   logo,
   logoLight,
   loading,
-  bannerImgOne,
-  bannerImgTwo,
-  bannerImgThree,
+  bannerImg1,
+  bannerImg2,
+  bannerImg3,
   saleImgOne,
   saleImgTwo,
   saleImgThree,

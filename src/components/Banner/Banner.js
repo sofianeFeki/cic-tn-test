@@ -1,30 +1,26 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
-import {
-  bannerImgOne,
-  bannerImgTwo,
-  bannerImgThree,
-} from "../../assets/images";
+import { bannerImg1, bannerImg2, bannerImg3 } from "../../assets/images";
 import Image from "../designLayouts/Image";
 
 const CustomSlide = ({ Subtext, imgSrc, text, buttonLink, buttonText }) => (
   <div
-    style={{
-      position: "relative",
-      backgroundColor: "#F5F5F3", // Gray background color
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center", // Center vertically
-    }}
+  // style={{
+  //   position: "relative",
+  //   backgroundColor: "#F5F5F3", // Gray background color
+  //   display: "flex",
+  //   justifyContent: "center",
+  //   alignItems: "center", // Center vertically
+  // }}
   >
     <div
-      style={{
-        maxWidth: "450px", // Adjust the maxWidth as needed
-        marginRight: "100px", // Add margin between text/button and image
-      }}
+    // style={{
+    //   maxWidth: "450px", // Adjust the maxWidth as needed
+    //   marginRight: "100px", // Add margin between text/button and image
+    // }}
     >
-      <h1
+      {/* <h1
         style={{
           marginBottom: "15px",
           fontSize: "2.5rem", // Adjust the font size as needed
@@ -33,8 +29,8 @@ const CustomSlide = ({ Subtext, imgSrc, text, buttonLink, buttonText }) => (
         }}
       >
         {text}
-      </h1>
-      <p
+      </h1> */}
+      {/* <p
         style={{
           marginBottom: "25px",
           fontSize: "1.5rem", // Adjust the font size as needed
@@ -42,15 +38,15 @@ const CustomSlide = ({ Subtext, imgSrc, text, buttonLink, buttonText }) => (
         }}
       >
         {Subtext}
-      </p>
+      </p> */}
 
-      <Link to="/about">
+      {/* <Link to="/about">
         <button className="bg-primeColor text-white text-lg font-bodyFont w-[185px] h-[50px] hover:bg-black duration-300 font-bold">
           {buttonText}
         </button>
-      </Link>
+      </Link> */}
     </div>
-    <div style={{ marginLeft: "100px" }}>
+    <div>
       <Image imgSrc={imgSrc} />
     </div>
   </div>
@@ -151,28 +147,25 @@ const Banner = () => {
 
   const slides = [
     {
-      imgSrc: bannerImgOne,
-      text: "Enhance Your Printing Experience",
-      Subtext:
-        "Explore our premium printers and consumables for exceptional results",
-      buttonLink: "/offer",
-      buttonText: "git test",
+      imgSrc: bannerImg1,
+      text: "",
+      Subtext: "",
+      buttonLink: "",
+      buttonText: "",
     },
     {
-      imgSrc: bannerImgOne,
-      text: "Quality Printing Solutions",
-      Subtext:
-        "Discover our wide range of printers and consumables designed for professional printing needs.",
-      buttonLink: "/shop",
-      buttonText: "About-us",
+      imgSrc: bannerImg2,
+      text: "",
+      Subtext: "",
+      buttonLink: "",
+      buttonText: "",
     },
     {
-      imgSrc: bannerImgOne,
-      text: "Efficiency Redefined",
-      Subtext:
-        "Maximize productivity with our advanced printers and high-quality consumables. ",
-      buttonLink: "/contact",
-      buttonText: "Contact-us",
+      imgSrc: bannerImg3,
+      text: " ",
+      Subtext: "",
+      buttonLink: "",
+      buttonText: "",
     },
 
     // Add more slides as needed
