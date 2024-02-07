@@ -5,8 +5,8 @@ import bannerImg1 from "./banner/bannerImg1.png";
 import bannerImg2 from "./banner/bannerImg2.jpg";
 import bannerImg3 from "./banner/bannerImg3.jpeg";
 import saleImgOne from "./sale/saleImgOne.webp";
-import saleImgTwo from "./sale/saleImgTwo.webp";
-import saleImgThree from "./sale/saleImgThree.webp";
+import saleImgTwo from "./sale/saleImgTwo.jpg";
+import saleImgThree from "./sale/saleImgThree.jpg";
 // ============== Products Start here ====================
 // New Arrivals
 import newArrOne from "./products/newArrival/newArrOne.webp";
@@ -92,6 +92,65 @@ import CTL_LEX_E260A11E from "../images/products/toner/lexmark/CTL_LEX_E260A11E.
 import CTL_LEX_E360H11 from "../images/products/toner/lexmark/CTL_LEX_E360H11.webp";
 import CTL_LEX_T650A11E from "../images/products/toner/lexmark/CTL_LEX_T650A11E.webp";
 import CTL_LEX_W850H21G from "../images/products/toner/lexmark/CTL_LEX_W850H21G.webp";
+
+import CTL_XRO_106R2773 from "../images/products/toner/xerox/CTL_XRO_106R2773.png";
+import CTL_XER_6R1606 from "../images/products/toner/xerox/CTL_XER_6R1606.png";
+import CTL_XER_6R1513 from "../images/products/toner/xerox/CTL_XER_6R1513.png";
+import CTL_XER_113R00737 from "../images/products/toner/xerox/CTL_XER_113R00737.png";
+import CTL_XER_113R00668 from "../images/products/toner/xerox/CTL_XER_113R00668.png";
+import CTL_XER_106R2763 from "../images/products/toner/xerox/CTL_XER_106R2763.png";
+import CTL_XER_106R2252 from "../images/products/toner/xerox/CTL_XER_106R2252.png";
+import CTL_XER_106R2180 from "../images/products/toner/xerox/CTL_XER_106R2180.png";
+import CTL_XER_106R1413 from "../images/products/toner/xerox/CTL_XER_106R1413.png";
+import CTL_XER_106R1159 from "../images/products/toner/xerox/CTL_XER_106R1159.png";
+import CTL_XER_106R04348 from "../images/products/toner/xerox/CTL_XER_106R04348.png";
+import CTL_XER_106R04347 from "../images/products/toner/xerox/CTL_XER_106R04347.png";
+import CTL_XER_106R04346 from "../images/products/toner/xerox/CTL_XER_106R04346.png";
+import CTL_XER_106R03884 from "../images/products/toner/xerox/CTL_XER_106R03884.png";
+import CTL_XER_106R03883 from "../images/products/toner/xerox/CTL_XER_106R03883.png";
+import CTL_XER_106R03882 from "../images/products/toner/xerox/CTL_XER_106R03882.png";
+import CTL_XER_106R03881 from "../images/products/toner/xerox/CTL_XER_106R03881.png";
+import CTL_XER_106R03773 from "../images/products/toner/xerox/CTL_XER_106R03773.png";
+import CTL_XER_106R03752 from "../images/products/toner/xerox/CTL_XER_106R03752.png";
+import CTL_XER_106R03751 from "../images/products/toner/xerox/CTL_XER_106R03751.png";
+import CTL_XER_106R03750 from "../images/products/toner/xerox/CTL_XER_106R03750.png";
+import CTL_XER_106R03749 from "../images/products/toner/xerox/CTL_XER_106R03749.png";
+import CTL_XER_106R03748 from "../images/products/toner/xerox/CTL_XER_106R03748.png";
+import CTL_XER_106R03747 from "../images/products/toner/xerox/CTL_XER_106R03747.png";
+import CTL_XER_106R03746 from "../images/products/toner/xerox/CTL_XER_106R03746.png";
+import CTL_XER_106R03745 from "../images/products/toner/xerox/CTL_XER_106R03745.png";
+import CTL_XER_106R03484 from "../images/products/toner/xerox/CTL_XER_106R03484.png";
+import CTL_XER_106R03483 from "../images/products/toner/xerox/CTL_XER_106R03483.png";
+import CTL_XER_106R03481 from "../images/products/toner/xerox/CTL_XER_106R03481.png";
+import CTL_XER_106R03396 from "../images/products/toner/xerox/CTL_XER_106R03396.png";
+import CTL_XER_106R03395 from "../images/products/toner/xerox/CTL_XER_106R03395.png";
+import CTL_XER_106R02782 from "../images/products/toner/xerox/CTL_XER_106R02782.png";
+import CTL_XER_106R02778 from "../images/products/toner/xerox/CTL_XER_106R02778.png";
+import CTL_XER_106R02775 from "../images/products/toner/xerox/CTL_XER_106R02775.png";
+import CTL_XER_106R02721 from "../images/products/toner/xerox/CTL_XER_106R02721.png";
+import CTL_XER_106R01485 from "../images/products/toner/xerox/CTL_XER_106R01485.png";
+import CTL_XER_106R01438 from "../images/products/toner/xerox/CTL_XER_106R01438.png";
+import CTL_XER_106R01294 from "../images/products/toner/xerox/CTL_XER_106R01294.png";
+import CTL_XER_008R12990 from "../images/products/toner/xerox/CTL_XER_008R12990.png";
+import CTL_XER_006R01757 from "../images/products/toner/xerox/CTL_XER_006R01757.png";
+import CTL_XER_006R01756 from "../images/products/toner/xerox/CTL_XER_006R01756.png";
+import CTL_XER_006R01755 from "../images/products/toner/xerox/CTL_XER_006R01755.png";
+import CTL_XER_006R01754 from "../images/products/toner/xerox/CTL_XER_006R01754.png";
+import CTL_XER_006R01731 from "../images/products/toner/xerox/CTL_XER_006R01731.png";
+import CTL_XER_006R01704 from "../images/products/toner/xerox/CTL_XER_006R01704.png";
+import CTL_XER_006R01703 from "../images/products/toner/xerox/CTL_XER_006R01703.png";
+import CTL_XER_006R01702 from "../images/products/toner/xerox/CTL_XER_006R01702.png";
+import CTL_XER_006R01701 from "../images/products/toner/xerox/CTL_XER_006R01701.png";
+import CTL_XER_006R01693 from "../images/products/toner/xerox/CTL_XER_006R01693.png";
+import CTL_XER_006R01573 from "../images/products/toner/xerox/CTL_XER_006R01573.png";
+import CTL_XER_006R01552 from "../images/products/toner/xerox/CTL_XER_006R01552.png";
+import CTL_XER_006R01519 from "../images/products/toner/xerox/CTL_XER_006R01519.png";
+import CTL_XER_006R01464 from "../images/products/toner/xerox/CTL_XER_006R01464.png";
+import CTL_XER_006R01463 from "../images/products/toner/xerox/CTL_XER_006R01463.png";
+import CTL_XER_006R01461 from "../images/products/toner/xerox/CTL_XER_006R01461.png";
+import CTL_XER_006R01146 from "../images/products/toner/xerox/CTL_XER_006R01146.png";
+import CTL_XER_006R01046 from "../images/products/toner/xerox/CTL_XER_006R01046.png";
+import CTL_XER_00601771 from "../images/products/toner/xerox/CTL_XER_00601771.png";
 
 import TN_TOS_T_FC505EK__SEE from "../images/products/toner/toshiba/TN_TOS_T_FC505EK__SEE.png";
 import TN_TOS_T1810 from "../images/products/toner/toshiba/TN_TOS_T1810.png";
@@ -802,4 +861,62 @@ export {
   CTL_HP_W2411A,
   CTL_HP_W2412A,
   CTL_HP_W2413A,
+  CTL_XRO_106R2773,
+  CTL_XER_6R1606,
+  CTL_XER_6R1513,
+  CTL_XER_113R00737,
+  CTL_XER_113R00668,
+  CTL_XER_106R2763,
+  CTL_XER_106R2252,
+  CTL_XER_106R2180,
+  CTL_XER_106R1413,
+  CTL_XER_106R1159,
+  CTL_XER_106R04348,
+  CTL_XER_106R04347,
+  CTL_XER_106R04346,
+  CTL_XER_106R03884,
+  CTL_XER_106R03883,
+  CTL_XER_106R03882,
+  CTL_XER_106R03881,
+  CTL_XER_106R03773,
+  CTL_XER_106R03752,
+  CTL_XER_106R03751,
+  CTL_XER_106R03750,
+  CTL_XER_106R03749,
+  CTL_XER_106R03748,
+  CTL_XER_106R03747,
+  CTL_XER_106R03746,
+  CTL_XER_106R03745,
+  CTL_XER_106R03484,
+  CTL_XER_106R03483,
+  CTL_XER_106R03481,
+  CTL_XER_106R03396,
+  CTL_XER_106R03395,
+  CTL_XER_106R02782,
+  CTL_XER_106R02778,
+  CTL_XER_106R02775,
+  CTL_XER_106R02721,
+  CTL_XER_106R01485,
+  CTL_XER_106R01438,
+  CTL_XER_106R01294,
+  CTL_XER_008R12990,
+  CTL_XER_006R01757,
+  CTL_XER_006R01756,
+  CTL_XER_006R01755,
+  CTL_XER_006R01754,
+  CTL_XER_006R01731,
+  CTL_XER_006R01704,
+  CTL_XER_006R01703,
+  CTL_XER_006R01702,
+  CTL_XER_006R01701,
+  CTL_XER_006R01693,
+  CTL_XER_006R01573,
+  CTL_XER_006R01552,
+  CTL_XER_006R01519,
+  CTL_XER_006R01464,
+  CTL_XER_006R01463,
+  CTL_XER_006R01461,
+  CTL_XER_006R01146,
+  CTL_XER_006R01046,
+  CTL_XER_00601771,
 };

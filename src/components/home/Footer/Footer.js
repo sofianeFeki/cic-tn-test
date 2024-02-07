@@ -45,13 +45,15 @@ const Footer = () => {
                 <div className="flex items-center gap-2">
                   {" "}
                   <FaMapMarkedAlt />
-                  20 Rue de Koweit Lafayette TUNIS{" "}
+                  20 Rue de Koweit Lafayette TUNIS -
                 </div>
+                ZI : MEGRINE SAINT GOBAIN, 2 RUE REDAIEF 2033
               </li>
+
               <li className="font-titleFont text-base text-lightText hover:text-black hover:underline decoration-[1px] decoration-gray-500 underline-offset-2 cursor-pointer duration-300">
                 <div className="flex items-center gap-2">
                   <FaFax />
-                  71 835 865 / 71 834 046
+                  71 835 865 - 71 834 046 - Fax : 71 100 349
                 </div>
               </li>
               <li className="font-titleFont text-base text-lightText hover:text-black hover:underline decoration-[1px] decoration-gray-500 underline-offset-2 cursor-pointer duration-300">
