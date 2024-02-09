@@ -7,7 +7,7 @@ import Brand from "../../components/pageProps/shopPage/shopBy/Brand";
 import Color from "../../components/pageProps/shopPage/shopBy/Color";
 import Category from "../../components/pageProps/shopPage/shopBy/Category";
 import { useDispatch } from "react-redux";
-import { toggleBrand } from "../../redux/orebiSlice";
+import { toggleBrand, toggleColor } from "../../redux/orebiSlice";
 
 const Offer = () => {
   const [prevLocation] = useState("");
@@ -15,9 +15,11 @@ const Offer = () => {
 
   const dispatch = useDispatch();
 
-  const filterState = () => {
-    dispatch(toggleBrand(""));
-  };
+  useEffect(() => {
+    // Reset filters when component mounts
+    dispatch(toggleBrand([])); // Reset brand filter
+    dispatch(toggleColor([])); // Reset color filter
+  }, []);
 
   // useEffect(() => {
   //   filterState();

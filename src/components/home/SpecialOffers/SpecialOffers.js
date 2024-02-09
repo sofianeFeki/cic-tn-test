@@ -4,6 +4,8 @@ import Product from "../Products/Product";
 import { paginationItems } from "../../../constants";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { toggleBrand, toggleColor } from "../../../redux/orebiSlice";
 
 const CategoryPage = () => {
   const { category } = useParams();
@@ -12,9 +14,7 @@ const CategoryPage = () => {
   const selectedBrands = useSelector(
     (state) => state.orebiReducer.checkedBrands
   );
-  const selectedCategories = useSelector(
-    (state) => state.orebiReducer.checkedCategorys
-  );
+
   const selectedColors = useSelector(
     (state) => state.orebiReducer.checkedColors
   );
@@ -30,9 +30,7 @@ const CategoryPage = () => {
       selectedBrands.length === 0 ||
       selectedBrands.some((brand) => brand.title === item.brand);
 
-    const isCategorySelected =
-      selectedCategories.length === 0 ||
-      selectedCategories.some((category) => category.title === item.cat);
+    const isCategorySelected = item.cat === category; // Compare with category from URL
 
     const isColorSelected =
       selectedColors.length === 0 ||
