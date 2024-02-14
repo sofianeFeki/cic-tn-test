@@ -4823,7 +4823,7 @@ export const paginationItems = [
     color: "Noir",
     badge: false,
     des: "BOITE DECHET 240/250 CTL_XER_008R12990",
-    cat: "bac",
+    cat: "Bac",
     subCat: "bac",
   },
   {

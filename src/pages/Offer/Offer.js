@@ -15,11 +15,11 @@ const Offer = () => {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    // Reset filters when component mounts
-    dispatch(toggleBrand([])); // Reset brand filter
-    dispatch(toggleColor([])); // Reset color filter
-  }, []);
+  // useEffect(() => {
+  //   // Reset filters when component mounts
+  //   dispatch(toggleBrand([])); // Reset brand filter
+  //   dispatch(toggleColor([])); // Reset color filter
+  // }, []);
 
   // useEffect(() => {
   //   filterState();

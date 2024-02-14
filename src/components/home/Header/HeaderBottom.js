@@ -1,7 +1,13 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { HiOutlineMenuAlt4 } from "react-icons/hi";
-import { FaSearch, FaUser, FaCaretDown, FaShoppingCart } from "react-icons/fa";
+import {
+  FaSearch,
+  FaUser,
+  FaCaretDown,
+  FaShoppingCart,
+  FaRegTimesCircle,
+} from "react-icons/fa";
 import Flex from "../../designLayouts/Flex";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -12,7 +18,7 @@ const HeaderBottom = () => {
   const products = useSelector((state) => state.orebiReducer.products);
   const [show, setShow] = useState(false);
   const [showUser, setShowUser] = useState(false);
-  const [showSearchBar, setShowSearchBar] = useState(false);
+  const [showSearchBar, setShowSearchBar] = useState(true);
 
   const navigate = useNavigate();
   const ref = useRef();
@@ -22,12 +28,30 @@ const HeaderBottom = () => {
   // useEffect(() => {
   //   document.body.addEventListener("click", (e) => {
   //     if (ref.current.contains(e.target)) {
-  //       setShow(true);
+  //       setShowSearchBar(true);
   //     } else {
-  //       setShow(false);
+  //       setShowSearchBar(false);
   //     }
   //   });
   // }, [show, ref]);
+
+  const searchBarRef = useRef(null);
+
+  // useEffect(() => {
+  //   function handleClickOutside(event) {
+  //     if (
+  //       searchBarRef.current &&
+  //       !searchBarRef.current.contains(event.target)
+  //     ) {
+  //       setShowSearchBar(false);
+  //     }
+  //   }
+
+  //   document.addEventListener("mousedown", handleClickOutside);
+  //   return () => {
+  //     document.removeEventListener("mousedown", handleClickOutside);
+  //   };
+  // }, [searchBarRef]);
 
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -103,11 +127,21 @@ const HeaderBottom = () => {
               onChange={handleSearch}
               value={searchQuery}
               placeholder="Search your products here"
+              onClick={() => showSearchBar(true)}
             />
-            <FaSearch className="w-5 h-5" />
-            {searchQuery && (
+            {searchQuery ? (
+              <FaRegTimesCircle
+                className="w-5 h-5"
+                onClick={() => setSearchQuery("")}
+              />
+            ) : (
+              <FaSearch className="w-5 h-5" />
+            )}
+
+            {showSearchBar && searchQuery && (
               <div
                 className={`w-full mx-auto h-96 bg-white top-16 absolute left-0 z-50 overflow-y-scroll shadow-2xl scrollbar-hide cursor-pointer`}
+                //ref={searchBarRef}
               >
                 {searchQuery &&
                   filteredProducts.map((item) => (
@@ -139,12 +173,6 @@ const HeaderBottom = () => {
                           {item.des.length > 100
                             ? `${item.des.slice(0, 100)}...`
                             : item.des}
-                        </p>
-                        <p className="text-sm">
-                          Price:{" "}
-                          <span className="text-primeColor font-semibold">
-                            ${item.price}
-                          </span>
                         </p>
                       </div>
                     </div>
