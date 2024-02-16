@@ -181,7 +181,7 @@ const HeaderBottom = () => {
             )}
           </div>
           <div className="flex gap-4 mt-2 lg:mt-0 items-center pr-6 cursor-pointer relative">
-            <div onClick={() => setShowUser(!showUser)} className="flex">
+            {/* <div onClick={() => setShowUser(!showUser)} className="flex">
               <FaUser />
               <FaCaretDown />
             </div>
@@ -209,7 +209,7 @@ const HeaderBottom = () => {
                   Others
                 </li>
               </motion.ul>
-            )}
+            )} */}
             <Link to="/cart">
               <div className="relative">
                 <FaShoppingCart />
