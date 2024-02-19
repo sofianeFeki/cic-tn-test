@@ -394,7 +394,7 @@ import "./style.css";
 export const navBarList = [
   {
     _id: 1001,
-    title: "Home",
+    title: "Accueil",
     link: "/",
   },
   {
@@ -404,12 +404,12 @@ export const navBarList = [
   },
   {
     _id: 1003,
-    title: "About",
+    title: "À propos",
     link: "/about",
   },
   {
     _id: 1004,
-    title: "Contact",
+    title: "Nous Contacter",
     link: "contact",
   },
   {

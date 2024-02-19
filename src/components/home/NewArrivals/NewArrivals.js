@@ -9,6 +9,10 @@ import {
   newArrFour,
   ricoh1,
   espson1,
+  ricoh2,
+  ricoh3,
+  ricoh4,
+  ricoh5,
 } from "../../../assets/images/index";
 import SampleNextArrow from "./SampleNextArrow";
 import SamplePrevArrow from "./SamplePrevArrow";
@@ -64,45 +68,37 @@ const NewArrivals = () => {
         <div className="px-2">
           <Product
             _id="100002"
-            img={espson1}
-            productName="IMPRIMANTE EPSON L3251 3EN1 A4 WIFI"
-            price="250.00"
-            color="Black"
+            img={ricoh2}
+            productName="IMPRIMANTE RICOH SP3710DN"
             badge={true}
-            des="Imprimante à Réservoir Intégré EPSON ECOTANK L3251 3En1 Couleur Wifi - Fonction: Impression, Copie, Numérisation - Technologie d'impression: Jet d'encre (tête d'impression Epson Micro Piezo) - Vitesse d'impression (N&B/Couleur): 33 pages/min , 15 pages/min - Qualité d'impression noir: 5.760 x 1.440 DPI (ppp) - Qualité d'impression couleur: 5.760 x 1.440 DPI (ppp) - Vitesse de Numérisation: 11 s noir (200 DPI) / 28 s couleur (200 DPI) - Impression recto/verso: Manuel - Format Papier: A4 - Interface: USB, Wi-Fi, Wi-Fi Direct - Capacité Papier: 100 feuilles - Dimensions: 375‎ x 347 x 179 mm - Poids: 3.9 kg - Garantie: 1 an    "
+            des="Grâce à son faible encombrement, la SP 3710DN s'intègre facilement dans les espaces de travail les plus restreints. Malgré son petit gabarit, cet appareil offre des caractéristiques et des fonctionnalités grandioses, telles que l'impression sécurisée et une vitesse d'impression pouvant atteindre 32 ppm. "
           />
         </div>
         <div className="px-2">
           <Product
             _id="100003"
-            img={newArrThree}
+            img={ricoh3}
             productName="cloth Basket"
-            price="80.00"
-            color="Mixed"
             badge={true}
-            des="Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis."
+            des="Ricoh SP 4520DN 1200 x 1200 DPI A4 - Imprimantes Laser (LED, 1200 x 1200 DPI, A4, 600 Feuilles, 40 ppm, Impression Recto-Verso)SP 4520DN Imprimante laser monochrome A4, recto-verso, résolution 1200 x 1200 ppp, vitesse jusquà 40 ppm, écran tactile 4.3, capacité totale 600 feuilles, interfaces USB 2.0, Gigabit LAN, Wifi, dimensions (LxPxH) 37 x 39.2 x 42.7 cm, poids 15.5 kg"
           />
         </div>
         <div className="px-2">
           <Product
             _id="100004"
-            img={newArrFour}
-            productName="Funny toys for babies"
-            price="60.00"
-            color="Mixed"
+            img={ricoh4}
+            productName="IMPRIMANTE RICOH COULEUR LASER SPC840"
             badge={false}
-            des="Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis."
+            des="Imprimante laser couleur Transformer la production légère en avantage de poids ,Imprime jusqu'à 45 ppm,Résolution maximum de 1200x1200 ppp ,Capacité de papier jusqu'à 4 700 pages,Utilisez l’écran tactile intuitif pour produire des impressions professionnelles à l’interne "
           />
         </div>
         <div className="px-2">
           <Product
             _id="100005"
-            img={newArrTwo}
+            img={ricoh5}
             productName="Funny toys for babies"
-            price="60.00"
-            color="Mixed"
             badge={false}
-            des="Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis."
+            des="Imprimante laser Noir et Blanc - Format A4 - Vitesse d'impression: 40 ppm - Préchauffage en 17 sec - Première page imprimée en 5 sec - Ecran LCD 4 lignes - Capacité papier standard 600 feuilles - Résolution d'impression: 1200 x 1200 dpi - Interface: USB 2.0 / Ethernet 10 base-T/100 base-TX - Recto/Verso - Garantie 1 an"
           />
         </div>
       </Slider>
