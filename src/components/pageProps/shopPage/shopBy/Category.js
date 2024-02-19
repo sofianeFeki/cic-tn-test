@@ -28,7 +28,7 @@ const Category = () => {
     },
     {
       _id: 9009,
-      title: "Bac de dechet",
+      title: "Bac",
     },
     {
       _id: 9010,

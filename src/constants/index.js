@@ -399,7 +399,7 @@ export const navBarList = [
   },
   {
     _id: 1002,
-    title: "Shop",
+    title: "Boutique",
     link: "/shop",
   },
   {
@@ -1963,7 +1963,7 @@ export const paginationItems = [
     color: "Noir",
     badge: true,
     des: "BOUTEILLE PANTUM RK-219/M6559N/P2509 CTL_PAN_PK-219 ",
-    cat: "toner",
+    cat: "Encre",
     subCat: "toner",
   },
   {
@@ -3122,7 +3122,7 @@ export const paginationItems = [
     color: "Noir",
     badge: false,
     des: "BOUTEILLE  HP GT53 /5810 CTD_HP_1VV21AE",
-    cat: "Bouteille",
+    cat: "Encre",
     subCat: "Bouteille",
   },
   {
@@ -3562,7 +3562,7 @@ export const paginationItems = [
     color: "Cyan",
     badge: false,
     des: "BOUTEILLE  HP GT52 CYAN/5810 CTD_HP_M0H54AE",
-    cat: "toner",
+    cat: "Encre",
     subCat: "toner",
   },
   {
@@ -3572,7 +3572,7 @@ export const paginationItems = [
     color: "Magenta",
     badge: false,
     des: "BOUTEILLE HP GT52 MAGENTA  CTD_HP_M0H55AE",
-    cat: "toner",
+    cat: "Encre",
     subCat: "toner",
   },
   {
@@ -3582,7 +3582,7 @@ export const paginationItems = [
     color: "Yellow",
     badge: false,
     des: "BOUTEILLE HP GT52 YELLOW/5810 CTD_HP_M0H56AE",
-    cat: "toner",
+    cat: "Encre",
     subCat: "toner",
   },
   {

@@ -116,6 +116,18 @@ const Footer = () => {
                 Bac de dechet
               </li>
             </Link>
+            <Link to={"category/Cartouche"}>
+              {" "}
+              <li className="font-titleFont text-base text-lightText hover:text-black hover:underline decoration-[1px] decoration-gray-500 underline-offset-2 cursor-pointer duration-300">
+                Cartouche
+              </li>
+            </Link>
+            <Link to={"category/toner"}>
+              {" "}
+              <li className="font-titleFont text-base text-lightText hover:text-black hover:underline decoration-[1px] decoration-gray-500 underline-offset-2 cursor-pointer duration-300">
+                toner
+              </li>
+            </Link>
           </ul>
         </div>
         <div>

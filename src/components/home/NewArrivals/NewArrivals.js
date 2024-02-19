@@ -78,7 +78,7 @@ const NewArrivals = () => {
           <Product
             _id="100003"
             img={ricoh3}
-            productName="cloth Basket"
+            productName="IMPRIMANTE RICOH SP4520DN"
             badge={true}
             des="Ricoh SP 4520DN 1200 x 1200 DPI A4 - Imprimantes Laser (LED, 1200 x 1200 DPI, A4, 600 Feuilles, 40 ppm, Impression Recto-Verso)SP 4520DN Imprimante laser monochrome A4, recto-verso, résolution 1200 x 1200 ppp, vitesse jusquà 40 ppm, écran tactile 4.3, capacité totale 600 feuilles, interfaces USB 2.0, Gigabit LAN, Wifi, dimensions (LxPxH) 37 x 39.2 x 42.7 cm, poids 15.5 kg"
           />
