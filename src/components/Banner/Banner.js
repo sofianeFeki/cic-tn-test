@@ -5,47 +5,7 @@ import { bannerImg1, bannerImg2, bannerImg3 } from "../../assets/images";
 import Image from "../designLayouts/Image";
 
 const CustomSlide = ({ Subtext, imgSrc, text, buttonLink, buttonText }) => (
-  <div
-  // style={{
-  //   position: "relative",
-  //   backgroundColor: "#F5F5F3", // Gray background color
-  //   display: "flex",
-  //   justifyContent: "center",
-  //   alignItems: "center", // Center vertically
-  // }}
-  >
-    <div
-    // style={{
-    //   maxWidth: "450px", // Adjust the maxWidth as needed
-    //   marginRight: "100px", // Add margin between text/button and image
-    // }}
-    >
-      {/* <h1
-        style={{
-          marginBottom: "15px",
-          fontSize: "2.5rem", // Adjust the font size as needed
-          color: "#000", // Black color
-          fontWeight: "700",
-        }}
-      >
-        {text}
-      </h1> */}
-      {/* <p
-        style={{
-          marginBottom: "25px",
-          fontSize: "1.5rem", // Adjust the font size as needed
-          color: "#666", // Gray color
-        }}
-      >
-        {Subtext}
-      </p> */}
-
-      {/* <Link to="/about">
-        <button className="bg-primeColor text-white text-lg font-bodyFont w-[185px] h-[50px] hover:bg-black duration-300 font-bold">
-          {buttonText}
-        </button>
-      </Link> */}
-    </div>
+  <div>
     <div>
       <Image imgSrc={imgSrc} />
     </div>
@@ -53,7 +13,8 @@ const CustomSlide = ({ Subtext, imgSrc, text, buttonLink, buttonText }) => (
 );
 
 const Banner = () => {
-  const [dotActive, setDocActive] = useState(0);
+  const [dotActive, setDotActive] = useState(0);
+
   const settings = {
     dots: true,
     infinite: true,
@@ -63,7 +24,7 @@ const Banner = () => {
     adaptiveHeight: true,
     arrows: false,
     beforeChange: (prev, next) => {
-      setDocActive(next);
+      setDotActive(next);
     },
     appendDots: (dots) => (
       <div
@@ -105,6 +66,7 @@ const Banner = () => {
         breakpoint: 576,
         settings: {
           dots: true,
+          adaptiveHeight: false,
           appendDots: (dots) => (
             <div
               style={{
@@ -167,9 +129,9 @@ const Banner = () => {
       buttonLink: "",
       buttonText: "",
     },
-
     // Add more slides as needed
   ];
+
   return (
     <div className="w-full bg-white">
       <Slider {...settings}>
