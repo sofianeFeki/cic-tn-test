@@ -7,7 +7,11 @@ import Image from "../../designLayouts/Image";
 const YearProduct = () => {
   return (
     <Link to="/shop">
-      <div className="w-full h-80 mb-20 bg-[#f3f3f3] md:bg-transparent relative font-titleFont">
+      <div
+        className="w-full h-80 mb-20 bg-[#f3f3f3] md:bg-transparent relative font-titleFont drop-shadow-2xl
+
+overflow-x-hidden group cursor-pointer"
+      >
         <Image
           className="w-full h-full object-cover hidden md:inline-block"
           imgSrc={productOfTheYear}
@@ -17,8 +21,10 @@ const YearProduct = () => {
             Produit de L'année
           </h1>
           <p className="text-base font-normal text-primeColor max-w-[600px] mr-4">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat
-            cupiditate modi amet! Facilis, aperiam quaerat.
+            IMPRIMANTE PANTUM M6609N Imprimante Laser 3en1 à toner rechargeable
+            PANTUM M6609N - Capacité d'impression Jusqu'à 1600 pages - Vitesse
+            d’impression 22 ppm (A4) / 23 ppm (Lettre) Résolution (impression,
+            copie et numérisation)
           </p>
           <ShopNow />
         </div>

@@ -91,7 +91,7 @@ const Footer = () => {
           </div>
         </div>
         <div>
-          <FooterListTitle title="Shop" />
+          <FooterListTitle title="Boutique" />
           <ul className="flex flex-col gap-2">
             <Link to={"category/Imprimante"}>
               <li className="font-titleFont text-base text-lightText hover:text-black hover:underline decoration-[1px] decoration-gray-500 underline-offset-2 cursor-pointer duration-300">
@@ -151,10 +151,10 @@ const Footer = () => {
           </ul> */}
         </div>
         <div className="col-span-2 flex flex-col items-center w-full px-4">
-          <FooterListTitle title="Subscribe to our newsletter." />
+          <FooterListTitle title="Inscrivez-vous à notre newsletter" />
           <div className="w-full">
             <p className="text-center mb-4">
-              A at pellentesque et mattis porta enim elementum.
+              Restez informé(e) des dernières actualités et offres
             </p>
             {subscription ? (
               <motion.p

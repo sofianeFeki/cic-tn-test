@@ -4,7 +4,7 @@ import loading from "./loading.gif";
 import bannerImg1 from "./banner/bannerImg1.png";
 import bannerImg2 from "./banner/bannerImg2.jpg";
 import bannerImg3 from "./banner/bannerImg3.jpeg";
-import saleImgOne from "./sale/saleImgOne.webp";
+import saleImgOne from "./sale/image1.jpg";
 import saleImgTwo from "./sale/saleImgTwo.jpg";
 import saleImgThree from "./sale/saleImgThree.jpg";
 // ============== Products Start here ====================
@@ -47,7 +47,7 @@ import spfThree from "./products/specialOffer/spfThree.webp";
 import spfFour from "./products/specialOffer/spfFour.webp";
 
 // Year Product
-import productOfTheYear from "./products/productOfTheYear.png";
+import productOfTheYear from "./products/productOfTheYear.jpg";
 // ============== Products End here ======================
 import paymentCard from "./payment.png";
 import emptyCart from "../images/emptyCart.png";

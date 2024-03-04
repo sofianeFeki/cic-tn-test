@@ -399,7 +399,7 @@ export const navBarList = [
   },
   {
     _id: 1002,
-    title: "Boutique",
+    title: "Produit",
     link: "/shop",
   },
   {

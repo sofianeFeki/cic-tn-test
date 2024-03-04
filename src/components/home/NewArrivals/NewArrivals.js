@@ -327,7 +327,7 @@ const NewArrivals = () => {
       <Slider {...settings}>
         {NewArrivalsProduct.map((item) => (
           <div className="px-2">
-            <div key={item._id} className="w-full">
+            <div key={item._id} className="w-full drop-shadow-xl  ">
               <Product
                 _id={item._id}
                 img={item.img}
