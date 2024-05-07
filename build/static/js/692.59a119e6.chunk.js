@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkorebishop=self.webpackChunkorebishop||[]).push([[692],{7692:function(t,e,n){n.d(e,{QBW:function(){return u}});var r=n(89983);function u(t){return(0,r.w_)({tag:"svg",attr:{viewBox:"0 0 24 24"},child:[{tag:"path",attr:{d:"m11.998 17 7-8h-14z"}}]})(t)}}}]);
+//# sourceMappingURL=692.59a119e6.chunk.js.map

@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/393.a0172fa1.chunk.css","mappings":"AAAA,WACE,SAAU,CACV,eACF","sources":["constants/style.css"],"sourcesContent":[".highlight {\r\n  color: red; /* Change this to the desired color */\r\n  font-weight: bold; /* Change this to the desired font weight */\r\n}\r\n"],"names":[],"sourceRoot":""}
