@@ -28,7 +28,7 @@ const NewArrivalsProduct = [
     img: ricoh1,
     productName: "IMPRIMANTE RICOH P501",
     color: "Blanc",
-    badge: true,
+    badge: false,
     brand: "Ricoh",
     des: "Ricoh P 501 - Imprimante - Noir et blanc - Recto-verso - LED - A4 - 1200 x 1200 ppp - jusqu'à 43 ppm - capacité : 600 feuilles - USB 2.0, Gigabit LAN, hôte USB 2.0",
     cat: "Imprimante",
@@ -79,7 +79,7 @@ const NewArrivalsProduct = [
     img: ricoh2,
     productName: "IMPRIMANTE RICOH SP3710DN",
     color: "Blanc",
-    badge: true,
+    badge: false,
     brand: "Ricoh",
     des: "Grâce à son faible encombrement, la SP 3710DN s'intègre facilement dans les espaces de travail les plus restreints. Malgré son petit gabarit, cet appareil offre des caractéristiques et des fonctionnalités grandioses, telles que l'impression sécurisée et une vitesse d'impression pouvant atteindre 32 ppm.",
     cat: "Imprimante",
@@ -227,7 +227,7 @@ const NewArrivalsProduct = [
     img: ricoh5,
     productName: "IMPRIMANTE RICOH SP4510DN (407313)",
     color: "Blanc",
-    badge: true,
+    badge: false,
     brand: "Ricoh",
     des: "Imprimante laser Noir et Blanc - Format A4 - Vitesse d'impression: 40 ppm - Préchauffage en 17 sec - Première page imprimée en 5 sec - Ecran LCD 4 lignes - Capacité papier standard 600 feuilles - Résolution d'impression: 1200 x 1200 dpi - Interface: USB 2.0 / Ethernet 10 base-T/100 base-TX - Recto/Verso - Garantie 1 an",
     cat: "Imprimante",
@@ -322,12 +322,12 @@ const NewArrivals = () => {
     ],
   };
   return (
-    <div className="w-full pb-16">
-      <Heading heading="Dernières Nouveautés" />
+    <div className='w-full pb-16'>
+      <Heading heading='Dernières Nouveautés' />
       <Slider {...settings}>
         {NewArrivalsProduct.map((item) => (
-          <div className="px-2">
-            <div key={item._id} className="w-full drop-shadow-xl  ">
+          <div className='px-2' key={item._id}>
+            <div className='w-full drop-shadow-xl  '>
               <Product
                 _id={item._id}
                 img={item.img}
