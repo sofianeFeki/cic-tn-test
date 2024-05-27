@@ -39,9 +39,9 @@ const Brand = () => {
     <div>
       <div
         onClick={() => setShowBrands(!showBrands)}
-        className="cursor-pointer"
+        className='cursor-pointer'
       >
-        <NavTitle title="Shop by Brand" icons={true} />
+        <NavTitle title='Marques' icons={true} />
       </div>
       {showBrands && (
         <motion.div
@@ -49,16 +49,16 @@ const Brand = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <ul className="flex flex-col gap-4 text-sm lg:text-base text-[#767676]">
+          <ul className='flex flex-col gap-4 text-sm lg:text-base text-[#767676]'>
             {brands.map((item) => (
               <li
                 key={item._id}
-                className="border-b-[1px] border-b-[#F0F0F0] pb-2 mr-2 flex items-center gap-2 hover:text-primeColor hover:border-gray-400 duration-300"
+                className='border-b-[1px] border-b-[#F0F0F0] pb-2 mr-2 flex items-center gap-2 hover:text-primeColor hover:border-gray-400 duration-300'
               >
-                <label htmlFor={item._id} className="cursor-pointer ">
+                <label htmlFor={item._id} className='cursor-pointer '>
                   <input
-                    className="cursor-pointer mr-2"
-                    type="checkbox"
+                    className='cursor-pointer mr-2'
+                    type='checkbox'
                     id={item._id}
                     checked={checkedBrands.some((b) => b._id === item._id)}
                     onChange={() => handleToggleBrand(item)}

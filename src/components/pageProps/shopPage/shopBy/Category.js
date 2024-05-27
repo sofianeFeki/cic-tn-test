@@ -45,19 +45,19 @@ const Category = () => {
   };
 
   return (
-    <div className="w-full">
-      <NavTitle title="Shop by Category" icons={true} />
+    <div className='w-full'>
+      <NavTitle title='Catégories' icons={true} />
       <div>
-        <ul className="flex flex-col gap-4 text-sm lg:text-base text-[#767676]">
+        <ul className='flex flex-col gap-4 text-sm lg:text-base text-[#767676]'>
           {category.map((item) => (
             <li
               key={item._id}
-              className="border-b-[1px] border-b-[#F0F0F0] pb-2 flex items-center gap-2 hover:text-primeColor hover:border-gray-400 duration-300"
+              className='border-b-[1px] border-b-[#F0F0F0] pb-2 flex items-center gap-2 hover:text-primeColor hover:border-gray-400 duration-300'
             >
-              <label htmlFor={item._id} className="cursor-pointer ">
+              <label htmlFor={item._id} className='cursor-pointer '>
                 <input
-                  className="cursor-pointer mr-2"
-                  type="checkbox"
+                  className='cursor-pointer mr-2'
+                  type='checkbox'
                   id={item._id}
                   checked={checkedCategorys.some((b) => b._id === item._id)}
                   onChange={() => handleToggleCategory(item)}
@@ -66,7 +66,7 @@ const Category = () => {
                 {item.icons && (
                   <span
                     onClick={() => setShowSubCatOne(!showSubCatOne)}
-                    className="text-[10px] lg:text-xs cursor-pointer text-gray-400 hover:text-primeColor duration-300"
+                    className='text-[10px] lg:text-xs cursor-pointer text-gray-400 hover:text-primeColor duration-300'
                   >
                     <ImPlus />
                   </span>

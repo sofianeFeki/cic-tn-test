@@ -152,7 +152,7 @@ const Footer = () => {
         </div>
         <div className='col-span-2 flex flex-col items-center w-full px-4'>
           <iframe
-            src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3194.2152892865925!2d10.177664976296905!3d36.81336066695691!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd347cc0418a3d%3A0x63959be0b3637142!2sChemical%20Ink%20Company%20Tunis!5e0!3m2!1sen!2stn!4v1715217456962!5m2!1sen!2stn'
+            src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3194.214687049167!2d10.181641100000002!3d36.8133751!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd3463338b5493%3A0xa78dc0b154a7c664!2z2LTYsdmD2Kkg2KfZhNit2KjYsSDZhNmE2YXZg9in2KrYqA!5e0!3m2!1sen!2stn!4v1716806537177!5m2!1sen!2stn'
             width='500'
             height='270'
             allowFullScreen=''

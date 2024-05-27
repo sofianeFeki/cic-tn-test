@@ -44,9 +44,9 @@ const Color = () => {
     <div>
       <div
         onClick={() => setShowColors(!showColors)}
-        className="cursor-pointer"
+        className='cursor-pointer'
       >
-        <NavTitle title="Shop by Color" icons={true} />
+        <NavTitle title='Couleur' icons={true} />
       </div>
       {showColors && (
         <motion.div
@@ -54,17 +54,17 @@ const Color = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <ul className="flex flex-col gap-4 text-sm lg:text-base text-[#767676]">
+          <ul className='flex flex-col gap-4 text-sm lg:text-base text-[#767676]'>
             {colors.map((item) => (
               <li
                 key={item._id}
                 style={{ color: item.base, fontWeight: 600 }}
-                className="border-b-[1px] border-b-[#F0F0F0] pb-2 flex items-center gap-2"
+                className='border-b-[1px] border-b-[#F0F0F0] pb-2 flex items-center gap-2'
               >
-                <label htmlFor={item._id} className="cursor-pointer ">
+                <label htmlFor={item._id} className='cursor-pointer '>
                   <input
-                    className="cursor-pointer mr-2 border-[#F0F0F0]"
-                    type="checkbox"
+                    className='cursor-pointer mr-2 border-[#F0F0F0]'
+                    type='checkbox'
                     id={item._id}
                     style={{
                       backgroundColor: item.base,

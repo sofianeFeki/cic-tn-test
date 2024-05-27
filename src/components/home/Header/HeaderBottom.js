@@ -126,7 +126,7 @@ const HeaderBottom = () => {
               type='text'
               onChange={handleSearch}
               value={searchQuery}
-              placeholder='Search your products here'
+              placeholder='Recherchez vos produits ici'
               onClick={() => showSearchBar(true)}
             />
             {searchQuery ? (

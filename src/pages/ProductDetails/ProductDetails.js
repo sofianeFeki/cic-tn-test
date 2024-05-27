@@ -13,7 +13,7 @@ const ProductDetails = () => {
   useEffect(() => {
     setProductInfo(location.state.item);
     setPrevLocation(location.pathname);
-    console.log(productInfo);
+    console.log(productInfo, "im info");
   }, [location, productInfo.ficheTech]);
 
   const tabs = [
@@ -22,28 +22,28 @@ const ProductDetails = () => {
       label: "Fiche Technique",
       content: productInfo.ficheTech ? (
         <div>
-          <table className="table-auto w-full">
+          <table className='table-auto w-full'>
             <tbody>
               {productInfo.ficheTech.map((row) => (
-                <tr key={row.label} className="bg-gray-100">
-                  <td className="border px-4 py-2 font-semibold">
+                <tr key={row.label} className='bg-gray-100'>
+                  <td className='border px-4 py-2 font-semibold'>
                     {row.label}
                   </td>
-                  <td className="border px-4 py-2">{row.value}</td>
+                  <td className='border px-4 py-2'>{row.value}</td>
                 </tr>
               ))}
             </tbody>
           </table>
           {productInfo.pdf ? (
-            <div className="my-4 flex justify-end">
+            <div className='my-4 flex justify-end'>
               <a
                 href={productInfo.pdf}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white"
+                target='_blank'
+                rel='noopener noreferrer'
+                className='text-white'
               >
-                <button className="inline-flex items-center px-4 py-2 border border-gray-300 bg-blue-500 hover:bg-blue-600 text-white font-bodyFont">
-                  <FaDownload className="h-5 w-5 mr-2 text-white" />
+                <button className='inline-flex items-center px-4 py-2 border border-gray-300 bg-blue-500 hover:bg-blue-600 text-white font-bodyFont'>
+                  <FaDownload className='h-5 w-5 mr-2 text-white' />
                   Download PDF
                 </button>
               </a>{" "}
@@ -60,8 +60,8 @@ const ProductDetails = () => {
       label: "Video",
       content: productInfo.video ? (
         <div>
-          <video width="560" height="315" controls>
-            <source src={productInfo.video} type="video/mp4" />
+          <video width='560' height='315' controls>
+            <source src={productInfo.video} type='video/mp4' />
             Your browser does not support the video tag.
           </video>
         </div>
@@ -81,26 +81,26 @@ const ProductDetails = () => {
   };
 
   return (
-    <div className="w-full mx-auto border-b-[1px] border-b-gray-300">
-      <div className="max-w-container mx-auto px-4">
-        <div className="xl:-mt-10 -mt-7">
-          <Breadcrumbs title="" prevLocation={prevLocation} />
+    <div className='w-full mx-auto border-b-[1px] border-b-gray-300'>
+      <div className='max-w-container mx-auto px-4'>
+        <div className='xl:-mt-10 -mt-7'>
+          <Breadcrumbs title='' prevLocation={prevLocation} />
         </div>
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-6 gap-4 h-full -mt-5 xl:-mt-8 pb-10 bg-gray-100 p-4">
-          <div className="h-full xl:col-span-2">
+        <div className='w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-6 gap-4 h-full -mt-5 xl:-mt-8 pb-10 bg-gray-100 p-4'>
+          <div className='h-full xl:col-span-2'>
             <img
-              className="w-full h-full "
+              className='w-full h-full '
               src={productInfo.img}
               alt={productInfo.img}
             />
           </div>
-          <div className="h-full w-full md:col-span-2 xl:col-span-4 xl:px-4 flex flex-col gap-6 justify-center">
+          <div className='h-full w-full md:col-span-2 xl:col-span-4 xl:px-4 flex flex-col gap-6 justify-center'>
             <ProductInfo productInfo={productInfo} />
           </div>
         </div>
         {availableTabs.length > 0 && (
           <div>
-            <div className=" space-x-4  pt-4">
+            <div className=' space-x-4  pt-4'>
               {availableTabs.map((tab) => (
                 <button
                   key={tab.id}
@@ -115,7 +115,7 @@ const ProductDetails = () => {
                 </button>
               ))}
             </div>
-            <div className="my-4">
+            <div className='my-4'>
               {availableTabs.map((tab) => (
                 <div
                   key={tab.id}
