@@ -7,9 +7,7 @@ import { toggleColor } from "../../../../redux/orebiSlice";
 const Color = () => {
   const [showColors, setShowColors] = useState(true);
 
-  const checkedColors = useSelector(
-    (state) => state.orebiReducer.checkedColors
-  );
+  const checkedColors = useSelector((state) => state.orebi.checkedColors);
 
   const dispatch = useDispatch();
 

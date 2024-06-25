@@ -6,9 +6,7 @@ import { toggleBrand } from "../../../../redux/orebiSlice";
 
 const Brand = () => {
   const [showBrands, setShowBrands] = useState(true);
-  const checkedBrands = useSelector(
-    (state) => state.orebiReducer.checkedBrands
-  );
+  const checkedBrands = useSelector((state) => state.orebi.checkedBrands);
   const dispatch = useDispatch();
 
   const brands = [

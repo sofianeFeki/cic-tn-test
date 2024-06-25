@@ -2,11 +2,16 @@ import React, { useEffect, useState } from "react";
 import { BsGridFill } from "react-icons/bs";
 import { ImList } from "react-icons/im";
 import { GoTriangleDown } from "react-icons/go";
+import { Link } from "react-router-dom";
+import { DocumentPlusIcon } from "@heroicons/react/24/outline";
+import { useSelector } from "react-redux";
 
 const ProductBanner = ({ itemsPerPageFromBanner }) => {
   //   const [selected, setSelected] = useState("");
   const [girdViewActive, setGridViewActive] = useState(true);
   const [listViewActive, setListViewActive] = useState(false);
+  const user = useSelector((state) => state.orebi.userInfo);
+
   useEffect(() => {
     const gridView = document.querySelector(".gridView");
     const listView = document.querySelector(".listView");
@@ -54,6 +59,18 @@ const ProductBanner = ({ itemsPerPageFromBanner }) => {
                             Right Part STart here
         ======================================================== */}
       <div className='flex items-center gap-2 md:gap-6 mt-4 md:mt-0'>
+        {user && (
+          <Link to={"/admin/product/create"}>
+            <button className='flex items-center px-2 py-1 bg-green-500 text-white rounded cursor-pointer shadow-md hover:bg-green-300 transition duration-300'>
+              <DocumentPlusIcon
+                className='block h-6 w-6 mr-1'
+                aria-hidden='true'
+              />
+              <span className='font-bold'>Create product</span>
+            </button>
+          </Link>
+        )}
+
         <div className='flex items-center gap-2 text-base text-[#767676] relative'>
           <label className='block'>Trier par:</label>
           <select

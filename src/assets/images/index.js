@@ -51,6 +51,7 @@ import productOfTheYear from "./products/productOfTheYear.jpg";
 // ============== Products End here ======================
 import paymentCard from "./payment.png";
 import emptyCart from "../images/emptyCart.png";
+import noImage from "../images/products/noImage.png";
 
 import CTL_PAN_TL5120X from "../images/products/toner/pantum/CTL_PAN_TL5120X.webp";
 import CTL_PAN_TL5120H from "../images/products/toner/pantum/CTL_PAN_TL5120H.webp";
@@ -516,6 +517,7 @@ export {
   // ===================== Products End here ==============
   paymentCard,
   emptyCart,
+  noImage,
 
   // imprimante pantum
   IMPRIMANTE_PANTUM_CP2200DW,

@@ -35,6 +35,12 @@ const LazyPayment = lazy(() => import("./pages/payment/Payment"));
 const LazyProductDetails = lazy(() =>
   import("./pages/ProductDetails/ProductDetails")
 );
+const LazyProductCreate = lazy(() =>
+  import("./pages/ProductDetails/ProductCreate")
+);
+const LazyProductUpadate = lazy(() =>
+  import("./pages/ProductDetails/ProductUpdate")
+);
 const LazyCart = lazy(() => import("./pages/Cart/Cart"));
 //const LazySignUp = lazy(() => import("./pages/Account/SignUp"));
 //const LazySignIn = lazy(() => import("./pages/Account/SignIn"));
@@ -43,7 +49,7 @@ const Layout = () => {
   return (
     <div>
       <ToastContainer
-        position="top-right"
+        position='top-right'
         autoClose={1000}
         hideProgressBar={false}
         newestOnTop={false}
@@ -52,7 +58,7 @@ const Layout = () => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="colored"
+        theme='colored'
       />
       <Suspense
         fallback={
@@ -68,7 +74,7 @@ const Layout = () => {
             <div>
               <img
                 src={loading}
-                alt="Loading"
+                alt='Loading'
                 style={{ width: "100px", height: "100px" }}
               />
             </div>
@@ -91,27 +97,32 @@ const Layout = () => {
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
-      <Route path="/" element={<Layout />}>
+      <Route path='/' element={<Layout />}>
         <Route index element={<LazyHome />} />
-        <Route path="/shop" element={<LazyShop />} />
-        <Route path="/about" element={<LazyAbout />} />
-        <Route path="/contact" element={<LazyContact />} />
-        <Route path="/journal" element={<LazyJournal />} />
-        <Route path="/category/:category" element={<LazyOffer />} />
-        <Route path="/category/:subCat" element={<LazySubCat />} />
-        <Route path="/product/:_id" element={<LazyProductDetails />} />
-        <Route path="/cart" element={<LazyCart />} />
-        <Route path="/paymentgateway" element={<LazyPayment />} />
+        <Route path='/shop' element={<LazyShop />} />
+        <Route path='/about' element={<LazyAbout />} />
+        <Route path='/contact' element={<LazyContact />} />
+        <Route path='/journal' element={<LazyJournal />} />
+        <Route path='/category/:category' element={<LazyOffer />} />
+        <Route path='/category/:subCat' element={<LazySubCat />} />
+        <Route path='/product/:slug' element={<LazyProductDetails />} />
+        <Route path='/admin/product/create' element={<LazyProductCreate />} />
+        <Route
+          path='/admin/product-update/:slug'
+          element={<LazyProductUpadate />}
+        />
+        <Route path='/cart' element={<LazyCart />} />
+        <Route path='/paymentgateway' element={<LazyPayment />} />
       </Route>
-      <Route path="/signup" element={<SignUp />} />
-      <Route path="/signin" element={<SignIn />} />
+      <Route path='/signup' element={<SignUp />} />
+      <Route path='/signin' element={<SignIn />} />
     </Route>
   )
 );
 
 function App() {
   return (
-    <div className="font-bodyFont">
+    <div className='font-bodyFont'>
       <RouterProvider router={router} />
     </div>
   );

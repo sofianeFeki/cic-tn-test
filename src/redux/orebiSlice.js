@@ -2,7 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 
 const initialState = {
-  userInfo: [],
+  userInfo: null,
+  error: null,
   products: [],
   checkedBrands: [],
   checkedCategorys: [],
@@ -13,6 +14,20 @@ export const orebiSlice = createSlice({
   name: "orebi",
   initialState,
   reducers: {
+    setUser: (state, action) => {
+      const { uid, email } = action.payload;
+      state.userInfo = { uid, email };
+    },
+    setError: (state, action) => {
+      state.error = action.payload;
+    },
+    setError: (state, action) => {
+      state.error = action.payload;
+      toast.error(action.payload);
+    },
+    clearUser: (state) => {
+      state.userInfo = null;
+    },
     addToCart: (state, action) => {
       const item = state.products.find(
         (item) => item._id === action.payload._id
@@ -22,7 +37,6 @@ export const orebiSlice = createSlice({
       } else {
         state.products.push(action.payload);
       }
-      // Dispatch a success toast
       toast.success("Product added to cart");
     },
     increaseQuantity: (state, action) => {
@@ -31,7 +45,6 @@ export const orebiSlice = createSlice({
       );
       if (item) {
         item.quantity++;
-        // Dispatch a success toast
       }
     },
     drecreaseQuantity: (state, action) => {
@@ -42,21 +55,17 @@ export const orebiSlice = createSlice({
         item.quantity = 1;
       } else {
         item.quantity--;
-        // Dispatch a success toast
       }
     },
     deleteItem: (state, action) => {
       state.products = state.products.filter(
         (item) => item._id !== action.payload
       );
-      // Dispatch a success toast
       toast.error("Product removed from cart");
     },
     resetCart: (state) => {
       state.products = [];
-      // Dispatch a success toast
     },
-
     toggleBrand: (state, action) => {
       const brand = action.payload;
       const isBrandChecked = state.checkedBrands.some(
@@ -71,7 +80,6 @@ export const orebiSlice = createSlice({
         state.checkedBrands.push(brand);
       }
     },
-
     toggleCategory: (state, action) => {
       const category = action.payload;
       const isCategoryChecked = state.checkedCategorys.some(
@@ -86,7 +94,6 @@ export const orebiSlice = createSlice({
         state.checkedCategorys.push(category);
       }
     },
-
     toggleColor: (state, action) => {
       const color = action.payload;
       const isColorChecked = state.checkedColors.some(
@@ -105,6 +112,9 @@ export const orebiSlice = createSlice({
 });
 
 export const {
+  setUser,
+  setError,
+  clearUser,
   addToCart,
   increaseQuantity,
   drecreaseQuantity,
