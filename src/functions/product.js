@@ -9,17 +9,17 @@ export const productCreate = async (formData) => {
     },
   };
   return await axios.post(
-    "http://localhost:8000/api/product/create",
+    "https://cic-server-ygl9.onrender.com/api/product/create",
     formData,
     config
   );
 };
 
 export const getProduct = async (slug) =>
-  await axios.get(`http://localhost:8000/api/product/${slug}`);
+  await axios.get(`https://cic-server-ygl9.onrender.com/api/product/${slug}`);
 
 export const updateProduct = async (slug, formData) =>
   await axios.put(
-    `http://localhost:8000/api/admin/product-update/${slug}`,
+    `http://https://cic-server-ygl9.onrender.com/api/admin/product-update/${slug}`,
     formData
   );
