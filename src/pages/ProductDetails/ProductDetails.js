@@ -28,7 +28,7 @@ const ProductUpdate = () => {
   const gettheProduct = () => {
     getProduct(slug).then((res) => {
       const productData = res.data;
-      const baseUrl = "http://localhost:8000";
+      const baseUrl = "https://cic-server-ygl9.onrender.com";
 
       const formatUrl = (path) => `${baseUrl}${path.replace(/\\/g, "/")}`;
 
