@@ -28,6 +28,9 @@ import {
   UserIcon,
   Square2StackIcon,
   Squares2X2Icon,
+  BeakerIcon,
+  PrinterIcon,
+  DocumentDuplicateIcon,
 } from "@heroicons/react/24/outline";
 import { signOut } from "firebase/auth";
 import { auth } from "../../../service/firebase/firebase";
@@ -263,30 +266,28 @@ const HeaderBottom = () => {
               >
                 <MenuItems className='absolute left-0 z-10 mt-2 w-48 origin-top-left rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'>
                   <MenuItem>
-                    {({ focus }) => (
-                      <a
-                        href='#'
-                        className={classNames(
-                          focus ? "bg-gray-100" : "",
-                          "block px-4 py-2 text-sm text-gray-700"
-                        )}
-                      >
+                    <Link to={"category/Imprimante"}>
+                      <button className='group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10 hover:bg-gray-100'>
+                        <PrinterIcon className='block h-6 w-6' />
                         Imprimante
-                      </a>
-                    )}
+                      </button>
+                    </Link>
                   </MenuItem>
                   <MenuItem>
-                    {({ focus }) => (
-                      <a
-                        href='#'
-                        className={classNames(
-                          focus ? "bg-gray-100" : "",
-                          "block px-4 py-2 text-sm text-gray-700"
-                        )}
-                      >
-                        consomable
-                      </a>
-                    )}
+                    <Link to={"category/Consommable"}>
+                      <button className='group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10 hover:bg-gray-100'>
+                        <BeakerIcon className='block h-6 w-6' />
+                        Consommable
+                      </button>
+                    </Link>
+                  </MenuItem>
+                  <MenuItem>
+                    <Link to={"category/Photocopieur"}>
+                      <button className='group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10 hover:bg-gray-100'>
+                        <DocumentDuplicateIcon className='block h-6 w-6' />
+                        Photocopieur
+                      </button>
+                    </Link>
                   </MenuItem>
                 </MenuItems>
               </Transition>

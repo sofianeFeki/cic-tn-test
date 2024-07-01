@@ -23,3 +23,6 @@ export const updateProduct = async (slug, formData) =>
     `http://localhost:8000/api/admin/product-update/${slug}`,
     formData
   );
+
+export const getProducts = async () =>
+  await axios.get("http://localhost:8000/api/products", {});

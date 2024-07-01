@@ -18,9 +18,9 @@ import Breadcrumbs from "../../pageProps/Breadcrumbs";
 import { noImage } from "../../../assets/images";
 import { productCreate } from "../../../functions/product";
 
-const Colors = ["Black", "Yellow", "Cyan", "Magenta"];
+const Colors = ["Black", "Blanc", "Yellow", "Cyan", "Magenta"];
 const Brands = ["Pantum", "HP", "Epson", "Ricoh"];
-const Categories = ["Imprimante", "Consommable"];
+const Categories = ["Imprimante", "photocopieur", "Consommable"];
 const subCategory = [
   "Imprimante",
   "Tonner",
@@ -538,6 +538,10 @@ const ProductForm = ({
                         onChange={handleChangeProduct}
                         className='block w-[50%] rounded-md  py-1.5 px-2  focus:outline-none focus:ring focus:border-blue-300 transition duration-150 shadow-md'
                       >
+                        <option value='' disabled selected hidden>
+                          Choose a color
+                        </option>
+
                         {Colors.map((color) => (
                           <option key={color} value={color}>
                             {color}
@@ -554,6 +558,9 @@ const ProductForm = ({
                         onChange={handleChangeProduct}
                         className='block w-[50%] rounded-md border-0 py-1.5 px-2 focus:outline-none focus:ring focus:border-blue-300 transition duration-150 shadow-md'
                       >
+                        <option value='' disabled selected hidden>
+                          Choose a Brand
+                        </option>
                         {Brands.map((brand) => (
                           <option key={brand} value={brand}>
                             {brand}
@@ -571,6 +578,9 @@ const ProductForm = ({
                         autoComplete='Category'
                         className='block w-[50%] rounded-md border-0 py-1.5 px-2  focus:outline-none focus:ring focus:border-blue-300 transition duration-150 shadow-md'
                       >
+                        <option value='' disabled selected hidden>
+                          Choose a Category
+                        </option>
                         {Categories.map((Category) => (
                           <option key={Category} value={Category}>
                             {Category}
@@ -590,6 +600,9 @@ const ProductForm = ({
                         autoComplete='subCategory'
                         className='block w-[50%] rounded-md border-0 py-1.5 px-2 focus:outline-none focus:ring focus:border-blue-300 transition duration-150 shadow-md'
                       >
+                        <option value='' disabled selected hidden>
+                          Choose a subCategory
+                        </option>
                         {subCategory.map((subCategory) => (
                           <option key={subCategory} value={subCategory}>
                             {subCategory}

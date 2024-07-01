@@ -43,7 +43,7 @@ const ProductUpdate = () => {
       }
 
       setProduct(productData);
-      console.log(product, "Product data loaded");
+      console.log(productData, "Product data loaded");
     });
   };
   useEffect(() => {
