@@ -20,9 +20,9 @@ export const getProduct = async (slug) =>
 
 export const updateProduct = async (slug, formData) =>
   await axios.put(
-    `http://https://cic-server-ygl9.onrender.com/api/admin/product-update/${slug}`,
+    `https://cic-server-ygl9.onrender.com/api/admin/product-update/${slug}`,
     formData
   );
 
 export const getProducts = async () =>
-  await axios.get("http://localhost:8000/api/products", {});
+  await axios.get("https://cic-server-ygl9.onrender.com/api/products", {});
