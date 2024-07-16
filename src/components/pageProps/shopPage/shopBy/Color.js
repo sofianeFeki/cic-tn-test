@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import NavTitle from "./NavTitle";
-import { useDispatch, useSelector } from "react-redux";
-import { toggleColor } from "../../../../redux/orebiSlice";
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import NavTitle from './NavTitle';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleColor } from '../../../../redux/orebiSlice';
 
 const Color = () => {
   const [showColors, setShowColors] = useState(true);
@@ -12,26 +12,10 @@ const Color = () => {
   const dispatch = useDispatch();
 
   const colors = [
-    {
-      _id: 9001,
-      title: "Magenta",
-      base: "#FF00FF",
-    },
-    {
-      _id: 9002,
-      title: "Cyan",
-      base: "#00FFFF",
-    },
-    {
-      _id: 9003,
-      title: "Noir",
-      base: "#000000",
-    },
-    {
-      _id: 9004,
-      title: "Yellow",
-      base: "#f59e0b",
-    },
+    { _id: 9001, title: 'Magenta', base: '#FF00FF' },
+    { _id: 9002, title: 'Cyan', base: '#00FFFF' },
+    { _id: 9003, title: 'Noir', base: '#000000' },
+    { _id: 9004, title: 'Yellow', base: '#f59e0b' },
   ];
 
   const handleToggleColor = (color) => {
@@ -39,12 +23,12 @@ const Color = () => {
   };
 
   return (
-    <div>
+    <div className="w-full p-4 bg-[#F5F5F3] rounded-lg drop-shadow-xl">
       <div
         onClick={() => setShowColors(!showColors)}
-        className='cursor-pointer'
+        className="cursor-pointer"
       >
-        <NavTitle title='Couleur' icons={true} />
+        <NavTitle title="Couleur" icons={true} />
       </div>
       {showColors && (
         <motion.div
@@ -52,26 +36,30 @@ const Color = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <ul className='flex flex-col gap-4 text-sm lg:text-base text-[#767676]'>
+          <ul className="flex flex-col gap-3 text-gray-700">
             {colors.map((item) => (
               <li
                 key={item._id}
-                style={{ color: item.base, fontWeight: 600 }}
-                className='border-b-[1px] border-b-[#F0F0F0] pb-2 flex items-center gap-2'
+                className="flex items-center justify-between border-b border-gray-200 py-2 hover:text-primeColor transition-colors duration-300"
               >
-                <label htmlFor={item._id} className='cursor-pointer '>
+                <label
+                  htmlFor={item._id}
+                  className="flex items-center cursor-pointer"
+                >
                   <input
-                    className='cursor-pointer mr-2 border-[#F0F0F0]'
-                    type='checkbox'
+                    className="mr-2 accent-primeColor cursor-pointer"
+                    type="checkbox"
                     id={item._id}
                     style={{
                       backgroundColor: item.base,
-                      borderColor: `1px solid ${item.base}`,
+                      border: `1px solid ${item.base}`,
                     }}
                     checked={checkedColors.some((b) => b._id === item._id)}
                     onChange={() => handleToggleColor(item)}
                   />
-                  {item.title}
+                  <span className="ml-2" style={{ color: item.base }}>
+                    {item.title}
+                  </span>
                 </label>
               </li>
             ))}
