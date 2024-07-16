@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { toast } from "react-toastify";
+import { createSlice } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 
 const initialState = {
   userInfo: null,
@@ -8,10 +8,11 @@ const initialState = {
   checkedBrands: [],
   checkedCategorys: [],
   checkedColors: [],
+  viewMode: 'grid', // default view mode
 };
 
 export const orebiSlice = createSlice({
-  name: "orebi",
+  name: 'orebi',
   initialState,
   reducers: {
     setUser: (state, action) => {
@@ -37,7 +38,7 @@ export const orebiSlice = createSlice({
       } else {
         state.products.push(action.payload);
       }
-      toast.success("Product added to cart");
+      toast.success('Product added to cart');
     },
     increaseQuantity: (state, action) => {
       const item = state.products.find(
@@ -61,7 +62,7 @@ export const orebiSlice = createSlice({
       state.products = state.products.filter(
         (item) => item._id !== action.payload
       );
-      toast.error("Product removed from cart");
+      toast.error('Product removed from cart');
     },
     resetCart: (state) => {
       state.products = [];
@@ -108,6 +109,9 @@ export const orebiSlice = createSlice({
         state.checkedColors.push(color);
       }
     },
+    toggleViewMode: (state) => {
+      state.viewMode = state.viewMode === 'grid' ? 'list' : 'grid';
+    },
   },
 });
 
@@ -123,5 +127,6 @@ export const {
   toggleBrand,
   toggleCategory,
   toggleColor,
+  toggleViewMode,
 } = orebiSlice.actions;
 export default orebiSlice.reducer;
