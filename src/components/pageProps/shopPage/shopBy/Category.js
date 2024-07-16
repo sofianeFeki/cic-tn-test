@@ -1,41 +1,20 @@
-import React, { useState } from "react";
-// import { FaPlus } from "react-icons/fa";
-import { ImPlus } from "react-icons/im";
-import NavTitle from "./NavTitle";
-import { useDispatch, useSelector } from "react-redux";
-import { toggleCategory } from "../../../../redux/orebiSlice";
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleCategory } from '../../../../redux/orebiSlice';
+import { ImPlus } from 'react-icons/im';
+import NavTitle from './NavTitle';
 
 const Category = () => {
-  const [showSubCatOne, setShowSubCatOne] = useState(false);
-
   const checkedCategorys = useSelector((state) => state.orebi.checkedCategorys);
   const dispatch = useDispatch();
 
   const category = [
-    {
-      _id: 9006,
-      title: "Imprimante",
-    },
-    {
-      _id: 9007,
-      title: "Encre",
-    },
-    {
-      _id: 9008,
-      title: "Ruban",
-    },
-    {
-      _id: 9009,
-      title: "Bac",
-    },
-    {
-      _id: 9010,
-      title: "toner",
-    },
-    {
-      _id: 9011,
-      title: "Cartouche",
-    },
+    { _id: 9006, title: 'Imprimante' },
+    { _id: 9007, title: 'Encre' },
+    { _id: 9008, title: 'Ruban' },
+    { _id: 9009, title: 'Bac' },
+    { _id: 9010, title: 'Toner' },
+    { _id: 9011, title: 'Cartouche' },
   ];
 
   const handleToggleCategory = (category) => {
@@ -43,37 +22,30 @@ const Category = () => {
   };
 
   return (
-    <div className='w-full'>
-      <NavTitle title='Catégories' icons={true} />
-      <div>
-        <ul className='flex flex-col gap-4 text-sm lg:text-base text-[#767676]'>
-          {category.map((item) => (
-            <li
-              key={item._id}
-              className='border-b-[1px] border-b-[#F0F0F0] pb-2 flex items-center gap-2 hover:text-primeColor hover:border-gray-400 duration-300'
+    <div className="w-full p-4 bg-[#F5F5F3] rounded-lg drop-shadow-xl">
+      <NavTitle title="Catégories" icons={true} />
+      <ul className="flex flex-col gap-3 text-gray-700">
+        {category.map((item) => (
+          <li
+            key={item._id}
+            className="flex items-center justify-between border-b border-gray-200 py-2 hover:text-primeColor transition-colors duration-300"
+          >
+            <label
+              htmlFor={item._id}
+              className="flex items-center cursor-pointer"
             >
-              <label htmlFor={item._id} className='cursor-pointer '>
-                <input
-                  className='cursor-pointer mr-2'
-                  type='checkbox'
-                  id={item._id}
-                  checked={checkedCategorys.some((b) => b._id === item._id)}
-                  onChange={() => handleToggleCategory(item)}
-                />
-                {item.title}
-                {item.icons && (
-                  <span
-                    onClick={() => setShowSubCatOne(!showSubCatOne)}
-                    className='text-[10px] lg:text-xs cursor-pointer text-gray-400 hover:text-primeColor duration-300'
-                  >
-                    <ImPlus />
-                  </span>
-                )}
-              </label>
-            </li>
-          ))}
-        </ul>
-      </div>
+              <input
+                className="mr-2 accent-primeColor cursor-pointer"
+                type="checkbox"
+                id={item._id}
+                checked={checkedCategorys.some((b) => b._id === item._id)}
+                onChange={() => handleToggleCategory(item)}
+              />
+              {item.title}
+            </label>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
