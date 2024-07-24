@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import NavTitle from './NavTitle';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleColor } from '../../../../redux/orebiSlice';
+import { toggleFilter } from '../../../../redux/orebiSlice';
 
 const Color = () => {
   const [showColors, setShowColors] = useState(true);
 
-  const checkedColors = useSelector((state) => state.orebi.checkedColors);
+  const checkedColors = useSelector((state) => state.orebi.filters.color);
 
   const dispatch = useDispatch();
 
@@ -19,7 +19,7 @@ const Color = () => {
   ];
 
   const handleToggleColor = (color) => {
-    dispatch(toggleColor(color));
+    dispatch(toggleFilter({ filterType: 'color', filterValue: color.title }));
   };
 
   return (
@@ -54,7 +54,7 @@ const Color = () => {
                       backgroundColor: item.base,
                       border: `1px solid ${item.base}`,
                     }}
-                    checked={checkedColors.some((b) => b._id === item._id)}
+                    checked={checkedColors.includes(item.title)}
                     onChange={() => handleToggleColor(item)}
                   />
                   <span className="ml-2" style={{ color: item.base }}>
