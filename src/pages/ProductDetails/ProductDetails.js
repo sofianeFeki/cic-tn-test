@@ -1,21 +1,22 @@
-import React, { useEffect, useState } from "react";
-import ProductForm from "../../components/forms/productForm";
-import { useLocation, useParams } from "react-router-dom";
-import { getProduct } from "../../functions/product";
+import React, { useEffect, useState } from 'react';
+import ProductForm from '../../components/forms/productForm';
+import { useLocation, useParams } from 'react-router-dom';
+import { getProduct } from '../../functions/product';
 
 const initialState = {
-  Title: "",
-  Description: "",
+  Title: '',
+  Description: '',
   Price: 0,
-  Image: "",
+  Image: '',
   Quantity: 0,
-  color: "",
-  Brand: "",
-  Category: "",
-  subCategory: "",
-  ficheTech: [{ label: "", value: "" }],
-  pdf: "",
-  video: "",
+  sold:0,
+  color: '',
+  Brand: '',
+  Category: '',
+  subCategory: '',
+  ficheTech: [{ label: '', value: '' }],
+  pdf: '',
+  video: '',
 };
 
 const ProductUpdate = () => {
@@ -28,9 +29,9 @@ const ProductUpdate = () => {
   const gettheProduct = () => {
     getProduct(slug).then((res) => {
       const productData = res.data;
-      const baseUrl = "https://cic-server-ygl9.onrender.com";
+      const baseUrl = 'http://localhost:8000';
 
-      const formatUrl = (path) => `${baseUrl}${path.replace(/\\/g, "/")}`;
+      const formatUrl = (path) => `${baseUrl}${path.replace(/\\/g, '/')}`;
 
       if (productData.Image) {
         productData.Image = formatUrl(productData.Image);
@@ -43,7 +44,7 @@ const ProductUpdate = () => {
       }
 
       setProduct(productData);
-      console.log(productData, "Product data loaded");
+      console.log(productData, 'Product data loaded');
     });
   };
   useEffect(() => {
