@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import NavTitle from './NavTitle';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleBrand } from '../../../../redux/orebiSlice';
+import { toggleFilter } from '../../../../redux/orebiSlice';
 
 const Brand = () => {
   const [showBrands, setShowBrands] = useState(true);
-  const checkedBrands = useSelector((state) => state.orebi.checkedBrands);
+  const checkedBrands = useSelector((state) => state.orebi.filters.brand);
   const dispatch = useDispatch();
 
   const brands = [
@@ -17,7 +17,7 @@ const Brand = () => {
   ];
 
   const handleToggleBrand = (brand) => {
-    dispatch(toggleBrand(brand));
+    dispatch(toggleFilter({ filterType: 'brand', filterValue: brand.title }));
   };
 
   return (
@@ -48,7 +48,7 @@ const Brand = () => {
                     className="mr-2 accent-primeColor cursor-pointer"
                     type="checkbox"
                     id={item._id}
-                    checked={checkedBrands.some((b) => b._id === item._id)}
+                    checked={checkedBrands.includes(item.title)}
                     onChange={() => handleToggleBrand(item)}
                   />
                   {item.title}
