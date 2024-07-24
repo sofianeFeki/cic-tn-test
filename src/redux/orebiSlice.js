@@ -5,9 +5,11 @@ const initialState = {
   userInfo: null,
   error: null,
   products: [],
-  checkedBrands: [],
-  checkedCategorys: [],
-  checkedColors: [],
+  filters: {
+    brand: [],
+    category: [],
+    color: [],
+  },
   viewMode: 'grid', // default view mode
 };
 
@@ -18,9 +20,6 @@ export const orebiSlice = createSlice({
     setUser: (state, action) => {
       const { uid, email } = action.payload;
       state.userInfo = { uid, email };
-    },
-    setError: (state, action) => {
-      state.error = action.payload;
     },
     setError: (state, action) => {
       state.error = action.payload;
@@ -48,7 +47,7 @@ export const orebiSlice = createSlice({
         item.quantity++;
       }
     },
-    drecreaseQuantity: (state, action) => {
+    decreaseQuantity: (state, action) => {
       const item = state.products.find(
         (item) => item._id === action.payload._id
       );
@@ -67,50 +66,20 @@ export const orebiSlice = createSlice({
     resetCart: (state) => {
       state.products = [];
     },
-    toggleBrand: (state, action) => {
-      const brand = action.payload;
-      const isBrandChecked = state.checkedBrands.some(
-        (b) => b._id === brand._id
-      );
-
-      if (isBrandChecked) {
-        state.checkedBrands = state.checkedBrands.filter(
-          (b) => b._id !== brand._id
-        );
-      } else {
-        state.checkedBrands.push(brand);
-      }
-    },
-    toggleCategory: (state, action) => {
-      const category = action.payload;
-      const isCategoryChecked = state.checkedCategorys.some(
-        (b) => b._id === category._id
-      );
-
-      if (isCategoryChecked) {
-        state.checkedCategorys = state.checkedCategorys.filter(
-          (b) => b._id !== category._id
-        );
-      } else {
-        state.checkedCategorys.push(category);
-      }
-    },
-    toggleColor: (state, action) => {
-      const color = action.payload;
-      const isColorChecked = state.checkedColors.some(
-        (b) => b._id === color._id
-      );
-
-      if (isColorChecked) {
-        state.checkedColors = state.checkedColors.filter(
-          (b) => b._id !== color._id
-        );
-      } else {
-        state.checkedColors.push(color);
-      }
-    },
     toggleViewMode: (state) => {
       state.viewMode = state.viewMode === 'grid' ? 'list' : 'grid';
+    },
+    toggleFilter: (state, action) => {
+      const { filterType, filterValue } = action.payload;
+      const filterList = state.filters[filterType];
+
+      if (filterList.includes(filterValue)) {
+        state.filters[filterType] = filterList.filter(
+          (value) => value !== filterValue
+        );
+      } else {
+        state.filters[filterType].push(filterValue);
+      }
     },
   },
 });
@@ -121,12 +90,11 @@ export const {
   clearUser,
   addToCart,
   increaseQuantity,
-  drecreaseQuantity,
+  decreaseQuantity,
   deleteItem,
   resetCart,
-  toggleBrand,
-  toggleCategory,
-  toggleColor,
   toggleViewMode,
+  toggleFilter,
 } = orebiSlice.actions;
+
 export default orebiSlice.reducer;
