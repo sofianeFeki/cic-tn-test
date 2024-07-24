@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import Breadcrumbs from '../../components/pageProps/Breadcrumbs';
 import Pagination from '../../components/pageProps/shopPage/Pagination';
 import ProductBanner from '../../components/pageProps/shopPage/ProductBanner';
@@ -8,11 +9,13 @@ import { getProducts } from '../../functions/product';
 const Shop = () => {
   const [itemsPerPage, setItemsPerPage] = useState(12);
   const [sort, setSort] = useState('');
-  const [itemOffset, setItemOffset] = useState(0); // Added itemOffset state
+  const [itemOffset, setItemOffset] = useState(0);
   const [totalPages, setTotalPages] = useState(1);
   const [totalProducts, setTotalProducts] = useState(1);
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([{}, {}, {}, {}, {}, {}]);
   const [loading, setLoading] = useState(false);
+
+  const filters = useSelector((state) => state.orebi.filters);
 
   const itemsPerPageFromBanner = (itemsPerPage) => {
     setItemsPerPage(itemsPerPage);
@@ -22,9 +25,9 @@ const Shop = () => {
     setSort(sort);
   };
 
-  const gettheProducts = (page, sort, itemsPerPage) => {
+  const gettheProducts = (page, sort, itemsPerPage, filters) => {
     setLoading(true);
-    getProducts(page, sort, itemsPerPage)
+    getProducts(page, sort, itemsPerPage, filters)
       .then((res) => {
         const productData = res.data.products;
         const baseUrl = 'https://cic-server-ygl9.onrender.com';
@@ -47,18 +50,17 @@ const Shop = () => {
         setTotalPages(res.data.totalPages);
         setTotalProducts(res.data.totalProducts);
         setLoading(false);
-        console.log(productData, 'Product data loaded');
       })
       .catch((error) => {
         console.error('Failed to fetch products', error);
-        setLoading(false);
+        setLoading(false); // setLoading should be false in case of error
       });
   };
 
   useEffect(() => {
     const page = Math.floor(itemOffset / itemsPerPage) + 1;
-    gettheProducts(page, sort, itemsPerPage);
-  }, [itemOffset, sort, itemsPerPage]);
+    gettheProducts(page, sort, itemsPerPage, filters);
+  }, [itemOffset, sort, itemsPerPage, filters]);
 
   const handlePageClick = (event) => {
     const newOffset = event.selected * itemsPerPage;
@@ -84,6 +86,7 @@ const Shop = () => {
             totalProducts={totalProducts}
             handlePageClick={handlePageClick}
             itemOffset={itemOffset}
+            loading={loading}
           />
         </div>
       </div>
