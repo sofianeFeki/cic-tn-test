@@ -1,61 +1,60 @@
-import React, { useEffect, useState } from "react";
-import Heading from "../Products/Heading";
-import Product from "../Products/Product";
-import { paginationItems } from "../../../constants";
-import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
-import { toggleBrand, toggleColor } from "../../../redux/orebiSlice";
+import React, { useEffect, useState } from 'react';
+import Heading from '../Products/Heading';
+import Product from '../Products/Product';
+import { paginationItems } from '../../../constants';
+import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { toggleBrand, toggleColor } from '../../../redux/orebiSlice';
+import { getProductsByCategory } from '../../../functions/product';
 
 const CategoryPage = () => {
   const { category } = useParams();
 
-  //get selected brand
-  const selectedBrands = useSelector(
-    (state) => state.orebiReducer.checkedBrands
-  );
+  const [products, setProducts] = useState([]);
 
-  const selectedColors = useSelector(
-    (state) => state.orebiReducer.checkedColors
-  );
-
-  const [data, setData] = useState([]);
   useEffect(() => {
-    setData(paginationItems);
-    console.log(categoryData);
-  }, [data]);
+    const fetchProductsByCategory = async () => {
+      try {
+        const res = await getProductsByCategory(category);
+        const productData = res.data;
 
-  const filteredItems = data.filter((item) => {
-    const isBrandSelected =
-      selectedBrands.length === 0 ||
-      selectedBrands.some((brand) => brand.title === item.brand);
+        const baseUrl = 'https://cic-server-ygl9.onrender.com';
+        const formatUrl = (path) => `${baseUrl}${path.replace(/\\/g, '/')}`;
 
-    const isCategorySelected = item.cat === category; // Compare with category from URL
+        productData.forEach((product) => {
+          if (product.Image) product.Image = formatUrl(product.Image);
+          if (product.video) product.video = formatUrl(product.video);
+          if (product.pdf) product.pdf = formatUrl(product.pdf);
+        });
 
-    const isColorSelected =
-      selectedColors.length === 0 ||
-      selectedColors.some((color) => color.title === item.color);
+        setProducts(productData);
+        console.log('Product data loaded:', productData);
+      } catch (err) {
+        console.error('Error fetching products:', err);
+      }
+    };
 
-    return isBrandSelected && isCategorySelected && isColorSelected;
-  });
+    fetchProductsByCategory();
+  }, [category]);
 
-  const categoryData = filteredItems.filter((item) => item.cat === category);
   return (
     <div className="w-full pb-20">
       <Heading heading="Special Offers" />
       <div className="w-full grid grid-cols-1 md:grid-cols-2 lgl:grid-cols-3 xl:grid-cols-3 gap-10">
-        {categoryData.map((data) => (
+        {products.map((data) => (
           <Product
             key={data._id}
             _id={data._id}
-            img={data.img}
-            productName={data.productName}
+            img={data.Image}
+            productName={data.Title}
             price={data.price}
             color={data.color}
-            badge={true}
-            des={data.des}
+            // badge={true}
+            des={data.Description}
             ficheTech={data.ficheTech}
             video={data.video}
+            slug={data.slug}
           />
         ))}
       </div>
