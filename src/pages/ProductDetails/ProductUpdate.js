@@ -1,22 +1,23 @@
-import React, { useEffect, useState } from "react";
-import ProductForm from "../../components/forms/productForm";
-import { useParams, useLocation } from "react-router-dom";
-import { getProduct, updateProduct } from "../../functions/product";
-import { toast } from "react-toastify";
+import React, { useEffect, useState } from 'react';
+import ProductForm from '../../components/forms/productForm';
+import { useParams, useLocation } from 'react-router-dom';
+import { getProduct, updateProduct } from '../../functions/product';
+import { toast } from 'react-toastify';
 
 const initialState = {
-  Title: "",
-  Description: "",
+  Title: '',
+  Description: '',
   Price: 0,
-  Image: "",
+  Image: '',
   Quantity: 0,
-  color: "",
-  Brand: "",
-  Category: "",
-  subCategory: "",
-  ficheTech: [{ label: "", value: "" }],
-  pdf: "",
-  video: "",
+  sold:0,
+  color: '',
+  Brand: '',
+  Category: '',
+  subCategory: '',
+  ficheTech: [{ label: '', value: '' }],
+  pdf: '',
+  video: '',
 };
 
 const ProductUpdate = () => {
@@ -25,6 +26,7 @@ const ProductUpdate = () => {
   const productFromState = location.state?.product || initialState;
   const [product, setProduct] = useState(productFromState);
   const [startEdit, setStartEdit] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (product) {
@@ -33,7 +35,7 @@ const ProductUpdate = () => {
         if (res.data.Image) {
           const imageUrl = `https://cic-server-ygl9.onrender.com${res.data.Image.replace(
             /\\/g,
-            "/"
+            '/'
           )}`;
           setProduct((prevProduct) => ({
             ...prevProduct,
@@ -49,36 +51,37 @@ const ProductUpdate = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     const formData = new FormData();
 
     // Append all fields except 'ficheTech', 'pdf', 'video', and 'Image'
     for (const key in product) {
       if (
-        key !== "ficheTech" &&
-        key !== "pdf" &&
-        key !== "video" &&
-        key !== "Image"
+        key !== 'ficheTech' &&
+        key !== 'pdf' &&
+        key !== 'video' &&
+        key !== 'Image'
       ) {
         formData.append(key, product[key]);
       }
     }
 
-    formData.append("ficheTech", JSON.stringify(product.ficheTech));
+    formData.append('ficheTech', JSON.stringify(product.ficheTech));
 
     // Append the image file if it exists and 'Image' field isn't already appended
-    if (product.imageFile && !formData.has("imageFile")) {
-      formData.append("imageFile", product.imageFile);
+    if (product.imageFile && !formData.has('imageFile')) {
+      formData.append('imageFile', product.imageFile);
     }
 
     // Append 'pdf' and 'video' if they exist
-    if (product.pdf) formData.append("pdf", product.pdf);
-    if (product.video) formData.append("video", product.video);
+    if (product.pdf) formData.append('pdf', product.pdf);
+    if (product.video) formData.append('video', product.video);
 
     // Append the image file to formData
     if (product.imageFile === null) {
-      formData.append("imageFile", null);
+      formData.append('imageFile', null);
     } else if (product.newImageFile) {
-      formData.append("imageFile", product.newImageFile);
+      formData.append('imageFile', product.newImageFile);
     }
     try {
       // Update the product
@@ -88,6 +91,7 @@ const ProductUpdate = () => {
       console.log(err);
       toast.error(err.response.data.err);
     }
+    setLoading(false);
   };
 
   return (
@@ -97,6 +101,7 @@ const ProductUpdate = () => {
         setProduct={setProduct}
         handleSubmit={handleSubmit}
         startEdit={startEdit}
+        loading={loading}
       />
     </>
   );
