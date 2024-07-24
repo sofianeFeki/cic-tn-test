@@ -25,7 +25,7 @@ export const updateProduct = async (slug, formData) =>
   );
 
 export const getProducts = async (page, sort, itemsPerPage, filters = {}) =>
-  await axios.post(`https://cic-server-ygl9.onrender.com/products`, {
+  await axios.post(`https://cic-server-ygl9.onrender.com/api/products`, {
     page,
     itemsPerPage,
     sort,
