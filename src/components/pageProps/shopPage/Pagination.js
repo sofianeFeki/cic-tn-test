@@ -13,6 +13,7 @@ const Pagination = ({
   totalPages,
   totalProducts,
   handlePageClick,
+  loading,
 }) => {
   const viewMode = useSelector((state) => state.orebi.viewMode);
 
@@ -38,11 +39,12 @@ const Pagination = ({
               pdf={product.pdf}
               ficheTech={product.ficheTech}
               video={product.video}
+              loading={loading}
             />
           </div>
         ))}
       </div>
-      <div className="flex flex-col mdl:flex-row justify-center mdl:justify-between items-center">
+      <div className="flex flex-col mdl:flex-row justify-center mdl:justify-between items-center mt-6">
         <ReactPaginate
           breakLabel="..."
           nextLabel="next >"
@@ -51,7 +53,7 @@ const Pagination = ({
           pageCount={totalPages}
           previousLabel="< previous"
           renderOnZeroPageCount={null}
-          containerClassName={` flex justify-center mt-4`}
+          containerClassName={` flex justify-center`}
           pageClassName="mx-1 px-3 py-2 border border-gray-300 rounded-md cursor-pointer hover:bg-gray-100"
           activeClassName="bg-primeColor text-white"
           previousClassName="mx-1 px-3 py-2 border border-gray-300 rounded-md cursor-pointer hover:bg-gray-100"
