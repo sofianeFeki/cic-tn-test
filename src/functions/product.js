@@ -24,9 +24,27 @@ export const updateProduct = async (slug, formData) =>
     formData
   );
 
-export const getProducts = async (page, sort, itemsPerPage) =>
-  await axios.post('https://cic-server-ygl9.onrender.com/api/products', {
+export const getProducts = async (page, sort, itemsPerPage, filters = {}) =>
+  await axios.post(`https://cic-server-ygl9.onrender.com/products`, {
     page,
     itemsPerPage,
     sort,
+    filters,
   });
+
+export const removeProduct = async (slug) =>
+  await axios.delete(`https://cic-server-ygl9.onrender.com/api/product/${slug}`, {});
+
+export const searchProducts = async (query) =>
+  await axios.get(`https://cic-server-ygl9.onrender.com/api/products/search/${query}`);
+
+export const getProductsByCategory = async (category) => {
+  return await axios.get(
+    `https://cic-server-ygl9.onrender.com/api/products/category/${category}`
+  );
+};
+
+export const getNewArrivals = async (limit) =>
+  await axios.get(`https://cic-server-ygl9.onrender.com/api/products/newArrivals/${limit}`);
+export const getBestSellers = async (limit) =>
+  await axios.get(`https://cic-server-ygl9.onrender.com/api/products/bestSellers/${limit}`);
