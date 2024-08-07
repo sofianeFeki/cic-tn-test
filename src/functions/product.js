@@ -9,7 +9,7 @@ export const productCreate = async (formData) => {
     },
   };
   return await axios.post(
-    'http://localhost:8000/api/product/create',
+    'https://cic-server-ygl9.onrender.com/api/product/create',
     formData,
     config
   );
@@ -25,7 +25,7 @@ export const updateProduct = async (slug, formData) =>
   );
 
 export const getProducts = async (page, sort, itemsPerPage, filters = {}) =>
-  await axios.post(`${API_BASE_URL}/products`, {
+  await axios.post(`https://cic-server-ygl9.onrender.com/api/products`, {
     page,
     itemsPerPage,
     sort,
