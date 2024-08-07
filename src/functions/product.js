@@ -9,7 +9,7 @@ export const productCreate = async (formData) => {
     },
   };
   return await axios.post(
-    'https://cic-server-ygl9.onrender.com/api/product/create',
+    'http://localhost:8000/api/product/create',
     formData,
     config
   );
@@ -25,7 +25,7 @@ export const updateProduct = async (slug, formData) =>
   );
 
 export const getProducts = async (page, sort, itemsPerPage, filters = {}) =>
-  await axios.post(`https://cic-server-ygl9.onrender.com/api/products`, {
+  await axios.post(`${API_BASE_URL}/products`, {
     page,
     itemsPerPage,
     sort,
@@ -48,3 +48,20 @@ export const getNewArrivals = async (limit) =>
   await axios.get(`https://cic-server-ygl9.onrender.com/api/products/newArrivals/${limit}`);
 export const getBestSellers = async (limit) =>
   await axios.get(`https://cic-server-ygl9.onrender.com/api/products/bestSellers/${limit}`);
+export const getProductTitlesByCategories = async () => {
+  return await axios.get('https://cic-server-ygl9.onrender.com/api/products/titles');
+};
+
+export const getProductByTitle = async (title) => {
+  return await axios.get(`https://cic-server-ygl9.onrender.com/api/products/title/${title}`);
+};
+
+export const saveProductOfTheYear = (productTitle) => {
+  return axios.post('https://cic-server-ygl9.onrender.com/api/products/saveProductOfTheYear', {
+    title: productTitle,
+  });
+};
+
+export const getProductOfTheYear = async () => {
+  return await axios.get(`${API_BASE_URL}/products/productOfTheYear`);
+};
