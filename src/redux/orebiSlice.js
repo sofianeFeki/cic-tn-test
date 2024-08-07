@@ -9,6 +9,7 @@ const initialState = {
     brand: [],
     category: [],
     color: [],
+    subCategory: [],
   },
   viewMode: 'grid', // default view mode
 };
@@ -69,6 +70,9 @@ export const orebiSlice = createSlice({
     toggleViewMode: (state) => {
       state.viewMode = state.viewMode === 'grid' ? 'list' : 'grid';
     },
+    setViewMode: (state, action) => {
+      state.viewMode = action.payload;
+    },
     toggleFilter: (state, action) => {
       const { filterType, filterValue } = action.payload;
       const filterList = state.filters[filterType];
@@ -94,6 +98,7 @@ export const {
   deleteItem,
   resetCart,
   toggleViewMode,
+  setViewMode,
   toggleFilter,
 } = orebiSlice.actions;
 
