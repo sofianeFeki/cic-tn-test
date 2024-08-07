@@ -15,34 +15,11 @@ import {
 } from '@heroicons/react/24/outline';
 import Breadcrumbs from '../../pageProps/Breadcrumbs';
 import { noImage } from '../../../assets/images';
+import { Colors, Brands, Categories, subCategory } from './formOptions';
 import { removeProduct } from '../../../functions/product';
 import { toast } from 'react-toastify';
 
-const Colors = ['Black', 'Blanc', 'Yellow', 'Cyan', 'Magenta', 'Multicouleur'];
-const Brands = [
-  'Pantum',
-  'HP',
-  'Epson',
-  'Ricoh',
-  'Canon',
-  'Kyocera',
-  'Oki',
-  'Tally',
-  'Epson',
-  'Samsung',
-  'Lexmark',
-  'xerox',
-];
-const Categories = ['Imprimante', 'Photocopieur', 'Consommable'];
-const subCategory = [
-  'Toner',
-  'Bac de dechet',
-  'Cartouche',
-  'Ruban',
-  'Bouteille D’encre',
-  'Tête d’impression',
-  'Tambour',
-];
+
 
 const ProductForm = ({
   product,
