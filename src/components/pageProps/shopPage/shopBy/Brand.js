@@ -3,21 +3,15 @@ import { motion } from 'framer-motion';
 import NavTitle from './NavTitle';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleFilter } from '../../../../redux/orebiSlice';
+import { Brands } from '../../../forms/productForm/formOptions';
 
 const Brand = () => {
   const [showBrands, setShowBrands] = useState(true);
   const checkedBrands = useSelector((state) => state.orebi.filters.brand);
   const dispatch = useDispatch();
 
-  const brands = [
-    { _id: 900, title: 'Pantum' },
-    { _id: 901, title: 'Hp' },
-    { _id: 902, title: 'Epson' },
-    { _id: 903, title: 'Ricoh' },
-  ];
-
   const handleToggleBrand = (brand) => {
-    dispatch(toggleFilter({ filterType: 'brand', filterValue: brand.title }));
+    dispatch(toggleFilter({ filterType: 'brand', filterValue: brand }));
   };
 
   return (
@@ -35,23 +29,23 @@ const Brand = () => {
           transition={{ duration: 0.5 }}
         >
           <ul className="flex flex-col gap-3 text-gray-700">
-            {brands.map((item) => (
+            {Brands.map((item) => (
               <li
-                key={item._id}
+                key={item}
                 className="flex items-center justify-between border-b border-gray-200 py-2 hover:text-primeColor transition-colors duration-300"
               >
                 <label
-                  htmlFor={item._id}
+                  htmlFor={item}
                   className="flex items-center cursor-pointer"
                 >
                   <input
                     className="mr-2 accent-primeColor cursor-pointer"
                     type="checkbox"
-                    id={item._id}
-                    checked={checkedBrands.includes(item.title)}
+                    id={item}
+                    checked={checkedBrands.includes(item)}
                     onChange={() => handleToggleBrand(item)}
                   />
-                  {item.title}
+                  {item}
                 </label>
               </li>
             ))}
