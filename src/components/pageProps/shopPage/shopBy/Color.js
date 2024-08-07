@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import NavTitle from './NavTitle';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleFilter } from '../../../../redux/orebiSlice';
+import { Colors } from '../../../forms/productForm/formOptions';
 
 const Color = () => {
   const [showColors, setShowColors] = useState(true);
@@ -11,15 +12,8 @@ const Color = () => {
 
   const dispatch = useDispatch();
 
-  const colors = [
-    { _id: 9001, title: 'Magenta', base: '#FF00FF' },
-    { _id: 9002, title: 'Cyan', base: '#00FFFF' },
-    { _id: 9003, title: 'Noir', base: '#000000' },
-    { _id: 9004, title: 'Yellow', base: '#f59e0b' },
-  ];
-
   const handleToggleColor = (color) => {
-    dispatch(toggleFilter({ filterType: 'color', filterValue: color.title }));
+    dispatch(toggleFilter({ filterType: 'color', filterValue: color }));
   };
 
   return (
@@ -37,29 +31,23 @@ const Color = () => {
           transition={{ duration: 0.5 }}
         >
           <ul className="flex flex-col gap-3 text-gray-700">
-            {colors.map((item) => (
+            {Colors.map((item) => (
               <li
-                key={item._id}
+                key={item}
                 className="flex items-center justify-between border-b border-gray-200 py-2 hover:text-primeColor transition-colors duration-300"
               >
                 <label
-                  htmlFor={item._id}
+                  htmlFor={item}
                   className="flex items-center cursor-pointer"
                 >
                   <input
                     className="mr-2 accent-primeColor cursor-pointer"
                     type="checkbox"
-                    id={item._id}
-                    style={{
-                      backgroundColor: item.base,
-                      border: `1px solid ${item.base}`,
-                    }}
-                    checked={checkedColors.includes(item.title)}
+                    id={item}
+                    checked={checkedColors.includes(item)}
                     onChange={() => handleToggleColor(item)}
                   />
-                  <span className="ml-2" style={{ color: item.base }}>
-                    {item.title}
-                  </span>
+                  <span className="ml-2">{item}</span>
                 </label>
               </li>
             ))}
