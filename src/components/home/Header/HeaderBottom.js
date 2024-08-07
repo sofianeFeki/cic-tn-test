@@ -1,18 +1,7 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
-import { motion } from 'framer-motion';
-import { HiOutlineMenuAlt4 } from 'react-icons/hi';
-import {
-  FaSearch,
-  FaUser,
-  FaCaretDown,
-  FaShoppingCart,
-  FaRegTimesCircle,
-} from 'react-icons/fa';
+import React, { useState, useEffect, useCallback } from 'react';
 import Flex from '../../designLayouts/Flex';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { paginationItems } from '../../../constants';
-import { BsSuitHeartFill } from 'react-icons/bs';
 import {
   Menu,
   MenuButton,
@@ -22,7 +11,6 @@ import {
 } from '@headlessui/react';
 import {
   ShoppingBagIcon,
-  HeartIcon,
   MagnifyingGlassIcon,
   ViewColumnsIcon,
   UserIcon,
@@ -32,6 +20,7 @@ import {
   PrinterIcon,
   DocumentDuplicateIcon,
 } from '@heroicons/react/24/outline';
+import { HeartIcon } from '@heroicons/react/24/solid';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../../service/firebase/firebase';
 import { clearUser, setError } from '../../../redux/orebiSlice';
@@ -73,7 +62,7 @@ const HeaderBottom = () => {
       const res = await searchProducts(searchQuery);
       const productData = res.data;
 
-      const baseUrl = 'https://cic-server-ygl9.onrender.com';
+      const baseUrl = 'http://localhost:8000';
       const formatUrl = (path) => `${baseUrl}${path.replace(/\\/g, '/')}`;
 
       productData.forEach((product) => {
@@ -111,19 +100,17 @@ const HeaderBottom = () => {
   };
 
   return (
-    <div className="w-full bg-[#F5F5F3] relative drop-shadow-xl">
+    <div className="w-full bg-[#F5F5F3] sticky top-0 drop-shadow-xl relative z-50">
       <div className="max-w-container mx-auto">
         <Flex className="flex flex-col lg:flex-row items-start lg:items-center justify-between w-full px-4 pb-4 lg:pb-0 h-full lg:h-24">
           <div>
             <Link to="/shop">
-              <button className="flex items-center p-2  text-black ">
-                <span className="absolute -inset-1.5" />
-                <span className="sr-only">Open category menu</span>
+              <button className="flex bg-white text-black p-3  rounded cursor-pointer shadow-md hover:bg-opacity-100">
                 <Squares2X2Icon
-                  className="block h-6 w-6 mr-1"
+                  className="block h-6 w-6 mr-1 text-yellow-500"
                   aria-hidden="true"
                 />
-                <span>Browse all collection</span>
+                <span className="font-bold">Browse all collection</span>
               </button>
             </Link>
           </div>
@@ -131,7 +118,6 @@ const HeaderBottom = () => {
             <Menu as="div" className="relative">
               <div>
                 <MenuButton className="flex items-center p-2 bg-yellow-500 text-white rounded-xl shadow-md h-[50px]">
-                  <span className="absolute -inset-1.5" />
                   <span className="sr-only">Open category menu</span>
                   <ViewColumnsIcon
                     className="block h-6 w-6 mr-1"
@@ -195,13 +181,13 @@ const HeaderBottom = () => {
                 value={query}
               />
               {showSearchBar && query && (
-                <div className="w-full mx-auto h-auto max-h-96 bg-white top-16 absolute left-0 z-50 overflow-y-scroll rounded-xl shadow-md scrollbar-hide cursor-pointer">
+                <div className="w-full mx-auto h-auto max-h-96 bg-white top-16 absolute left-0 z-50 overflow-y-scroll rounded-xl shadow-md cursor-pointer">
                   {loading ? (
                     <div className="text-center">
                       <div role="status">
                         <svg
                           aria-hidden="true"
-                          className="inline w-6 h-6 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600 my-1"
+                          className="inline w-6 h-6 text-gray-200 animate-spin fill-blue-600 my-1"
                           viewBox="0 0 100 101"
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
@@ -229,12 +215,8 @@ const HeaderBottom = () => {
                         products.map((item) => (
                           <div
                             onClick={() => {
-                              navigate(
-                                `/product/${item.slug
-                                  .toLowerCase()
-                                  .split(' ')
-                                  .join('')}`
-                              );
+                              navigate(`/product/${item.slug}`);
+                              setQuery('');
                             }}
                             key={item._id}
                             className="max-w-[600px] h-28 bg-gray-100 mb-3 flex items-center gap-3"
@@ -267,8 +249,7 @@ const HeaderBottom = () => {
               {user ? ( // If user is logged in, show the full menu
                 <Menu as="div" className="relative ml-3">
                   <div>
-                    <MenuButton className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                      <span className="absolute -inset-1.5" />
+                    <MenuButton className="relative shadow-md flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-8 w-8 rounded-full"
@@ -338,7 +319,12 @@ const HeaderBottom = () => {
                     <MenuButton className="relative flex focus:outline-none">
                       <span className="absolute -inset-1.5" />
                       <span className="sr-only">Open user menu</span>
-                      <UserIcon className="block h-6 w-6" aria-hidden="true" />
+                      <div class=" relative bg-white border border-gray-200 hover:bg-gray-100  focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-full shadow-md text-sm p-1.5 text-center inline-flex items-center">
+                        <UserIcon
+                          className="block h-6 w-6"
+                          aria-hidden="true"
+                        />
+                      </div>
                     </MenuButton>
                   </div>
                   <Transition
@@ -370,14 +356,22 @@ const HeaderBottom = () => {
             </div>
 
             <Link to="/cart">
-              <div className="relative">
-                <ShoppingBagIcon className="block h-6 w-6" aria-hidden="true" />{' '}
-                <span className="absolute font-titleFont top-3 -right-2 text-xs w-4 h-4 flex items-center justify-center rounded-full bg-primeColor text-white">
+              <div class=" relative bg-white border border-gray-200 hover:bg-gray-100  focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-full shadow-md text-sm p-1.5 text-center inline-flex items-center :border-blue-500">
+                <ShoppingBagIcon
+                  className="block h-6 w-6 font-bold"
+                  aria-hidden="true"
+                />{' '}
+                <span className="absolute font-titleFont top-3 -right-2.5 text-xs w-4 h-4 flex items-center justify-center rounded-full bg-white text-black border shadow-md border-gray-200">
                   {products.length > 0 ? products.length : 0}
                 </span>
               </div>
             </Link>
-            <HeartIcon className="block h-6 w-6" aria-hidden="true" />
+            <div class=" relative bg-white border border-gray-200 hover:bg-gray-100  focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-full shadow-md text-sm p-1.5 text-center inline-flex items-center">
+              <HeartIcon
+                className="block h-6 w-6 font-bold text-red-400"
+                aria-hidden="true"
+              />
+            </div>
           </div>
         </Flex>
       </div>
