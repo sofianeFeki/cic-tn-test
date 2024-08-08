@@ -25,12 +25,13 @@ const YearProduct = () => {
 
   const user = useSelector((state) => state.orebi.userInfo);
 
+  const baseURL = 'https://cic-server-ygl9.onrender.com';
+
   useEffect(() => {
     const fetchProductTitles = async () => {
       try {
         const response = await getProductTitlesByCategories();
         setProducts(response.data);
-        // Fetch and set the product of the year
         const productOfTheYear = await getProductOfTheYear();
         if (productOfTheYear.data) {
           setSelectedProduct(productOfTheYear.data.Title);
@@ -70,15 +71,6 @@ const YearProduct = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const preloadImage = (url) => {
-    return new Promise((resolve) => {
-      const img = new Image();
-      img.src = url;
-      img.onload = () => resolve({ url, success: true });
-      img.onerror = () => resolve({ url, success: false });
-    });
-  };
-
   const handleProductChange = async (product) => {
     setSelectedProduct(product);
     try {
@@ -117,7 +109,7 @@ const YearProduct = () => {
       <div className="relative w-full md:w-1/2 flex items-center justify-center">
         <Image
           className="max-w-[500px] max-h-[500px] w-auto h-auto object-cover"
-          imgSrc={productData ? productData.Image : imageNotFound}
+          imgSrc={productData ? `${baseURL}${productData.Image}` : imageNotFound}
         />
       </div>
       <div className="relative w-full md:w-1/2 h-auto p-6 md:p-10 flex flex-col items-start gap-6 justify-center z-10">
