@@ -162,7 +162,7 @@ const Banner = () => {
       try {
         const response = await getSliderImages();
         const formattedImages = response.data.map((image) => {
-          const imageUrl = `https://cic-tn-test.netlify.app/${image.image.replace(
+          const imageUrl = `https://cic-tn-test.netlify.app${image.image.replace(
             /\\/g,
             '/'
           )}`;
