@@ -63,5 +63,5 @@ export const saveProductOfTheYear = (productTitle) => {
 };
 
 export const getProductOfTheYear = async () => {
-  return await axios.get(`${API_BASE_URL}/products/productOfTheYear`);
+  return await axios.get(`https://cic-server-ygl9.onrender.com/products/productOfTheYear`);
 };
