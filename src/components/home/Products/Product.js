@@ -28,6 +28,15 @@ const Product = (props) => {
     //console.log(wishList);
   };
 
+  const truncateString = (str, maxLength) => {
+    if (str.length > maxLength) {
+      return str.slice(0, maxLength) + ' ...';
+    }
+    return str;
+  };
+
+  const maxLength = 40;
+
   const containerClass =
     viewMode === 'grid'
       ? 'w-full relative group flex flex-col drop-shadow-xl'
@@ -38,7 +47,7 @@ const Product = (props) => {
       : 'w-1/3 h-full overflow-hidden rounded-lg';
   const detailsClass =
     viewMode === 'grid'
-      ? 'w-full bg-white h-38 flex flex-col justify-between p-4'
+      ? 'w-full bg-white h-32 flex flex-col justify-between p-4'
       : 'w-2/3 flex flex-col justify-center';
 
   return (
@@ -57,12 +66,6 @@ const Product = (props) => {
             <Image className="w-full h-full object-cover" imgSrc={props.img} />
           </div>
         )}
-
-        {/* {viewMode === 'grid' && (
-          <div className="absolute top-6 left-8">
-            {props.badge && <Badge text="New" />}
-          </div>
-        )} */}
         {viewMode === 'grid' && !props.loading && (
           <div className="w-full h-32 absolute bg-white -bottom-[130px] group-hover:bottom-0 duration-700">
             <ul className="w-full h-full flex flex-col items-end justify-center gap-2 font-titleFont px-2 border-l border-r">
@@ -132,7 +135,8 @@ const Product = (props) => {
           <div className="max-w-80 py-6 flex flex-col gap-1 px-1">
             <div className="flex items-center justify-between font-titleFont">
               <h2 className="text-lg text-primeColor font-bold">
-                {props.productName}
+                {props.productName &&
+                  truncateString(props.productName, maxLength)}
               </h2>
             </div>
             {viewMode === 'list' && (
