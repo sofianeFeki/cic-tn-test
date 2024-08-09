@@ -2,55 +2,60 @@ import React, { useEffect, useState } from 'react';
 import Heading from '../Products/Heading';
 import Product from '../Products/Product';
 import {
-  bestSellerOne,
-  bestSellerTwo,
-  bestSellerThree,
-  bestSellerFour,
-  IMPRIMANTE_PANTUM_M6609N,
-  IMPRIMANTE_PANTUM_BP5100DN,
-  IMPRIMANTE_PANTUM_BM5100FDW,
-  IMPRIMANTE_PANTUM_CP2200DW,
-  CP2200DW,
-  BM5100,
-  BP5100DN,
-  M6609N,
-  PUNTUM,
+ 
+  imageNotFound,
 } from '../../../assets/images/index';
 import { getBestSellers } from '../../../functions/product';
 
-
-
 const BestSellers = () => {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([{}, {}, {}, {}]);
   const [loading, setLoading] = useState(false);
   const [limit, setLimit] = useState(4);
 
-  const handleBestSellers = async (e) => {
+  const preloadImage = (url) => {
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.src = url;
+      img.onload = () => resolve({ url, success: true });
+      img.onerror = () => resolve({ url, success: false });
+    });
+  };
+
+  const handleBestSellers = async () => {
     setLoading(true);
     try {
-      getBestSellers(limit).then((res) => {
-        const productData = res.data.products;
-        const baseUrl = 'https://cic-server-ygl9.onrender.com';
+      const res = await getBestSellers(limit);
+      const productData = res.data.products;
+      const baseUrl = 'https://cic-server-ygl9.onrender.com';
 
-        const formatUrl = (path) => `${baseUrl}${path.replace(/\\/g, '/')}`;
+      const formatUrl = (path) => `${baseUrl}${path.replace(/\\/g, '/')}`;
 
-        if (productData.Image) {
-          productData.Image = formatUrl(productData.Image);
-        }
-        if (productData.video) {
-          productData.video = formatUrl(productData.video);
-        }
-        if (productData.pdf) {
-          productData.pdf = formatUrl(productData.pdf);
-        }
+      const formattedProducts = await Promise.all(
+        productData.map(async (product) => {
+          const formattedProduct = { ...product };
+          const imageUrl = formatUrl(product.Image || '');
+          const videoUrl = formatUrl(product.video || '');
+          const pdfUrl = formatUrl(product.pdf || '');
 
-        setProducts(productData);
-      });
+          // Preload image and update the URL based on its loading status
+          const { success } = await preloadImage(imageUrl);
+          formattedProduct.Image = success ? imageUrl : imageNotFound;
+          formattedProduct.video = product.video ? videoUrl : null;
+          formattedProduct.pdf = product.pdf ? pdfUrl : null;
+
+          return formattedProduct;
+        })
+      );
+
+      setProducts(formattedProducts);
     } catch (err) {
-      console.log(err);
+      console.error('Failed to fetch best sellers:', err);
+      // Optionally, you can set an error state to display a message to the user
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
+
   useEffect(() => {
     handleBestSellers();
   }, []);
@@ -62,7 +67,7 @@ const BestSellers = () => {
           <Product
             key={item._id} // Add unique key prop here
             _id={item._id}
-            img={`https://cic-server-ygl9.onrender.com${item.Image}`}
+            img={item.Image}
             productName={item.Title}
             price={item.price}
             color={item.color}
@@ -72,6 +77,7 @@ const BestSellers = () => {
             ficheTech={item.ficheTech}
             video={item.video}
             slug={item.slug}
+            loading={loading}
           />
         ))}
       </div>
