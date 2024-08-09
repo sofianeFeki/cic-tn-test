@@ -2,60 +2,60 @@ import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import Heading from '../Products/Heading';
 import Product from '../Products/Product';
-import {
-  newArrOne,
-  newArrTwo,
-  newArrThree,
-  newArrFour,
-  ricoh1,
-  espson1,
-  ricoh2,
-  ricoh3,
-  ricoh4,
-  ricoh5,
-  IMPRIMANTE_RICOH_P501,
-  IMPRIMANTE_RICOH_SP4520DN,
-  IMPRIMANTE_RICOH_SP3710DN,
-  IMPRIMANTE_COULEUR_LASER_SPC840,
-  IMPRIMANTE_RICOH_SP4510DN,
-} from '../../../assets/images/index';
 import SampleNextArrow from './SampleNextArrow';
 import SamplePrevArrow from './SamplePrevArrow';
 import { getNewArrivals } from '../../../functions/product';
-
-
+import { imageNotFound } from '../../../assets/images';
 
 const NewArrivals = () => {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([{}, {}, {}, {}, {}, {}]);
   const [loading, setLoading] = useState(false);
   const [limit, setLimit] = useState(5);
 
-  const handleNewArrivals = async (e) => {
+  const preloadImage = (url) => {
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.src = url;
+      img.onload = () => resolve({ url, success: true });
+      img.onerror = () => resolve({ url, success: false });
+    });
+  };
+
+  const handleNewArrivals = async () => {
     setLoading(true);
     try {
-      getNewArrivals(limit).then((res) => {
-        const productData = res.data.products;
-        const baseUrl = 'https://cic-server-ygl9.onrender.com';
+      const res = await getNewArrivals(limit);
+      const productData = res.data.products;
+      const baseUrl = 'http://localhost:8000';
 
-        const formatUrl = (path) => `${baseUrl}${path.replace(/\\/g, '/')}`;
+      const formatUrl = (path) => `${baseUrl}${path.replace(/\\/g, '/')}`;
 
-        if (productData.Image) {
-          productData.Image = formatUrl(productData.Image);
-        }
-        if (productData.video) {
-          productData.video = formatUrl(productData.video);
-        }
-        if (productData.pdf) {
-          productData.pdf = formatUrl(productData.pdf);
-        }
+      const formattedProducts = await Promise.all(
+        productData.map(async (product) => {
+          const formattedProduct = { ...product };
+          const imageUrl = formatUrl(product.Image || '');
+          const videoUrl = formatUrl(product.video || '');
+          const pdfUrl = formatUrl(product.pdf || '');
 
-        setProducts(productData);
-      });
+          // Preload image and update the URL based on its loading status
+          const { success } = await preloadImage(imageUrl);
+          formattedProduct.Image = success ? imageUrl : imageNotFound;
+          formattedProduct.video = product.video ? videoUrl : null;
+          formattedProduct.pdf = product.pdf ? pdfUrl : null;
+
+          return formattedProduct;
+        })
+      );
+
+      setProducts(formattedProducts);
     } catch (err) {
-      console.log(err);
+      console.error('Failed to fetch new arrivals:', err);
+      // Optionally, you can set an error state to display a message to the user
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
+
   useEffect(() => {
     handleNewArrivals();
   }, []);
@@ -95,15 +95,15 @@ const NewArrivals = () => {
     ],
   };
   return (
-    <div className="w-full pb-16">
+    <div className="w-full">
       <Heading heading="Dernières Nouveautés" />
       <Slider {...settings}>
         {products.map((item) => (
-          <div className="px-2" key={item._id}>
+          <div className="px-4 py-4" key={item._id}>
             <div className="w-full drop-shadow-xl gap-10 ">
               <Product
                 _id={item._id}
-                img={`https://cic-server-ygl9.onrender.com${item.Image}`}
+                img={item.Image}
                 productName={item.Title}
                 price={item.price}
                 color={item.color}
@@ -113,6 +113,7 @@ const NewArrivals = () => {
                 ficheTech={item.ficheTech}
                 video={item.video}
                 slug={item.slug}
+                loading={loading}
               />
             </div>
           </div>
