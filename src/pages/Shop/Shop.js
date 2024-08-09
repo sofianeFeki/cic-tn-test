@@ -5,6 +5,7 @@ import Pagination from '../../components/pageProps/shopPage/Pagination';
 import ProductBanner from '../../components/pageProps/shopPage/ProductBanner';
 import ShopSideNav from '../../components/pageProps/shopPage/ShopSideNav';
 import { getProducts } from '../../functions/product';
+import { imageNotFound } from '../../assets/images';
 
 const Shop = () => {
   const [itemsPerPage, setItemsPerPage] = useState(12);
@@ -24,37 +25,50 @@ const Shop = () => {
   const sortFromBanner = (sort) => {
     setSort(sort);
   };
+  const preloadImage = (url) => {
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.src = url;
+      img.onload = () => resolve({ url, success: true });
+      img.onerror = () => resolve({ url, success: false });
+    });
+  };
 
-  const gettheProducts = (page, sort, itemsPerPage, filters) => {
+  const gettheProducts = async (page, sort, itemsPerPage, filters) => {
     setLoading(true);
-    getProducts(page, sort, itemsPerPage, filters)
-      .then((res) => {
-        const productData = res.data.products;
-        const baseUrl = 'https://cic-server-ygl9.onrender.com';
+    try {
+      const res = await getProducts(page, sort, itemsPerPage, filters);
+      const productData = res.data.products;
+      const baseUrl = 'https://cic-server-ygl9.onrender.com';
 
-        const formatUrl = (path) => `${baseUrl}${path.replace(/\\/g, '/')}`;
+      const formatUrl = (path) => `${baseUrl}${path.replace(/\\/g, '/')}`;
 
-        productData.forEach((product) => {
-          if (product.Image) {
-            product.Image = formatUrl(product.Image);
-          }
-          if (product.video) {
-            product.video = formatUrl(product.video);
-          }
-          if (product.pdf) {
-            product.pdf = formatUrl(product.pdf);
-          }
-        });
+      const formattedProducts = await Promise.all(
+        productData.map(async (product) => {
+          const formattedProduct = { ...product };
+          const imageUrl = formatUrl(product.Image || '');
+          const videoUrl = formatUrl(product.video || '');
+          const pdfUrl = formatUrl(product.pdf || '');
 
-        setProducts(productData);
-        setTotalPages(res.data.totalPages);
-        setTotalProducts(res.data.totalProducts);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error('Failed to fetch products', error);
-        setLoading(false); // setLoading should be false in case of error
-      });
+          // Preload image and update the URL based on its loading status
+          const { success } = await preloadImage(imageUrl);
+          formattedProduct.Image = success ? imageUrl : imageNotFound;
+          formattedProduct.video = product.video ? videoUrl : null;
+          formattedProduct.pdf = product.pdf ? pdfUrl : null;
+
+          return formattedProduct;
+        })
+      );
+
+      setProducts(formattedProducts);
+      setTotalPages(res.data.totalPages);
+      setTotalProducts(res.data.totalProducts);
+    } catch (error) {
+      console.error('Failed to fetch products', error);
+      // Optionally, you can set an error state to display a message to the user
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
