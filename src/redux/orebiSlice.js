@@ -85,6 +85,9 @@ export const orebiSlice = createSlice({
         state.filters[filterType].push(filterValue);
       }
     },
+     setFilter: (state) => {
+      state.filters = initialState.filters;
+    },
   },
 });
 
@@ -100,6 +103,7 @@ export const {
   toggleViewMode,
   setViewMode,
   toggleFilter,
+  setFilter,
 } = orebiSlice.actions;
 
 export default orebiSlice.reducer;
