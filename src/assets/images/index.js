@@ -4,9 +4,20 @@ import loading from './loading.gif';
 import bannerImg1 from './banner/bannerImg1.png';
 import bannerImg2 from './banner/bannerImg2.jpg';
 import bannerImg3 from './banner/bannerImg3.jpeg';
+import cic1 from './about/cic1.jpg';
+import cic2 from './about/cic2.jpg';
+import cic3 from './about/cic3.jpg';
 import saleImgOne from './sale/image1.jpg';
 import saleImgTwo from './sale/saleImgTwo.jpg';
 import saleImgThree from './sale/saleImgThree.jpg';
+import consommable from './sale/consommable.jpg';
+import ricoh1 from './sale/ricoh1.png';
+import ricoh2 from './sale/ricoh2.png';
+import ricoh3 from './sale/ricoh3.png';
+import pantum1 from './sale/pantum1.png';
+import pantum2 from './sale/pantum2.png';
+import pantum3 from './sale/pantum3.png';
+
 // ============== Products Start here ====================
 // New Arrivals
 import newArrOne from './products/newArrival/newArrOne.webp';
@@ -48,6 +59,9 @@ import spfFour from './products/specialOffer/spfFour.webp';
 
 // Year Product
 import productOfTheYear from './products/productOfTheYear.jpg';
+// Year home
+import homeBg from './home.webp';
+
 // ============== Products End here ======================
 import paymentCard from './payment.png';
 import emptyCart from '../images/emptyCart.png';
@@ -434,9 +448,6 @@ import hp1 from '../images/products/imprimante/hp1.webp';
 import hp2 from '../images/products/imprimante/hp2.webp';
 import hp3 from '../images/products/imprimante/hp3.webp';
 
-import ricoh1 from '../images/products/imprimante/ricoh1.webp';
-import ricoh2 from '../images/products/imprimante/ricoh2.jpg';
-import ricoh3 from '../images/products/imprimante/ricoh3.webp';
 import ricoh4 from '../images/products/imprimante/ricoh4.webp';
 import ricoh5 from '../images/products/imprimante/ricoh5.webp';
 
@@ -471,9 +482,13 @@ export {
   bannerImg1,
   bannerImg2,
   bannerImg3,
+  cic1,
+  cic2,
+  cic3,
   saleImgOne,
   saleImgTwo,
   saleImgThree,
+  consommable,
   // ===================== Products start here ============
   // New Arrivals
   newArrOne,
@@ -515,6 +530,8 @@ export {
 
   // Year Product
   productOfTheYear,
+  //home
+  homeBg,
   // ===================== Products End here ==============
   paymentCard,
   emptyCart,
@@ -544,6 +561,9 @@ export {
   ricoh5,
   espson1,
   espson2,
+  pantum1,
+  pantum2,
+  pantum3,
 
   // pdf
   IMPRIMANTE_COULEUR_LASER_SPC840,
