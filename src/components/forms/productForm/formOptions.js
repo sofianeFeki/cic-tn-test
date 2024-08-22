@@ -4,7 +4,7 @@ export const Colors = [
   'Jaune',
   'Bleu',
   'Magenta',
-  'Multicouleur',
+  'Pack de 4 couleurs',
 ];
 export const Brands = [
   'Pantum',
@@ -25,7 +25,13 @@ export const Brands = [
   'xerox',
   'konika minolta',
 ];
-export const Categories = ['Imprimante', 'Photocopieur', 'Consommable'];
+export const Categories = [
+  'Imprimante',
+  'Photocopieur',
+  'Consommable',
+  'Pc de bureau',
+  'Pc portable',
+];
 export const subCategory = [
   'Toner',
   'Cartouche D’encre',
@@ -34,5 +40,5 @@ export const subCategory = [
   'Tête d’impression',
   'Ruban',
   'Tambour',
+  'Developpeur',
 ];
-
