@@ -80,9 +80,9 @@ const YearProduct = () => {
     }
   };
 
-  function calculateTimeLeft() {
+function calculateTimeLeft() {
     const now = Date.now();
-    const endTime = new Date('2024-08-15T00:00:00').getTime();
+    const endTime = new Date('2024-08-30T00:00:00').getTime();
     const difference = endTime - now;
 
     let timeLeft = {};
@@ -101,20 +101,30 @@ const YearProduct = () => {
   return (
     <div className="w-full h-auto mb-20 bg-gray-100 z-10 relative font-titleFont shadow-lg overflow-visible group cursor-pointer rounded-lg flex flex-col md:flex-row">
       <div className="flex absolute top-4 right-4 bg-black text-white p-2 rounded-lg z-20">
-        <span className="block font-bold">Offer ends in:</span>
-        <span className="font-bold">
-          {` ${timeLeft.days}d ${timeLeft.hours}h ${timeLeft.minutes}m ${timeLeft.seconds}s`}
+        <span className="block font-bold mr-1">Offre se termine dans : </span>
+        <span className="font-bold mr-6 gap-2">
+          {` ${timeLeft.days}j ${timeLeft.hours}h ${timeLeft.minutes}m ${timeLeft.seconds}s`}
         </span>
+        <div
+          className="absolute  right-[-40px] top-1/2 transform -translate-y-1/2 flex items-center justify-center h-16 w-16 bg-white text-red-500 font-bold text-xl border-[3px] border-yellow-500 drop-shadow-xl rounded-full transition-transform duration-500 hover:translate-x-4"
+          style={{
+            boxShadow: '0 0 20px rgba(255, 223, 0, 0.8)',
+          }}
+        >
+          {productData && productData.Price}{' '}
+          <span className="absolute top-2 right-1 mb-1 text-xs">TND</span>
+        </div>
       </div>
+
       <div className="relative w-full md:w-1/2 flex items-center justify-center">
         <Image
           className="max-w-[500px] max-h-[500px] w-auto h-auto object-cover"
-          imgSrc={productData ? `${baseURL}${productData.Image}` : imageNotFound}
+          imgSrc={productData ? productData.Image : imageNotFound}
         />
       </div>
       <div className="relative w-full md:w-1/2 h-auto p-6 md:p-10 flex flex-col items-start gap-6 justify-center z-10">
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
-          Produit de L'année
+          Offre Spéciale
         </h1>
         <p className="text-base md:text-lg font-normal text-gray-700 max-w-[600px]">
           {productData
@@ -177,3 +187,4 @@ const YearProduct = () => {
 };
 
 export default YearProduct;
+
