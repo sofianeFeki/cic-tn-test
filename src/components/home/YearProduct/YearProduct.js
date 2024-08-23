@@ -2,12 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { imageNotFound } from '../../../assets/images';
 import ShopNow from '../../designLayouts/buttons/ShopNow';
 import Image from '../../designLayouts/Image';
-import {
-  Listbox,
-  ListboxOption,
-  ListboxButton,
-  ListboxOptions,
-} from '@headlessui/react';
+import { Listbox } from '@headlessui/react';
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid';
 import {
   getProductTitlesByCategories,
@@ -16,6 +11,7 @@ import {
   getProductOfTheYear,
 } from '../../../functions/product';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const YearProduct = () => {
   const [selectedProduct, setSelectedProduct] = useState('');
@@ -24,8 +20,6 @@ const YearProduct = () => {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
   const user = useSelector((state) => state.orebi.userInfo);
-
-  const baseURL = 'https://cic-server-ygl9.onrender.com';
 
   useEffect(() => {
     const fetchProductTitles = async () => {
@@ -52,7 +46,13 @@ const YearProduct = () => {
         try {
           const response = await getProductByTitle(selectedProduct);
           const product = response.data;
+          const baseURL = 'https://cic-server-ygl9.onrender.com';
 
+          const formatUrl = (path) => `${baseURL}${path.replace(/\\/g, '/')}`;
+
+          if (product.Image) {
+            product.Image = formatUrl(product.Image);
+          }
           setProductData(product);
         } catch (error) {
           console.error('Failed to fetch product data', error);
@@ -80,7 +80,7 @@ const YearProduct = () => {
     }
   };
 
-function calculateTimeLeft() {
+  function calculateTimeLeft() {
     const now = Date.now();
     const endTime = new Date('2024-08-30T00:00:00').getTime();
     const difference = endTime - now;
@@ -131,7 +131,11 @@ function calculateTimeLeft() {
             ? productData.Description
             : 'Select a product to view its details.'}
         </p>
-        <ShopNow />
+        <Link to={`product/${productData && productData.slug}`}>
+          <button className="bg-primeColor text-white text-lg font-bodyFont w-[185px] h-[50px] hover:bg-black duration-300 font-bold">
+            Acheter
+          </button>{' '}
+        </Link>
         {user && (
           <div className="mt-4 w-full md:w-2/3 relative">
             <Listbox value={selectedProduct} onChange={handleProductChange}>
@@ -187,4 +191,3 @@ function calculateTimeLeft() {
 };
 
 export default YearProduct;
-
