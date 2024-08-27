@@ -27,12 +27,12 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="w-full h-20 bg-white relative top-0 z-10 border-b-[1px] border-b-gray-200 shadow-md  ">
-      <nav className="h-full px-4 max-w-container mx-auto relative">
+    <div className="w-full h-20 bg-white relative top-0  border-b-[1px] border-b-gray-200 shadow-md z-20 ">
+      <nav className="h-full px-4 max-w-container mx-auto relative ">
         <Flex className="flex items-center justify-between h-full">
           <Link to="/">
             <div>
-              <Image className="w-40 object-cover" imgSrc={logo} />
+              <Image className="w-32 object-cover" imgSrc={logo} />
             </div>
           </Link>
           <div>
@@ -62,7 +62,7 @@ const Header = () => {
               className="inline-block md:hidden cursor-pointer w-8 h-6 absolute top-6 right-4"
             />
             {sidenav && (
-              <div className="fixed top-0 left-0 w-full h-screen bg-black text-gray-200 bg-opacity-80 z-10">
+              <div className="fixed top-0 left-0 w-full h-screen bg-black text-gray-200 bg-opacity-80 z-10 ">
                 <motion.div
                   initial={{ x: -300, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
@@ -70,11 +70,7 @@ const Header = () => {
                   className="w-[80%] h-full relative"
                 >
                   <div className="w-full h-full bg-primeColor p-6">
-                    <img
-                      className="w-28 mb-6"
-                      src={logoLight}
-                      alt="logoLight"
-                    />
+                    <img className="w-28 mb-6" src={logo} alt="logoLight" />
                     <ul className="text-gray-200 flex flex-col gap-2">
                       {navBarList.map((item) => (
                         <li
