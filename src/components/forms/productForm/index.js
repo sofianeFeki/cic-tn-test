@@ -573,6 +573,17 @@ const ProductForm = ({
                         onChange={handleChangeProduct}
                       />
                     </Field>
+                           <Field>
+                      <Label className="text-sm/6 font-medium">Price</Label>
+                      <input
+                        id="Price"
+                        name="Price"
+                        type="number"
+                        className="block w-[50%] rounded-lg  bg-white py-1.5 px-3 text-sm/4 text-black focus:outline-none focus:ring focus:border-blue-300 transition duration-150 shadow-md"
+                        value={product.Price}
+                        onChange={handleChangeProduct}
+                      />
+                    </Field>
                     <Field>
                       <Label className="text-sm/6 font-medium">Sold</Label>
                       <input
