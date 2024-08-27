@@ -20,16 +20,16 @@ const Home = () => {
   return (
     <div className="w-full mx-auto  relative">
       <div
-        className="fixed w-full h-full top-0 left-0 z-0"
+        className="fixed w-full h-full top-0 left-0 z-[-50] "
         style={{
           backgroundImage: `url(${homeBg})`, // Correct way to set the background image
           backgroundAttachment: 'fixed',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          opacity: 0.5, // Adjust the opacity value
+          opacity: 0.7, // Adjust the opacity value
         }}
       ></div>
-      <div className="relative z-10 min-h-screen">
+      <div className="relative min-h-screen">
         <Banner />
         <BannerBottom />
         <div className="max-w-container mt-6 mx-auto px-4">
