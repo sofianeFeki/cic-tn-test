@@ -1,4 +1,4 @@
-import logo from './orebiLogo.png';
+import logo from './orebiLogo.webp';
 import logoLight from './logoLight.png';
 import loading from './loading.gif';
 import bannerImg1 from './banner/bannerImg1.png';
