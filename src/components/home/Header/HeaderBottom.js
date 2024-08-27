@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Flex from '../../designLayouts/Flex';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -26,10 +26,32 @@ import { auth } from '../../../service/firebase/firebase';
 import { clearUser, setError } from '../../../redux/orebiSlice';
 import { searchProducts } from '../../../functions/product';
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ');
-}
+const transitionStyles = {
+  enter: 'transition ease-out duration-100',
+  enterFrom: 'transform opacity-0 scale-95',
+  enterTo: 'transform opacity-100 scale-100',
+  leave: 'transition ease-in duration-75',
+  leaveFrom: 'transform opacity-100 scale-100',
+  leaveTo: 'transform opacity-0 scale-95',
+};
 
+// Define reusable button styles
+const buttonBaseStyles =
+  'flex items-center p-2 rounded-xl h-[36px]  shadow-md hover:shadow-xl transform transition duration-300  lg:h-[50px] lg:mt-0';
+const userMenuButtonStyles = `
+  relative 
+  bg-white 
+  border border-gray-300 
+  hover:bg-gray-50 
+  hover:color-black
+  hover:shadow-xl
+  transform 
+  transition duration-300 
+  focus:ring-4 focus:outline-none focus:ring-gray-300 
+  rounded-full 
+  shadow-md 
+  p-1.5
+`;
 function debounce(func, delay) {
   let timeoutId;
   return function (...args) {
@@ -49,7 +71,33 @@ const HeaderBottom = () => {
 
   const handleQueryChange = (e) => {
     setQuery(e.target.value);
+    setShowSearchBar(true); // Ensure the search bar is shown when typing
   };
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    // Click outside to close the dropdown
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowSearchBar(false);
+      }
+    }
+
+    // Close dropdown on "Escape" key press
+    function handleEscapeKey(event) {
+      if (event.key === 'Escape') {
+        setShowSearchBar(false);
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('keydown', handleEscapeKey);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleEscapeKey);
+    };
+  }, [setShowSearchBar]);
 
   const fetchProducts = async (searchQuery) => {
     if (!searchQuery.trim()) {
@@ -100,80 +148,131 @@ const HeaderBottom = () => {
   };
 
   return (
-    <div className="w-full bg-[#F5F5F3] sticky top-0 drop-shadow-xl relative z-50">
+    <div className="w-full px-2 bg-[#F5F5F3] z-10 drop-shadow-xl sticky top-0 transition-all duration-300 ease-in-out  hover:shadow-2xl">
       <div className="max-w-container mx-auto">
-        <Flex className="flex flex-col lg:flex-row items-start lg:items-center justify-between w-full px-4 pb-4 lg:pb-0 h-full lg:h-24">
-          <div>
-            <Link to="/shop">
-              <button className="flex bg-white text-black p-3  rounded cursor-pointer shadow-md hover:bg-opacity-100">
-                <Squares2X2Icon
-                  className="block h-6 w-6 mr-1 text-yellow-500"
-                  aria-hidden="true"
-                />
-                <span className="font-bold">Browse all collection</span>
-              </button>
-            </Link>
-          </div>
-          <div className="relative w-full lg:w-[600px] h-[50px] text-base text-primeColor bg-white flex items-center gap-2 justify-between  rounded-xl shadow-md">
-            <Menu as="div" className="relative">
-              <div>
-                <MenuButton className="flex items-center p-2 bg-yellow-500 text-white rounded-xl shadow-md h-[50px]">
-                  <span className="sr-only">Open category menu</span>
-                  <ViewColumnsIcon
-                    className="block h-6 w-6 mr-1"
+        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between w-full  pb-4 lg:pb-0 h-full lg:h-24">
+          {/* Mobile & Desktop: Browse all collection button */}
+          <div className="flex justify-between">
+            <div className="flex items-center justify-space-between lg:justify-start ">
+              <Link to="/shop">
+                <button
+                  className={`${buttonBaseStyles} mt-2 bg-white text-black hover:bg-opacity-100`}
+                >
+                  <Squares2X2Icon
+                    className="block h-6 w-6 mr-1 text-yellow-500"
                     aria-hidden="true"
                   />
-                  <span>Nos categories</span>
-                </MenuButton>
-              </div>
-              <Transition
-                enter="transition ease-out duration-100"
-                enterFrom="transform opacity-0 scale-95"
-                enterTo="transform opacity-100 scale-100"
-                leave="transition ease-in duration-75"
-                leaveFrom="transform opacity-100 scale-100"
-                leaveTo="transform opacity-0 scale-95"
+                  <span className="font-bold whitespace-nowrap p-0.5 text-sm md:text-base">
+                    Nos produits{' '}
+                  </span>
+                </button>
+              </Link>
+            </div>
+
+            {/* Mobile: Heart, Shopping Cart, User Profile Buttons */}
+            <div className="flex lg:hidden gap-1 mt-2  pl-2">
+              <Link to="/favorites" className={userMenuButtonStyles}>
+                <HeartIcon
+                  className="block h-6 w-6 text-red-400"
+                  aria-hidden="true"
+                />
+              </Link>
+              <Link to="/cart" className={userMenuButtonStyles}>
+                <ShoppingBagIcon
+                  className="block h-6 w-6 text-gray-600"
+                  aria-hidden="true"
+                />
+              </Link>
+              {user ? (
+                <Menu as="div" className="relative">
+                  <MenuButton className={userMenuButtonStyles}>
+                    <span className="sr-only">Open user menu</span>
+                    <UserIcon className="block h-6 w-6 text-gray-600" />
+                  </MenuButton>
+                  <Transition {...transitionStyles}>
+                    <MenuItems className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                      <MenuItem>
+                        <Link
+                          to="/account"
+                          className="block px-4 py-2 text-sm text-gray-700"
+                        >
+                          Your Profile
+                        </Link>
+                      </MenuItem>
+                      <MenuItem>
+                        <button
+                          onClick={handleSignOut}
+                          className="block px-4 py-2 text-sm text-gray-700 w-full text-left"
+                        >
+                          Sign out
+                        </button>
+                      </MenuItem>
+                    </MenuItems>
+                  </Transition>
+                </Menu>
+              ) : (
+                <Link
+                  to="/signin"
+                  className="flex items-center border border-gray-200   focus:ring-4 focus:outline-none focus:ring-gray-300 bg-white text-black p-1 shadow-md rounded-xl hover:shadow-xl transform transition duration-300"
+                >
+                  <UserIcon className="block h-6 w-6 text-yellow-500" />{' '}
+                  <span className="font-bold p-0.5 text-sm md:text-base">
+                    Connexion
+                  </span>
+                </Link>
+              )}
+            </div>
+          </div>
+
+          {/* Desktop: Search Input */}
+          <div className="relative mt-2 md:mt-0 w-full lg:w-[600px] h-[36px] lg:h-[50px] text-base text-primeColor border-t border-r border-b border-gray-300 bg-white flex items-center rounded-xl drop-shadow-xl gap-1">
+            <Menu as="div" className="relative">
+              <MenuButton
+                className={`${buttonBaseStyles} bg-yellow-500 text-white `}
               >
+                <ViewColumnsIcon
+                  className="block h-6 w-6 mr-1"
+                  aria-hidden="true"
+                />
+                <span className="font-bold whitespace-nowrap  text-sm md:text-base">
+                  Nos categories
+                </span>
+              </MenuButton>
+              <Transition {...transitionStyles}>
                 <MenuItems className="absolute left-0 z-10 mt-2 w-48 origin-top-left rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                  <MenuItem>
-                    <Link to={'category/Imprimante'}>
-                      <button className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10 hover:bg-gray-100">
-                        <PrinterIcon className="block h-6 w-6" />
-                        Imprimante
-                      </button>
-                    </Link>
-                  </MenuItem>
-                  <MenuItem>
-                    <Link to={'category/Consommable'}>
-                      <button className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10 hover:bg-gray-100">
-                        <BeakerIcon className="block h-6 w-6" />
-                        Consommable
-                      </button>
-                    </Link>
-                  </MenuItem>
-                  <MenuItem>
-                    <Link to={'category/Photocopieur'}>
-                      <button className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10 hover:bg-gray-100">
-                        <DocumentDuplicateIcon className="block h-6 w-6" />
-                        Photocopieur
-                      </button>
-                    </Link>
-                  </MenuItem>
+                  {['Imprimante', 'Consommable', 'Photocopieur'].map(
+                    (category, index) => (
+                      <MenuItem key={index}>
+                        <Link to={`category/${category}`}>
+                          <button className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 hover:bg-gray-100">
+                            {category === 'Imprimante' && (
+                              <PrinterIcon className="block h-6 w-6" />
+                            )}
+                            {category === 'Consommable' && (
+                              <BeakerIcon className="block h-6 w-6" />
+                            )}
+                            {category === 'Photocopieur' && (
+                              <DocumentDuplicateIcon className="block h-6 w-6" />
+                            )}
+                            {category}
+                          </button>
+                        </Link>
+                      </MenuItem>
+                    )
+                  )}
                 </MenuItems>
               </Transition>
             </Menu>
-            <Menu>
+
+            <div className="flex items-center ">
               <MagnifyingGlassIcon
-                className="block h-6 w-6 pl-2 text-gray-600"
+                className="block h-6 w-6 px-1 text-gray-600"
                 aria-hidden="true"
               />
-            </Menu>
-
-            <div>
               <input
                 id="search"
                 name="search"
-                className="p-2 border-l border-gray-300 bg-white focus:outline-none w-96"
+                className=" border-l border-gray-400 bg-white rounded-lg focus:outline-none  z-10 w-[100%] h-[36px] md:w-96"
                 placeholder="Recherche un produit"
                 type="search"
                 style={{ borderLeft: 'none' }}
@@ -181,7 +280,10 @@ const HeaderBottom = () => {
                 value={query}
               />
               {showSearchBar && query && (
-                <div className="w-full mx-auto h-auto max-h-96 bg-white top-16 absolute left-0 z-50 overflow-y-scroll rounded-xl shadow-md cursor-pointer">
+                <div
+                  ref={dropdownRef}
+                  className="w-full mx-auto h-auto max-h-96 bg-white top-16 absolute left-0  z-10 overflow-y-scroll rounded-xl shadow-md cursor-pointer"
+                >
                   {loading ? (
                     <div className="text-center">
                       <div role="status">
@@ -244,136 +346,59 @@ const HeaderBottom = () => {
               )}
             </div>
           </div>
-          <div className="flex gap-4 mt-2 lg:mt-0 items-center pr-6 cursor-pointer relative">
-            <div>
-              {user ? ( // If user is logged in, show the full menu
-                <Menu as="div" className="relative ml-3">
-                  <div>
-                    <MenuButton className="relative shadow-md flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                      <span className="sr-only">Open user menu</span>
-                      <img
-                        className="h-8 w-8 rounded-full"
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                        alt=""
-                      />
-                    </MenuButton>
-                  </div>
-                  <Transition
-                    enter="transition ease-out duration-100"
-                    enterFrom="transform opacity-0 scale-95"
-                    enterTo="transform opacity-100 scale-100"
-                    leave="transition ease-in duration-75"
-                    leaveFrom="transform opacity-100 scale-100"
-                    leaveTo="transform opacity-0 scale-95"
-                  >
-                    <MenuItems className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                      <MenuItem>
-                        {({ focus }) => (
-                          <a
-                            href="#"
-                            className={classNames(
-                              focus ? 'bg-gray-100' : '',
-                              'block px-4 py-2 text-sm text-gray-700'
-                            )}
-                          >
-                            Your Profile
-                          </a>
-                        )}
-                      </MenuItem>
-                      <MenuItem>
-                        {({ focus }) => (
-                          <a
-                            href="#"
-                            className={classNames(
-                              focus ? 'bg-gray-100' : '',
-                              'block px-4 py-2 text-sm text-gray-700'
-                            )}
-                          >
-                            Settings
-                          </a>
-                        )}
-                      </MenuItem>
-                      <MenuItem onClick={handleSignOut}>
-                        {({ focus }) => (
-                          <p
-                            href="#"
-                            className={classNames(
-                              focus ? 'bg-gray-100' : '',
-                              'block px-4 py-2 text-sm text-gray-700'
-                            )}
-                          >
-                            Sign out
-                          </p>
-                        )}
-                      </MenuItem>
-                    </MenuItems>
-                  </Transition>
-                </Menu>
-              ) : (
-                // If user is not logged in, show simplified version
-                // <div>
-                //
-                // </div>
-                <Menu as="div" className="relative ml-3">
-                  <div>
-                    <MenuButton className="relative flex focus:outline-none">
-                      <span className="absolute -inset-1.5" />
-                      <span className="sr-only">Open user menu</span>
-                      <div class=" relative bg-white border border-gray-200 hover:bg-gray-100  focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-full shadow-md text-sm p-1.5 text-center inline-flex items-center">
-                        <UserIcon
-                          className="block h-6 w-6"
-                          aria-hidden="true"
-                        />
-                      </div>
-                    </MenuButton>
-                  </div>
-                  <Transition
-                    enter="transition ease-out duration-100"
-                    enterFrom="transform opacity-0 scale-95"
-                    enterTo="transform opacity-100 scale-100"
-                    leave="transition ease-in duration-75"
-                    leaveFrom="transform opacity-100 scale-100"
-                    leaveTo="transform opacity-0 scale-95"
-                  >
-                    <MenuItems className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                      <MenuItem>
-                        {({ focus }) => (
-                          <Link
-                            to="/signin"
-                            className={classNames(
-                              focus ? 'bg-gray-100' : '',
-                              'block px-4 py-2 text-sm text-gray-700'
-                            )}
-                          >
-                            Sign In
-                          </Link>
-                        )}
-                      </MenuItem>
-                    </MenuItems>
-                  </Transition>
-                </Menu>
-              )}
-            </div>
 
-            <Link to="/cart">
-              <div class=" relative bg-white border border-gray-200 hover:bg-gray-100  focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-full shadow-md text-sm p-1.5 text-center inline-flex items-center :border-blue-500">
-                <ShoppingBagIcon
-                  className="block h-6 w-6 font-bold"
-                  aria-hidden="true"
-                />{' '}
-                <span className="absolute font-titleFont top-3 -right-2.5 text-xs w-4 h-4 flex items-center justify-center rounded-full bg-white text-black border shadow-md border-gray-200">
-                  {products.length > 0 ? products.length : 0}
-                </span>
-              </div>
-            </Link>
-            <div class=" relative bg-white border border-gray-200 hover:bg-gray-100  focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-full shadow-md text-sm p-1.5 text-center inline-flex items-center">
+          {/* Desktop: Heart, Shopping Cart, User Profile Buttons */}
+          <div className="hidden lg:flex items-center gap-4">
+            <Link to="/favorites" className={userMenuButtonStyles}>
               <HeartIcon
-                className="block h-6 w-6 font-bold text-red-400"
+                className="block h-6 w-6 text-red-400"
                 aria-hidden="true"
               />
-            </div>
+            </Link>
+            <Link to="/cart" className={userMenuButtonStyles}>
+              <ShoppingBagIcon
+                className="block h-6 w-6 text-gray-600"
+                aria-hidden="true"
+              />
+            </Link>
+            {user ? (
+              <Menu as="div" className="relative">
+                <MenuButton className={userMenuButtonStyles}>
+                  <span className="sr-only">Open user menu</span>
+                  <UserIcon className="block h-6 w-6 text-gray-600" />
+                </MenuButton>
+                <Transition {...transitionStyles}>
+                  <MenuItems className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <MenuItem>
+                      <Link
+                        to="/account"
+                        className="block px-4 py-2 text-sm text-gray-700"
+                      >
+                        Your Profile
+                      </Link>
+                    </MenuItem>
+                    <MenuItem>
+                      <button
+                        onClick={handleSignOut}
+                        className="block px-4 py-2 text-sm text-gray-700 w-full text-left"
+                      >
+                        Sign out
+                      </button>
+                    </MenuItem>
+                  </MenuItems>
+                </Transition>
+              </Menu>
+            ) : (
+              <Link
+                to="/signin"
+                className="flex bg-white text-black p-1 rounded-lg hover:shadow-xl transform transition duration-300"
+              >
+                <UserIcon className="block h-6 w-6 text-yellow-500" />{' '}
+                <span className="font-bold p-0.5">Connexion</span>
+              </Link>
+            )}
           </div>
-        </Flex>
+        </div>
       </div>
     </div>
   );
