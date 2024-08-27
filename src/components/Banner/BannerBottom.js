@@ -13,7 +13,7 @@ const BannerBottom = () => {
       <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 px-4">
         {/* Support Section */}
         <div className="bg-white p-6 rounded-lg shadow-lg flex items-center gap-4">
-          <div className="text-4xl text-orange-500">
+          <div className="text-4xl text-yellow-500">
             <ClockIcon className="block h-12 w-12" />
           </div>
           <div>
@@ -26,7 +26,7 @@ const BannerBottom = () => {
 
         {/* Livraison Section */}
         <div className="bg-white p-6 rounded-lg shadow-lg flex items-center gap-4">
-          <div className="text-4xl text-orange-500">
+          <div className="text-4xl text-yellow-500">
             <TruckIcon className="block h-12 w-14" />
           </div>
           <div>
@@ -41,7 +41,7 @@ const BannerBottom = () => {
 
         {/* Large Choix Section */}
         <div className="bg-white p-6 rounded-lg shadow-lg flex items-center gap-4">
-          <div className="text-4xl text-orange-400">
+          <div className="text-4xl text-yellow-500">
             <MegaphoneIcon className="block h-12 w-12" />
           </div>
           <div>
