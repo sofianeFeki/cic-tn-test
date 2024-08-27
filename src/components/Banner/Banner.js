@@ -140,29 +140,12 @@ const Banner = () => {
     }
   };
 
-  // const handleImageDelete = (index) => {
-  //   const updatedImages = pendingImages.filter((_, i) => i !== index);
-  //   setPendingImages(updatedImages);
-  // };
-
-  // const handleImageAdd = (event) => {
-  //   const file = event.target.files[0];
-  //   if (file) {
-  //     const reader = new FileReader();
-  //     reader.onload = () => {
-  //       const newImage = { imgSrc: reader.result };
-  //       setPendingImages([...pendingImages, newImage]);
-  //     };
-  //     reader.readAsDataURL(file);
-  //   }
-  // };
-
   useEffect(() => {
     const fetchSliderImages = async () => {
       try {
         const response = await getSliderImages();
         const formattedImages = response.data.map((image) => {
-          const imageUrl = `https://cic-server-ygl9.onrender.com${image.image.replace(
+          const imageUrl = `http://localhost:8000${image.image.replace(
             /\\/g,
             '/'
           )}`;
