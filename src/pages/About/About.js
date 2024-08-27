@@ -6,9 +6,9 @@ import { cic1, cic2, cic3 } from '../../assets/images';
 const About = () => {
   const location = useLocation();
   const [prevLocation, setPrevLocation] = useState('');
-  useEffect(() => {
-    setPrevLocation(location.state.data);
-  }, [location]);
+  // useEffect(() => {
+  //   setPrevLocation(location.state.data || '');
+  // }, [location]);
 
   return (
     <div className="max-w-container mx-auto px-4">
@@ -128,7 +128,7 @@ const About = () => {
               />
               <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black to-transparent p-4 rounded-b-lg">
                 <span className="text-white font-semibold text-lg">
-                  ZI : MEGRINE SAINT GOBAIN, 2 RUE REDAIEF 2033
+                  Z.I MEGRINE SAINT GOBAIN, 2 RUE REDAIEF 2033
                 </span>
               </div>
             </div>
@@ -142,7 +142,7 @@ const About = () => {
               />
               <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black to-transparent p-4 rounded-b-lg">
                 <span className="text-white font-semibold text-lg">
-                  20 Rue de Koweit Lafayette TUNIS
+                  20 Rue du Koweit Lafayette TUNIS
                 </span>
               </div>
             </div>
