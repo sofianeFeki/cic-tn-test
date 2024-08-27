@@ -100,13 +100,15 @@ const YearProduct = () => {
 
   return (
     <div className="w-full h-auto mb-20 bg-gray-100 z-10 relative font-titleFont shadow-lg overflow-visible group cursor-pointer rounded-lg flex flex-col md:flex-row">
-      <div className="flex absolute top-4 right-4 bg-black text-white p-2 rounded-lg z-20">
-        <span className="block font-bold mr-1">Offre se termine dans : </span>
-        <span className="font-bold mr-6 gap-2">
-          {` ${timeLeft.days}j ${timeLeft.hours}h ${timeLeft.minutes}m ${timeLeft.seconds}s`}
+      <div className="flex absolute top-4 right-4 bg-black text-white p-1.5 md:p-2 rounded-lg z-20">
+        <span className="block font-bold text-sm md:text-base mr-1">
+          Offre se termine dans :
+        </span>
+        <span className="font-bold mr-6 gap-1 md:gap-2 text-sm md:text-base">
+          {`${timeLeft.days}j ${timeLeft.hours}h ${timeLeft.minutes}m ${timeLeft.seconds}s`}
         </span>
         <div
-          className="absolute  right-[-40px] top-1/2 transform -translate-y-1/2 flex items-center justify-center h-16 w-16 bg-white text-red-500 font-bold text-xl border-[3px] border-yellow-500 drop-shadow-xl rounded-full transition-transform duration-500 hover:translate-x-4"
+          className="absolute  right-[-30px] md:right-[-40px] top-1/2 transform -translate-y-1/2 flex items-center justify-center h-14 w-14 md:h-16 md:w-16 bg-white text-red-500 font-bold text-xl border-[3px] border-yellow-500 drop-shadow-xl rounded-full transition-transform duration-500 "
           style={{
             boxShadow: '0 0 20px rgba(255, 223, 0, 0.8)',
           }}
@@ -116,9 +118,9 @@ const YearProduct = () => {
         </div>
       </div>
 
-      <div className="relative w-full md:w-1/2 flex items-center justify-center">
+      <div className="relative w-full  md:w-1/2 flex items-center justify-center">
         <Image
-          className="max-w-[500px] max-h-[500px] w-auto h-auto object-cover"
+          className=" w-auto h-auto  object-cover"
           imgSrc={productData ? productData.Image : imageNotFound}
         />
       </div>
