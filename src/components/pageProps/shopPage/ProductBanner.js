@@ -24,8 +24,8 @@ const ProductBanner = ({ itemsPerPageFromBanner, sortFromBanner }) => {
           className={`${
             viewMode === 'grid'
               ? 'bg-primeColor text-white'
-              : 'border-[1px] border-gray-300 text-[#737373]'
-          } w-8 h-8 text-lg flex items-center justify-center cursor-pointer`}
+              : 'border-[1px] border-gray-300 bg-white'
+          } w-8 h-8 text-lg flex items-center justify-center cursor-pointer drop-shadow-xl`}
           onClick={() => dispatch(toggleViewMode())}
         >
           <BsGridFill />
@@ -34,8 +34,8 @@ const ProductBanner = ({ itemsPerPageFromBanner, sortFromBanner }) => {
           className={`${
             viewMode === 'list'
               ? 'bg-primeColor text-white'
-              : 'border-[1px] border-gray-300 text-[#737373]'
-          } w-8 h-8 text-base flex items-center justify-center cursor-pointer`}
+              : 'border-[1px] border-gray-300 bg-white '
+          } w-8 h-8 text-base flex items-center justify-center cursor-pointer drop-shadow-xl`}
           onClick={() => dispatch(toggleViewMode())}
         >
           <ImList />
@@ -50,7 +50,7 @@ const ProductBanner = ({ itemsPerPageFromBanner, sortFromBanner }) => {
       <div className="flex items-center gap-2 md:gap-6 mt-4 md:mt-0">
         {user && (
           <Link to={'/admin/product/create'}>
-            <button className="flex items-center px-2 py-1 bg-green-500 text-white rounded cursor-pointer shadow-md hover:bg-green-300 transition duration-300">
+            <button className="flex items-center px-2 py-1 bg-green-500 text-white rounded cursor-pointer drop-shadow-xl hover:bg-green-300 transition duration-300">
               <DocumentPlusIcon
                 className="block h-6 w-6 mr-1"
                 aria-hidden="true"
@@ -65,7 +65,7 @@ const ProductBanner = ({ itemsPerPageFromBanner, sortFromBanner }) => {
           <select
             onChange={(e) => sortFromBanner(e.target.value)}
             id="countries"
-            className="w-32 md:w-52 border-[1px] border-gray-200 py-1 px-4 cursor-pointer text-primeColor text-base block dark:placeholder-gray-400 appearance-none focus-within:outline-none focus-visible:border-primeColor"
+            className="w-32 md:w-52 drop-shadow-xl border-[1px] border-gray-200 py-1 px-4 cursor-pointer text-primeColor text-base block dark:placeholder-gray-400 appearance-none focus-within:outline-none focus-visible:border-primeColor"
           >
             <option value="Dernières Nouveautés">Dernières Nouveautés</option>
             <option value="Meilleures ventes">Meilleures ventes</option>
@@ -79,7 +79,7 @@ const ProductBanner = ({ itemsPerPageFromBanner, sortFromBanner }) => {
           <select
             onChange={(e) => itemsPerPageFromBanner(+e.target.value)}
             id="countries"
-            className="w-16 md:w-20 border-[1px] border-gray-200 py-1 px-4 cursor-pointer text-primeColor text-base block dark:placeholder-gray-400 appearance-none focus-within:outline-none focus-visible:border-primeColor"
+            className="w-16 drop-shadow-xl md:w-20 border-[1px] border-gray-200 py-1 px-4 cursor-pointer text-primeColor text-base block dark:placeholder-gray-400 appearance-none focus-within:outline-none focus-visible:border-primeColor"
           >
             <option value="12">12</option>
             <option value="24">24</option>
