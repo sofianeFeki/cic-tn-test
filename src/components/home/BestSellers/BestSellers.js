@@ -2,7 +2,19 @@ import React, { useEffect, useState } from 'react';
 import Heading from '../Products/Heading';
 import Product from '../Products/Product';
 import {
- 
+  bestSellerOne,
+  bestSellerTwo,
+  bestSellerThree,
+  bestSellerFour,
+  IMPRIMANTE_PANTUM_M6609N,
+  IMPRIMANTE_PANTUM_BP5100DN,
+  IMPRIMANTE_PANTUM_BM5100FDW,
+  IMPRIMANTE_PANTUM_CP2200DW,
+  CP2200DW,
+  BM5100,
+  BP5100DN,
+  M6609N,
+  PUNTUM,
   imageNotFound,
 } from '../../../assets/images/index';
 import { getBestSellers } from '../../../functions/product';
@@ -26,7 +38,7 @@ const BestSellers = () => {
     try {
       const res = await getBestSellers(limit);
       const productData = res.data.products;
-      const baseUrl = 'https://cic-server-ygl9.onrender.com';
+      const baseUrl = 'http://localhost:8000';
 
       const formatUrl = (path) => `${baseUrl}${path.replace(/\\/g, '/')}`;
 
