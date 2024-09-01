@@ -38,7 +38,7 @@ const BestSellers = () => {
     try {
       const res = await getBestSellers(limit);
       const productData = res.data.products;
-      const baseUrl = 'http://localhost:8000';
+      const baseUrl = 'https://cic-server-ygl9.onrender.com';
 
       const formatUrl = (path) => `${baseUrl}${path.replace(/\\/g, '/')}`;
 
