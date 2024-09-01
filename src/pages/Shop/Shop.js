@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Breadcrumbs from '../../components/pageProps/Breadcrumbs';
 import Pagination from '../../components/pageProps/shopPage/Pagination';
 import ProductBanner from '../../components/pageProps/shopPage/ProductBanner';
 import ShopSideNav from '../../components/pageProps/shopPage/ShopSideNav';
 import { getProducts } from '../../functions/product';
 import { imageNotFound } from '../../assets/images';
+import { setFilter } from '../../redux/orebiSlice';
 
 const Shop = () => {
   const [itemsPerPage, setItemsPerPage] = useState(12);
@@ -15,6 +16,12 @@ const Shop = () => {
   const [totalProducts, setTotalProducts] = useState(1);
   const [products, setProducts] = useState([{}, {}, {}, {}, {}, {}]);
   const [loading, setLoading] = useState(false);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setFilter());
+  }, [dispatch]);
 
   const filters = useSelector((state) => state.orebi.filters);
 
