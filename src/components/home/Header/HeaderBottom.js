@@ -426,7 +426,7 @@ const HeaderBottom = () => {
                   {/* Online status indicator */}
                   <span className="absolute top-8 right-1 block h-4 w-4 transform translate-x-1/2 -translate-y-1/2 rounded-full bg-green-500 border-2 border-white" />
                 </div>
-                <span className="text-gray-800 font-bold text-sm  m-2 ">
+                <span className="text-gray-800 font-bold text-sm  ">
                   {user.email}
                 </span>
                 <Transition {...transitionStyles}>
