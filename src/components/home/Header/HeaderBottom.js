@@ -19,12 +19,15 @@ import {
   BeakerIcon,
   PrinterIcon,
   DocumentDuplicateIcon,
+  ChevronDownIcon,
+  HomeIcon,
 } from '@heroicons/react/24/outline';
 import { HeartIcon } from '@heroicons/react/24/solid';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../../service/firebase/firebase';
 import { clearUser, setError } from '../../../redux/orebiSlice';
 import { searchProducts } from '../../../functions/product';
+import { GoTriangleDown } from 'react-icons/go';
 
 const transitionStyles = {
   enter: 'transition ease-out duration-100',
@@ -37,7 +40,7 @@ const transitionStyles = {
 
 // Define reusable button styles
 const buttonBaseStyles =
-  'flex items-center p-2 rounded-xl h-[36px]  shadow-md hover:shadow-xl transform transition duration-300  lg:h-[50px] lg:mt-0';
+  'flex items-center p-2  h-[36px] rounded-l-md shadow-md hover:shadow-xl transform transition duration-300  lg:h-[50px] lg:mt-0';
 const userMenuButtonStyles = `
   relative 
   bg-white 
@@ -66,6 +69,7 @@ const HeaderBottom = () => {
   const navigate = useNavigate();
   const [showSearchBar, setShowSearchBar] = useState(true);
   const [query, setQuery] = useState('');
+
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -108,7 +112,7 @@ const HeaderBottom = () => {
     setLoading(true);
     try {
       const res = await searchProducts(searchQuery);
-      const productData = res.data;
+      const productData = res.data.products;
 
       const baseUrl = 'http://localhost:8000';
       const formatUrl = (path) => `${baseUrl}${path.replace(/\\/g, '/')}`;
@@ -147,6 +151,18 @@ const HeaderBottom = () => {
     }
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      navigate(`/search?query=${query}`);
+      setShowSearchBar(false);
+    }
+  };
+
+  const handleSeeMore = () => {
+    navigate(`/search?query=${query}`);
+    setShowSearchBar(false);
+  };
+
   return (
     <div className="w-full px-2 bg-[#F5F5F3] z-10 drop-shadow-xl sticky top-0 transition-all duration-300 ease-in-out  hover:shadow-2xl">
       <div className="max-w-container mx-auto">
@@ -154,10 +170,14 @@ const HeaderBottom = () => {
           {/* Mobile & Desktop: Browse all collection button */}
           <div className="flex justify-between">
             <div className="flex items-center justify-space-between lg:justify-start ">
+              <Link to="/" className={`${userMenuButtonStyles} mr-3`}>
+                <HomeIcon
+                  className="block h-6 w-6 text-yellow-500"
+                  aria-hidden="true"
+                />
+              </Link>
               <Link to="/shop">
-                <button
-                  className={`${buttonBaseStyles} mt-2 bg-white text-black hover:bg-opacity-100`}
-                >
+                <button className="flex items-center p-2  h-[36px] rounded-md shadow-md hover:shadow-xl transform transition duration-300 bg-white  lg:h-[50px] lg:mt-0">
                   <Squares2X2Icon
                     className="block h-6 w-6 mr-1 text-yellow-500"
                     aria-hidden="true"
@@ -186,9 +206,9 @@ const HeaderBottom = () => {
               {user ? (
                 <Menu as="div" className="relative">
                   <MenuButton className={userMenuButtonStyles}>
-                    <span className="sr-only">Open user menu</span>
-                    <UserIcon className="block h-6 w-6 text-gray-600" />
+                    <UserIcon className="block h-6 w-6 text-green-600" />
                   </MenuButton>
+
                   <Transition {...transitionStyles}>
                     <MenuItems className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <MenuItem>
@@ -237,6 +257,7 @@ const HeaderBottom = () => {
                 <span className="font-bold whitespace-nowrap  text-sm md:text-base">
                   Nos categories
                 </span>
+                <ChevronDownIcon className=" mt-1 ml-1 block h-4 w-4 " />
               </MenuButton>
               <Transition {...transitionStyles}>
                 <MenuItems className="absolute left-0 z-10 mt-2 w-48 origin-top-left rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
@@ -264,7 +285,7 @@ const HeaderBottom = () => {
               </Transition>
             </Menu>
 
-            <div className="flex items-center ">
+            <div className="flex items-center flex-grow">
               <MagnifyingGlassIcon
                 className="block h-6 w-6 px-1 text-gray-600"
                 aria-hidden="true"
@@ -272,17 +293,18 @@ const HeaderBottom = () => {
               <input
                 id="search"
                 name="search"
-                className=" border-l border-gray-400 bg-white rounded-lg focus:outline-none  z-10 w-[100%] h-[36px] md:w-96"
+                className=" border-l border-gray-400 bg-white rounded-lg focus:outline-none z-10 w-full h-[36px] "
                 placeholder="Recherche un produit"
                 type="search"
                 style={{ borderLeft: 'none' }}
                 onChange={handleQueryChange}
                 value={query}
+                onKeyDown={handleKeyDown} // Add this line to handle Enter key
               />
               {showSearchBar && query && (
                 <div
                   ref={dropdownRef}
-                  className="w-full mx-auto h-auto max-h-96 bg-white top-16 absolute left-0  z-10 overflow-y-scroll rounded-xl shadow-md cursor-pointer"
+                  className="w-full mx-auto h-auto max-h-96 bg-white top-16 absolute left-0 z-10 overflow-y-scroll rounded-xl shadow-md cursor-pointer"
                 >
                   {loading ? (
                     <div className="text-center">
@@ -340,11 +362,31 @@ const HeaderBottom = () => {
                             </div>
                           </div>
                         ))}
+                      {products && products.length > 0 && (
+                        <p
+                          onClick={handleSeeMore}
+                          className="text-blue-400 font-bold text-center"
+                        >
+                          Voir plus
+                        </p>
+                      )}
                     </>
                   )}
                 </div>
               )}
             </div>
+
+            <button
+              onClick={() => {
+                navigate(`/search?query=${query}`);
+              }}
+              className={`bg-yellow-500 shadow-md hover:shadow-xl text-white flex items-center justify-center px-4 lg:px-6 h-[36px] lg:h-[50px] rounded-r-md`}
+            >
+              <MagnifyingGlassIcon
+                className="block h-6 w-6 "
+                aria-hidden="true"
+              />
+            </button>
           </div>
 
           {/* Desktop: Heart, Shopping Cart, User Profile Buttons */}
@@ -363,10 +405,30 @@ const HeaderBottom = () => {
             </Link>
             {user ? (
               <Menu as="div" className="relative">
-                <MenuButton className={userMenuButtonStyles}>
-                  <span className="sr-only">Open user menu</span>
-                  <UserIcon className="block h-6 w-6 text-gray-600" />
-                </MenuButton>
+                <div className="relative inline-flex items-center">
+                  <MenuButton
+                    className="relative 
+            bg-white 
+            border border-gray-300 
+            hover:bg-gray-50 
+            hover:text-black
+            hover:shadow-xl
+            transform 
+            transition duration-300 
+            focus:ring-4 focus:outline-none focus:ring-gray-300 
+            rounded-full 
+            shadow-md 
+            p-1.5"
+                  >
+                    <span className="sr-only">Open user menu</span>
+                    <UserIcon className="block h-6 w-6 text-gray-600" />
+                  </MenuButton>
+                  {/* Online status indicator */}
+                  <span className="absolute top-8 right-1 block h-4 w-4 transform translate-x-1/2 -translate-y-1/2 rounded-full bg-green-500 border-2 border-white" />
+                </div>
+                <span className="text-gray-800 font-bold text-sm  m-2 ">
+                  {user.email}
+                </span>
                 <Transition {...transitionStyles}>
                   <MenuItems className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                     <MenuItem>
