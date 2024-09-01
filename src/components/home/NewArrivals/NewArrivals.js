@@ -26,7 +26,7 @@ const NewArrivals = () => {
     try {
       const res = await getNewArrivals(limit);
       const productData = res.data.products;
-      const baseUrl = 'https://cic-server-ygl9.onrender.com';
+      const baseUrl = 'http://localhost:8000';
 
       const formatUrl = (path) => `${baseUrl}${path.replace(/\\/g, '/')}`;
 
