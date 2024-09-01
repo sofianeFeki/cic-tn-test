@@ -82,7 +82,7 @@ const YearProduct = () => {
 
   function calculateTimeLeft() {
     const now = Date.now();
-    const endTime = new Date('2024-08-30T00:00:00').getTime();
+    const endTime = new Date('2024-09-30T00:00:00').getTime();
     const difference = endTime - now;
 
     let timeLeft = {};
